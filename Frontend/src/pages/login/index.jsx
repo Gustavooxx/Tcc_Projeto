@@ -1,4 +1,6 @@
 import './index.scss'
+import { Link } from 'react-router-dom'
+
 
 export default function Login() {
     const handleSubmit = (e) => {
@@ -18,7 +20,7 @@ export default function Login() {
 
                 <div className='tags-login'>
 
-                    <button className='ajudar'>Não posso doar e quero ajudar</button>
+                   <Link to='/inicio'><button className='ajudar'>Não posso doar e quero ajudar</button></Link> 
                     <button className='precisa'>preciso de sangue</button>
                 </div>
 
@@ -35,8 +37,12 @@ export default function Login() {
                             mas que pode transformar vidas. </h2>
 
                         <p>
-                            Em poucos minutos, você se torna parte da corrente que leva esperança, saúde e novas chances a quem mais precisa. Cada doação pode salvar até quatro vida.
+                            Em poucos minutos, você se torna parte da corrente que leva esperança, saúde e novas chances a quem mais precisa. Cada doação pode salvar até quatro vidas.
                         </p>
+
+                        <div className='botao-como-funciona'>
+                            <button>Como funciona?</button>
+                        </div>
 
                     </div>
 
@@ -126,8 +132,9 @@ export default function Login() {
                             </select>
                         </div>
 
-
+                        
                          <button type="submit">Cadastrar</button>
+                         <Link to='/inicio' className='semCadastro'>entrar sem cadastro</Link>
                     </form>
                 </div> 
 

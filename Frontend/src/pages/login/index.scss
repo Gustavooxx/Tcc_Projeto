@@ -9,7 +9,8 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-    background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 100%);
+        background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 100%);
+        padding: 10px;
 
         .img-tags {
             display: flex;
@@ -36,20 +37,30 @@
                 color: #DA2B1D;
                 border: 1px solid #DA2B1D;
                 background-color: #f9fbfb;
+                font-size: 16px;
+
+                &:hover {
+                    background-color: #A9233E;
+                    color: white;
+                }
             }
 
             .ajudar {
                 color: white;
                 border: 1px solid white;
                 background-color: #DA2B1D;
-            }
+                font-size: 16px;
 
+                &:hover {
+                    background-color: #A9233E;
+                }
+            }
+            
             button {
                 border-radius: 10px;
-                padding: 7px;
-
+                padding: 10px;
             }
-
+                
         }
     }
 
@@ -62,12 +73,15 @@
         padding: 2rem;
 
         .texto-cadastro {
-            border: 1px solid black;
+            border:3px solid #DA2B1D;
             background-color: white;
+            border-radius: 8px;
             margin: 2rem 0;
             max-width: 600px;
             flex: 1;
             height: auto;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
             .textos {
                 display: flex;
@@ -76,18 +90,47 @@
 
                 align-items: center;
 
-                margin: 2rem;
+                margin: 0;
 
                 h2 {
-                    font-size: 30px;
+                    font-size: 28px;
                     width: 100%;
                     text-align: center;
+                    margin: 0;
+                    color: #333;
+                    line-height: 1.2;
                 }
 
                 p {
                     width: 100%;
-                    font-size: 20px;
+                    font-size: 18px;
                     text-align: center;
+                    margin: 0;
+                    color: #333;
+                    line-height: 1.4;
+                }
+
+                .botao-como-funciona {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 15px;
+
+                    button {
+                        background-color: #DA2B1D;
+                        color: white;
+                        border: none;
+                        border-radius: 10px;
+                        padding: 10px 30px;
+                        font-size: 16px;
+                        font-weight: bold;
+                        cursor: pointer;
+                        transition: background-color 0.3s ease;
+                        box-shadow: 0 2px 4px rgba(218, 43, 29, 0.2);
+
+                        &:hover {
+                            background-color: #c82017;
+                        }
+                    }
                 }
             }
 
@@ -95,14 +138,14 @@
 
         .container-informacoes {
             background-color: white;
-            border: 2px solid #DA2B1D;
+            border: 3px solid #DA2B1D;
             border-radius: 10px;
             width: 550px;
             height: fit-content;
             flex-shrink: 0;
 
             .titulo {
-        background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 50%);
+                background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 50%);
                 padding: 10px;
 
                 h2 {
@@ -152,8 +195,6 @@
             }
 
 
-                
-                
                 button {
                     background-color: #DA2B1D;
                     color: white;
@@ -165,7 +206,7 @@
                     margin-top: 10px;
                     width: 200px;
                     align-self: center;
-                    margin-bottom: 3rem;
+                    margin-bottom: 5px;
                     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
 
@@ -173,6 +214,11 @@
                         background-color: #b80202ea;
                         box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
                     }
+                }
+
+                .semCadastro{
+                    text-align: center;
+                    margin-bottom: 3rem ;
                 }
             
         }
