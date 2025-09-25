@@ -1,0 +1,199 @@
+.container-login {
+
+    background-image: url('/assets/images/Rectangle 40.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    .container-tags {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 100%);
+
+        .img-tags {
+            display: flex;
+            align-items: center;
+            padding: 5px;
+
+            img {
+                height: 20ox;
+                width: 50px;
+            }
+
+            h1 {
+                font-size: 15px;
+            }
+        }
+
+        .tags-login {
+            display: flex;
+            align-items: center;
+            gap: 5rem;
+            margin-right: 5rem;
+
+            .precisa {
+                color: #DA2B1D;
+                border: 1px solid #DA2B1D;
+                background-color: #f9fbfb;
+            }
+
+            .ajudar {
+                color: white;
+                border: 1px solid white;
+                background-color: #DA2B1D;
+            }
+
+            button {
+                border-radius: 10px;
+                padding: 7px;
+
+            }
+
+        }
+    }
+
+    .container-cadastro {
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 2rem;
+        padding: 2rem;
+
+        .texto-cadastro {
+            border: 1px solid black;
+            background-color: white;
+            margin: 2rem 0;
+            max-width: 600px;
+            flex: 1;
+            height: auto;
+
+            .textos {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+
+                align-items: center;
+
+                margin: 2rem;
+
+                h2 {
+                    font-size: 30px;
+                    width: 100%;
+                    text-align: center;
+                }
+
+                p {
+                    width: 100%;
+                    font-size: 20px;
+                    text-align: center;
+                }
+            }
+
+        }
+
+        .container-informacoes {
+            background-color: white;
+            border: 2px solid #DA2B1D;
+            border-radius: 10px;
+            width: 550px;
+            height: fit-content;
+            flex-shrink: 0;
+
+            .titulo {
+        background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 50%);
+                padding: 10px;
+
+                h2 {
+                    color: #fcf9f8;
+                    font-size: 20px;
+                    text-align: center;
+                }
+
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                margin: 20px;
+
+                label {
+                    margin-bottom: 5px;
+                    color: #333;
+                    font-weight: bold;
+                }
+
+                input,
+                select {
+                    width: 100%;
+                    padding: 12px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    font-size: 16px;
+                    box-sizing: border-box;
+
+                    &:focus {
+                        outline: none;
+                        border-color: #DA2B1D;
+                    }
+                }
+            }
+
+            .row {
+                display: flex;
+
+            }
+
+
+                
+                
+                button {
+                    background-color: #DA2B1D;
+                    color: white;
+                    border: none;
+                    border-radius: 10px;
+                    padding: 12px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    margin-top: 10px;
+                    width: 200px;
+                    align-self: center;
+                    margin-bottom: 3rem;
+                    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+
+                    &:hover {
+                        background-color: #b80202ea;
+                        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+                    }
+                }
+            
+        }
+
+    }
+
+    @media (max-width: 1200px) {
+        .container-cadastro {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .texto-cadastro {
+            max-width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .container-informacoes {
+            width: 90%;
+            max-width: 400px;
+        }
+    }
+
+}

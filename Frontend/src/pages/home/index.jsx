@@ -22,6 +22,7 @@ export default function Inicio() {
                     <Link to='/login'> Inicio </Link>
                     
                    <Link to='/login'> <button> torne-se um doador </button> </Link>
+
                 </div>
             </section>
         </div>

@@ -6,8 +6,9 @@ export default function Navegacao() {
     return (
         <BrowserRouter>
            <Routes>
-             <Route path="/" element={<Inicio />} />
-             <Route path="/Login" element={<Login/>} />
+            
+             <Route  path='/' element={<Login/>}/>
+             <Route path="/Inicio" element={<Inicio/>} />
 
           </Routes>
         </BrowserRouter>
