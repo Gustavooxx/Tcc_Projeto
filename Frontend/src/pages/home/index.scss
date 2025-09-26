@@ -1,12 +1,146 @@
 .container-site{
 
-    .foto-tags{
+        background-image: url('/assets/images/image 5.png');
+    background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-color:#FFD4D4 ;
+
+    .container-tags{
         display: flex;
         align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        background-color: #F8F8F8;
 
-        img{
-            height: 100px;
-            width: 100px;
+        .foto-tags{
+            display: flex;
+            align-items: center;
+            padding: 5px;
+
+            img {
+                height: 20ox;
+                width: 50px;
+            }
+
+            h1 {
+                font-size: 15px;
+            }
+        }
+
+        .tags-paginas{
+            display: flex;
+            gap: 2rem;
+
+            
+            a{
+                text-decoration: none;
+                color: black;
+                border-bottom: 1px solid red;
+            }
+        }
+
+        .botao-login{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            
+            .login{
+                color: red;
+            }
+            
+            button{
+                padding: 8px;
+                margin-right: 2rem;
+                background-color: red;
+                border-radius: 10px;
+                border: 2px solid white;
+            }
+        }
+
+    }
+
+    .container-pagina{
+        margin: 5rem;
+
+        .texto-pagina{
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+
+
+            h2{
+                margin-bottom: 2rem;
+                color: white;
+                font-size: 32px;
+                width: 400px;
+
+            }
+            
+            .botaos{
+                display: flex;
+                gap: 5rem;
+                
+                .endereco{
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    background-color:#EE666E ;
+                }
+
+                .doar{
+                    background-color: red;
+                }
+                button{
+                    color: white;
+                    border: 1px solid #EE666E;
+                    border-radius: 10px;
+                    padding: 10px 20px 10px 20px;
+                    font-size: 18px;
+
+                }
+            }
+        }
+    }
+
+    .beneficios {
+        margin: 0rem 10rem 0rem 10rem;
+        padding: 2rem;
+        background-color: #F8F8F8;
+        border-radius: 10px;
+
+        .conteudo-beneficios {
+            
+            max-width: 600px;
+
+            h3 {
+                font-size: 28px;
+                color: #333;
+                margin-bottom: 1.5rem;
+                text-align: center;
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+
+                li {
+                    font-size: 18px;
+                    color: #555;
+                    margin-bottom: 1rem;
+                    padding-left: 1rem;
+                    position: relative;
+
+                    &::before {
+                        content: "•";
+                        color: red;
+                        font-weight: bold;
+                        position: absolute;
+                        left: 0;
+                    }
+                }
+            }
         }
     }
 }

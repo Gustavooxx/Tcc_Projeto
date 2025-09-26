@@ -76,6 +76,17 @@ export default function Login() {
                             />
                         </div>
 
+                                                <div className="form-group">
+                            <input
+                                type="cpf"
+                                name="cpf"
+                                placeholder="CPF"
+                                required
+                                maxLength={11}
+
+                            />
+                        </div>
+
                         <div className="form-group">
                             <input
                                 type="tel"
