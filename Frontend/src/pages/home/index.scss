@@ -28,15 +28,22 @@
             }
         }
 
-        .tags-paginas{
+       .tags-paginas {
             display: flex;
             gap: 2rem;
 
-            
-            a{
+            a {
                 text-decoration: none;
-                color: black;
-                border-bottom: 1px solid red;
+                color: #333;
+                font-weight: 500;
+                padding: 5px 0;
+                border-bottom: 2px solid transparent;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    color: #EE666E;
+                    border-bottom-color: #EE666E;
+                }
             }
         }
 
