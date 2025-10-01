@@ -91,7 +91,7 @@ export default function Login() {
                             <input
                                 type="tel"
                                 name="telefone"
-                                placeholder="WhatsApp com DDD"
+                                placeholder="(00) 00000-0000"
                                 required
                                 maxLength={15}
 
