@@ -21,7 +21,6 @@ export default function Login() {
                 <div className='tags-login'>
 
                    <Link to='/inicio'><button className='ajudar'>Não posso doar e quero ajudar</button></Link> 
-                    <button className='precisa'>preciso de sangue</button>
                 </div>
 
             </section>
