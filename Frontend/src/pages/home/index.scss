@@ -27,7 +27,7 @@
                 font-size: 15px;
                 color: white;
                 font-weight: bold;
-            
+
             }
         }
 
@@ -149,7 +149,7 @@
         }
     }
 
-    .beneficios{
+    .beneficios {
 
         h3 {
             margin-left: 5rem;
@@ -157,23 +157,25 @@
             margin-bottom: 2rem;
             color: #A9233E;
         }
-        .conteudo-beneficios{
+
+        .conteudo-beneficios {
             display: flex;
             align-items: center;
             margin-top: 2rem;
 
 
-            .itens-beneficios{
+            .itens-beneficios {
                 display: flex;
                 align-items: center;
                 gap: 1rem;
                 padding: 10px;
                 margin-left: 5rem;
-                
+
+
+
                 border: 1px solid #A9233E;
                 border-radius: 10px;
-                box-shadow: rgba(169, 35, 62, 0.35) 0px 5px 15px;
-                background: #fff0f0;
+
 
                 img {
                     height: 50px;
@@ -190,40 +192,41 @@
         }
     }
 
-    .requisitos-doar{
+    .requisitos-doar {
         margin-top: 5rem;
 
         h3 {
-            
+
             font-size: 32px;
             color: #A9233E;
         }
 
 
-         
-       .conteudo-requisitos{
-        background-color: #e7e7e7c5;
-        margin-top: 2rem;
-        padding: 2rem;
-        border-radius: 10px;
-        box-shadow: rgba(169, 35, 62, 0.35) 0px 5px 15px;
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
+
+        .conteudo-requisitos {
+            margin-top: 2rem;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
 
         }
-        
-  
+
+
         h3 {
             font-size: 28px;
             color: #A9233E;
-                        text-shadow:  rgba(169, 35, 62, 0.35) 0px 5px 15px;
+            text-shadow: rgba(169, 35, 62, 0.35) 0px 5px 15px;
 
         }
+
         ul {
-            margin-top: 1rem;
+            margin-top: 1.5rem;
             list-style-type: disc;
             padding-left: 20px;
+            line-height: 1.6;
+
 
             li {
                 font-size: 18px;
@@ -233,17 +236,17 @@
         }
     }
 
-    .texto-doadores{
+    .texto-doadores {
         margin-top: 5rem;
         margin-bottom: 5rem;
         text-align: center;
 
 
-        h4{
+        h4 {
             font-size: 32px;
             color: #A9233E;
             margin-bottom: 2rem;
-            text-shadow:  rgba(169, 35, 62, 0.35) 0px 5px 15px;
+            text-shadow: rgba(169, 35, 62, 0.35) 0px 5px 15px;
         }
 
         p {
@@ -255,14 +258,153 @@
             text-align: center;
             line-height: 1.6;
             letter-spacing: 0.5px;
-            text-shadow:  rgba(169, 35, 62, 0.15) 0px 5px 15px;
+            text-shadow: rgba(169, 35, 62, 0.15) 0px 5px 15px;
 
         }
     }
 
-    .como-funciona{
-        
+    .como-funciona {
+        padding: 2rem;
+        border-radius: 10px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
 
+
+        h5 {
+            font-size: 32px;
+            color: #A9233E;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: rgba(169, 35, 62, 0.35) 0px 5px 15px;
+
+        }
+
+        .conteudo-como-funciona {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8rem;
+            margin-bottom: 1rem;
+            margin-left: auto;
+            margin-right: auto;
+
+            .itens {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                padding: 10px;
+
+
+                img {
+                    height: 80px;
+                    width: 80px;
+                }
+
+                p {
+                    font-size: 18px;
+                    color: #333333;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .fazer-parte {
+
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 5rem;
+
+        button {
+            background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 100%);
+            padding: 0.5rem 5rem;
+            color: white;
+            font-weight: bold;
+            font-size: 25px;
+            box-shadow: 0 4px 18px rgba(169, 35, 62, 0.25);
+            border-radius: 16px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            letter-spacing: 1px;
+            outline: none;
+
+        }
+        button:hover {
+            background: #A9233E;
+            color: #fff;
+            text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.7);
+        }
+    }
+
+    .footer{
+        background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 100%);
+        padding: 5rem;
+        color: #fff;
+        margin-bottom: 1rem;
+
+        .conteinar-foo{
+            display: flex;
+            justify-content: center;
+            gap: 10rem;
+
+            .Nos{
+                padding-right: 5rem;
+                
+                h1{
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+
+                    img{
+                        height: 60px;
+                    }
+
+                }
+
+                p{
+                    font-size: 18px;
+                    width: 300px;
+                }
+            }
+
+            .cadastro-foo{
+
+                text-align: center;
+
+                .email{
+                    color: #333333;
+                }
+                p{
+                    font-size: 18px;
+                    margin-bottom: 2rem;
+                }
+
+                button{
+                    padding: 10px 25px;
+                    background-color: #DA2B1D;
+                    font-size: 17px;
+                    border: 1px solid #DA2B1D;
+                    border-radius: 20px;
+                    box-shadow: 0 4px 18px rgba(255, 255, 255, 0.526);
+                    color: white;
+                    margin-bottom: 3rem;
+
+                    &:hover{
+                        background-color: #fc3628;
+                        box-shadow: 0 4px 18px rgba(255, 255, 255, 0.932);
+
+                    }
+                }
+            }
+
+        }
 
     }
 

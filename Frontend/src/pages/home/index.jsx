@@ -78,7 +78,7 @@ export default function Inicio() {
 
 
                 <div className='conteudo-requisitos'>
-                    <h3>Requisitos para Doar Sangue:</h3>
+                    <h3>Requisitos para Doar Sangue</h3>
                     <ul>
                         <li>Estar em boas condições de saúde;</li>
                         <li>Ter entre 16 e 69 anos (menores de 18 anos precisam de autorização dos responsáveis);</li>
@@ -100,26 +100,66 @@ export default function Inicio() {
             </section>
 
             <section className='como-funciona'>
-                <h4>Como funciona</h4>
+                <h5>Como funciona</h5>
                 <div className='conteudo-como-funciona'>
                     <div className='itens'>
-
                     <img src="assets/images/do-utilizador.png" alt="" />
+                    <p>1.   Cadastre-se</p>
+                     <p>Crie uma conta em nosso site para começar o processo de doação.</p>
                     </div>
 
                     <div className='itens'>
 
                     <img src="assets/images/cronograma.png" alt="" />
+                    <p>2.   Agende sua doação</p>
+                    <p>Escolha o local e horário que melhor se adequa a você.</p>
                     </div>
 
                     <div className='itens'>
 
                     <img src="assets/images/amor.png" alt="" />
+                    <p>3.   Salve vidas</p>
+                    <p>Compareça ao local escolhido e faça a diferença na vida de alguém.</p>
                     </div>
 
                 </div>
 
             </section>
+
+            <div className='fazer-parte'>
+                <Link><button> Venha fazer parte</button></Link>
+            </div>
+        
+        <footer className='footer'>
+
+            <div className='conteinar-foo'>
+
+
+            <div className='Nos'>
+                <h1>Doevida.com <img src="assets/images/image 4.svg" alt="" /></h1>
+
+                <p> A Doevida.com é uma plataforma dedicada a facilitar o processo de doação de sangue, conectando doadores a hospitais e hemocentros.</p>
+
+            </div>
+
+            <div className='cadastro-foo'>
+                <p>Doe Vida</p>
+
+                <Link>
+                    <button>Cadastre-se</button>
+                </Link>
+
+                <p>Entre em contato</p>
+                <p className='email'>contato@doevida.com</p>
+
+            </div>
+
+
+
+            </div>
+
+        </footer>
+           
 
         </div>
     )
