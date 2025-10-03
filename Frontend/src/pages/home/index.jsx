@@ -18,8 +18,8 @@ export default function Inicio() {
                     <div className='tags-paginas'>
 
                         <Link to='/login'> Inicio </Link>
-                        <Link to='/login'> Como funciona </Link>
-                        <Link to='/login'> Por que doar? </Link>
+                        <Link to='/login'> Quem somos </Link>
+                        <Link to='/login'> Como Doar </Link>
                         <Link to='/login'> Contato </Link>
 
                     </div>
@@ -27,7 +27,7 @@ export default function Inicio() {
                     <div className='botao-login'>
 
                         <Link to='/login' className='login'> Login </Link>
-                        <Link to='/login'> <button> torne-se um doador </button> </Link>
+                        <Link to='/login'> <button> Cadastra-se </button> </Link>
                     </div>
 
                 </div>
@@ -35,28 +35,33 @@ export default function Inicio() {
             </section>
 
             <section className='container-pagina'>
+
                 <div className='texto-pagina'>
 
-                    <h2>Plataforma digital que conecta doadores de sangue a hemocentros
-                        de forma rápida e eficiente.</h2>
-
+                    <h2>Doe sangue, <br />
+                        Salve vidas.</h2>
+                    <p style={{fontSize: '20px', maxWidth: '420px', marginBottom: '2rem', color: '#A9233E'}}>
+                        Sua atitude pode transformar o futuro de alguém. Ao doar sangue, você oferece esperança, solidariedade e a chance de recomeçar para quem mais precisa. Seja a diferença na vida de muitas pessoas!
+                    </p>
                     <div className='botaos'>
-                        <button className='endereco'>Informe seu endereço <img src="/assets/images/localizacao.svg" height='20px'/></button>
-                        <button className='doar'>Doar agora</button>
+                        <button className='agendar'> Agendar minha doação </button>
                     </div>
 
+                </div>
+                <div className='imagem-pagina'>
+                    <img src="/assets/images/doacaosangueimg.jpg" alt="imagem-pagina" />
                 </div>
             </section>
 
             <section className='beneficios'>
                 <div className='conteudo-beneficios'>
-                    <h3>Por que doar sangue?</h3>
-                    <ul>
-                        <li>Salva vidas: Cada doação pode ajudar até 3 pessoas.</li>
-                        <li>É seguro: O processo é rápido e supervisionado por profissionais.</li>
-                        <li>Benefícios para a saúde: Reduz o risco de doenças cardíacas e ajuda na produção de novas células sanguíneas.</li>
-                        <li>Sensação de bem-estar: Contribui para a comunidade e traz satisfação pessoal.</li>
-                    </ul>
+                    <h3>Benefícios </h3>
+
+                    <div className='itens-beneficios'>
+                        <img src="" alt="" />
+                        <p>Uma Doação pode
+                            salvar ate 4 vidas</p>
+                    </div>
                 </div>
             </section>
         </div>

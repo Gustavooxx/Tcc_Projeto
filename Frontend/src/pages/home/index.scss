@@ -1,19 +1,17 @@
-\.container-site{
+.container-site {
 
-        background-image: url('/assets/images/image 5.png');
     background-size: cover;
     background-position: left;
     background-repeat: no-repeat;
-    background-color:#FFD4D4 ;
 
-    .container-tags{
+    .container-tags {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 10px;
-        background-color: #F8F8F8;
+        padding: 5px;
+        background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 100%);
 
-        .foto-tags{
+        .foto-tags {
             display: flex;
             align-items: center;
             padding: 5px;
@@ -28,78 +26,98 @@
             }
         }
 
-       .tags-paginas {
+        .tags-paginas {
             display: flex;
             gap: 2rem;
 
             a {
                 text-decoration: none;
-                color: #333;
+                color: #ffffff;
                 font-weight: 500;
                 padding: 5px 0;
                 border-bottom: 2px solid transparent;
                 transition: all 0.3s ease;
 
                 &:hover {
-                    color: #EE666E;
-                    border-bottom-color: #EE666E;
+                    color: #f4868d;
+                    border-bottom-color: #f4868d;
+                    transition: all 0.3s ease;
+
+
                 }
             }
         }
 
-        .botao-login{
+        .botao-login {
             display: flex;
             align-items: center;
             gap: 20px;
 
-            
-            .login{
-                color: red;
+
+            .login {
+                color: white;
+                font-weight: bold;
+
+                &:hover {
+                    cursor: pointer;
+                    color: rgb(255, 0, 0);
+                    transition: all 0.3s ease;
+
+                }
             }
-            
-            button{
-                padding: 8px;
+
+            button {
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-bottom: 10px;
+                padding-top: 10px;
                 margin-right: 2rem;
-                background-color: red;
+                background-color: #fffffff0;
                 border-radius: 10px;
-                border: 2px solid white;
+                font-size: 17px;
+                border: 1px solid #A9233E;
+
+                &:hover {
+                    background-color: #f4868d;
+                    cursor: pointer;
+                    color: white;
+                    text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.7);
+                    transition: all 0.3s ease;
+                }
             }
+
         }
 
     }
 
-    .container-pagina{
+    .container-pagina {
         margin: 5rem;
+        display: flex;
 
-        .texto-pagina{
+        .texto-pagina {
             display: flex;
             flex-direction: column;
-            gap: 3rem;
 
 
-            h2{
-                margin-bottom: 2rem;
-                color: white;
+            h2 {
+                margin-bottom: 1rem;
                 font-size: 32px;
                 width: 400px;
 
             }
-            
-            .botaos{
-                display: flex;
-                gap: 5rem;
-                
-                .endereco{
-                    display: flex;
-                    align-items: center;
-                    gap: 5px;
-                    background-color:#EE666E ;
+
+
+            .botaos {
+
+                .agendar {
+                    background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 100%);
+
+                    &:hover {
+                        background: #a7102eb9;
+                    }
                 }
 
-                .doar{
-                    background-color: red;
-                }
-                button{
+                button {
                     color: white;
                     border: 1px solid #EE666E;
                     border-radius: 10px;
@@ -109,45 +127,22 @@
                 }
             }
         }
-    }
 
-    .beneficios {
-        margin: 0rem 10rem 0rem 10rem;
-        padding: 2rem;
-        background-color: #F8F8F8;
-        border-radius: 10px;
+        .imagem-pagina {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            border-radius: 20px;
+            box-shadow: rgba(255, 0, 0, 0.56) 0px 22px 70px 4px;
+            margin-left: auto;
 
-        .conteudo-beneficios {
-            
-            max-width: 600px;
-
-            h3 {
-                font-size: 28px;
-                color: #333;
-                margin-bottom: 1.5rem;
-                text-align: center;
-            }
-
-            ul {
-                list-style: none;
-                padding: 0;
-
-                li {
-                    font-size: 18px;
-                    color: #555;
-                    margin-bottom: 1rem;
-                    padding-left: 1rem;
-                    position: relative;
-
-                    &::before {
-                        content: "•";
-                        color: red;
-                        font-weight: bold;
-                        position: absolute;
-                        left: 0;
-                    }
-                }
+            img {
+                border-radius: 10px;
+                height: 330px;
+                width: 800px;
             }
         }
     }
+
+
 }
