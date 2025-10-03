@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { cadastrar, lista } from "../repository/cadastroRepository.js";
 
+
 const cadastro = Router();
 
 cadastro.get('/listar', async (req,resp) => {

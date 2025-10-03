@@ -20,7 +20,7 @@ export default function Cadastro() {
 
                 <div className='tags-login'>
 
-                   <Link to='/inicio'><button className='ajudar'>Não posso doar e quero ajudar</button></Link> 
+                    <Link to='/inicio'><button className='ajudar'>Não posso doar e quero ajudar</button></Link>
                 </div>
 
             </section>
@@ -48,14 +48,15 @@ export default function Cadastro() {
                 </div>
 
                 <div className="container-informacoes">
-                    
+
                     <form onSubmit={handleSubmit}>
                         <div className='titulo'>
 
-                        <h2>Cadastrar-se para ser um doador(a)</h2>
+                            <h2>Cadastrar-se para ser um doador(a)</h2>
                         </div>
 
                         <div className="form-group">
+                            <label htmlFor="nome">Nome Completo</label>
                             <input
                                 type="text"
                                 name="nome"
@@ -66,6 +67,7 @@ export default function Cadastro() {
                         </div>
 
                         <div className="form-group">
+                            <label htmlFor="email">E-mail</label>
                             <input
                                 type="email"
                                 name="email"
@@ -75,7 +77,24 @@ export default function Cadastro() {
                             />
                         </div>
 
-                                                <div className="form-group">
+                            <div className="form-group">
+                                <label htmlFor="senha">Senha</label>
+
+                            <input
+
+                                type="password"
+                                name="senha"
+                                placeholder="Senha"
+                                required
+                                minLength={6}
+                                maxLength={20}
+                                
+
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="cpf">CPF</label>
                             <input
                                 type="cpf"
                                 name="cpf"
@@ -87,6 +106,7 @@ export default function Cadastro() {
                         </div>
 
                         <div className="form-group">
+                            <label htmlFor="telefone">Telefone</label>
                             <input
                                 type="tel"
                                 name="telefone"
@@ -142,11 +162,11 @@ export default function Cadastro() {
                             </select>
                         </div>
 
-                        
-                         <button type="submit">Cadastrar</button>
-                         <Link to='/inicio' className='semCadastro'>entrar sem cadastro</Link>
+
+                        <button type="submit">Cadastrar</button>
+                        <Link to='/inicio' className='semCadastro'>entrar sem cadastro</Link>
                     </form>
-                </div> 
+                </div>
 
             </section>
         </div>
