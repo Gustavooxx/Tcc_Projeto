@@ -2,7 +2,7 @@ import './index.scss'
 import { Link } from 'react-router-dom'
 
 
-export default function Login() {
+export default function Cadastro() {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Form submitted');

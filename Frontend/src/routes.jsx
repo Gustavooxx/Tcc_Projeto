@@ -1,13 +1,13 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Inicio from './pages/home'
-import Login from './pages/login'
+import Cadastro from './pages/cadastro'
 
 export default function Navegacao() {
     return (
         <BrowserRouter>
            <Routes>
             
-             <Route  path='/' element={<Login/>}/>
+             <Route  path='/' element={<Cadastro/>}/>
              <Route path="/Inicio" element={<Inicio/>} />
 
           </Routes>
