@@ -11,12 +11,14 @@ export async function lista() {
 
 export async function cadastrar(novoCadastro){
     const comando = 
-    `insert into tb_cadastro (nomeCompleto,email,cpf,telefone,estado,sexo,tipoSanguineo,ondeConheceu)
-     values(?, ?, ?, ?, ?, ?, ?, ?);`
-    const [info] = await connection.query(comando, [novoCadastro.nomeCompleto,
-         novoCadastro.email, novoCadastro.cpf, novoCadastro.telefone,
-         novoCadastro.estado,
-         novoCadastro.sexo, novoCadastro.tipoSanguineo, novoCadastro.ondeConheceu])
+    `INSERT INTO doadores 
+(nome_completo, email, senha, cpf, telefone, estado, sexo, tipo_sanguineo, origem) 
+VALUES 
+(?, ?, MD5(?), ?, ?, ?, ?, ?, ?);
+`
+    const [info] = await connection.query(comando, [novoCadastro.nome_completo, novoCadastro.email,
+         novoCadastro.senha, novoCadastro.cpf, novoCadastro.telefone, novoCadastro.estado,
+          novoCadastro.sexo, novoCadastro.tipo_sanguineo, novoCadastro.origem]);
 
          return info.insertId;
 }

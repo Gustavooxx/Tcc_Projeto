@@ -1,0 +1,124 @@
+.container-quemsomos {
+
+
+
+    .container-tags {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+        background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 100%);
+
+        .foto-tags {
+            display: flex;
+            align-items: center;
+            padding: 5px;
+
+
+
+            img {
+                height: 20ox;
+                width: 50px;
+            }
+
+            h1 {
+                font-size: 15px;
+                color: white;
+                font-weight: bold;
+
+            }
+        }
+
+        .tags-paginas {
+            display: flex;
+            gap: 2rem;
+
+            a {
+                text-decoration: none;
+                color: #ffffff;
+                font-weight: 500;
+                padding: 5px 0;
+                border-bottom: 2px solid transparent;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    color: #f4868d;
+                    border-bottom-color: #f4868d;
+                    transition: all 0.3s ease;
+
+
+                }
+            }
+        }
+
+        .botao-login {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+
+            .login {
+                color: white;
+                font-weight: bold;
+
+                &:hover {
+                    cursor: pointer;
+                    color: rgb(255, 0, 0);
+                    transition: all 0.3s ease;
+
+                }
+            }
+
+            button {
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-bottom: 10px;
+                padding-top: 10px;
+                margin-right: 2rem;
+                background-color: #fffffff0;
+                border-radius: 10px;
+                font-size: 17px;
+                border: 1px solid #A9233E;
+
+                &:hover {
+                    background-color: #f4868d;
+                    cursor: pointer;
+                    color: white;
+                    text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.7);
+                    transition: all 0.3s ease;
+                }
+            }
+
+        }
+    }
+
+    .textos-quemsomos {
+
+        h2 {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 2.5rem;
+            color: #A9233E;
+        }
+
+        p {
+            margin: 2rem 5rem;
+            font-size: 1.2rem;
+            text-align: center;
+            line-height: 1;
+            
+        }
+
+        img {
+            height: 400px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            border-radius: 10px;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+    }
+}

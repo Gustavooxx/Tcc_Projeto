@@ -1,11 +1,35 @@
 import './index.scss'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 
 export default function Cadastro() {
-    const handleSubmit = (e) => {
+
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form submitted');
+
+        const formData = new FormData(e.target);
+        const data = {
+            nome_completo: formData.get('nome'),
+            email: formData.get('email'),
+            senha: formData.get('senha'),
+            cpf: formData.get('cpf'),
+            telefone: formData.get('telefone'),
+            estado: formData.get('estado'),
+            sexo: formData.get('sexo'),
+            tipo_sanguineo: formData.get('tipo_sanguineo'),
+            origem: formData.get('conheceu')
+        };
+
+        try {
+            const response = await axios.post('http://localhost:3000/cadastro', data);
+            alert('Cadastro realizado com sucesso!');
+            navigate('/Inicio');
+        } catch (error) {
+            alert('Erro ao cadastrar: ' + (error.response?.data || error.message));
+        }
     };
 
     return (

@@ -19,8 +19,8 @@ export default function Inicio() {
 
                     <div className='tags-paginas'>
 
-                        <Link to='/login'> Inicio </Link>
-                        <Link to='/login'> Quem somos </Link>
+                        <Link to='/inicio'> Inicio </Link>
+                        <Link to='/Quem somos'> Quem somos </Link>
                         <Link to='/login'> Como Doar </Link>
                         <Link to='/login'> Contato </Link>
 
@@ -29,7 +29,7 @@ export default function Inicio() {
                     <div className='botao-login'>
 
                         <Link to='/login' className='login'> Login </Link>
-                        <Link to='/login'> <button> Cadastra-se </button> </Link>
+                        <Link to='/cadastro'> <button> Cadastra-se </button> </Link>
                     </div>
 
                 </div>
