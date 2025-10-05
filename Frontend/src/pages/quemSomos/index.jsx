@@ -22,7 +22,7 @@ export default function QuemSomos() {
 
                         <Link to='/inicio'> Inicio </Link>
                         <Link to='/login'> Quem somos </Link>
-                        <Link to='/login'> Como Doar </Link>
+                        <Link to='/como doar'> Como Doar </Link>
                         <Link to='/login'> Contato </Link>
                         <Link to='/login'> Marcar agendamento </Link>
 
