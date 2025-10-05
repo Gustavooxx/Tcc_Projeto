@@ -3,6 +3,7 @@ import Inicio from './pages/Inicio'
 import Cadastro from './pages/cadastro'
 import QuemSomos from './pages/quemSomos'
 import Login from './pages/login'
+import Contato from './pages/contato'
 
 export default function Navegacao() {
     return (
@@ -14,6 +15,7 @@ export default function Navegacao() {
              <Route  path='/cadastro' element={<Cadastro/>}/>
              <Route path="/Quem somos" element={<QuemSomos/>} />
               <Route path="/login" element={<Login/>} />
+              <Route path="/contato" element={<Contato/>} />
 
 
           </Routes>

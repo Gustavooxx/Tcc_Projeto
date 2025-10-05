@@ -22,7 +22,7 @@ export default function Inicio() {
                         <Link to='/inicio'> Inicio </Link>
                         <Link to='/Quem somos'> Quem somos </Link>
                         <Link to='/login'> Como Doar </Link>
-                        <Link to='/login'> Contato </Link>
+                        <Link to='/contato'> Contato </Link>
 
                     </div>
 
@@ -45,8 +45,11 @@ export default function Inicio() {
                     <p style={{ fontSize: '20px', maxWidth: '420px', marginBottom: '2rem', color: '#A9233E' }}>
                         Sua atitude pode transformar o futuro de alguém. Ao doar sangue, você oferece esperança, solidariedade e a chance de recomeçar para quem mais precisa. Seja a diferença na vida de muitas pessoas!
                     </p>
+
                     <div className='botaos'>
-                        <button className='agendar'> Agendar minha doação </button>
+                       
+                        <Link to='/agendar'><button className='agendar'> Agendar minha doação </button></Link>
+                    
                     </div>
 
                 </div>
