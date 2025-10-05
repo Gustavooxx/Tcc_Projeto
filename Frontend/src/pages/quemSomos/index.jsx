@@ -24,6 +24,8 @@ export default function QuemSomos() {
                         <Link to='/login'> Quem somos </Link>
                         <Link to='/login'> Como Doar </Link>
                         <Link to='/login'> Contato </Link>
+                        <Link to='/login'> Marcar agendamento </Link>
+
 
                     </div>
 
@@ -79,7 +81,7 @@ export default function QuemSomos() {
                         <p>Trabalhamos em parceria com bancos de sangue e hospitais para garantir que as doações cheguem a quem mais precisa.</p>
                     </div>
                     <div className='group'>
-                        <img src="/assets/images/seguranca.png" alt="" />
+                        <img src="/assets/images/reseau-securise.png" alt="" />
                         <h3>Promovemos a conscientização</h3>
                         <p>Realizamos campanhas educativas para informar sobre a importância da doação de sangue e incentivar mais pessoas a participarem.</p>
                     </div>
@@ -107,6 +109,36 @@ export default function QuemSomos() {
                     </ul>
                 </div>
             </section>
+
+                 <footer className='footer'>
+            
+                        <div className='conteinar-foo'>
+            
+            
+                        <div className='Nos'>
+                            <h1>Doevida.com <img src="assets/images/image 4.svg" alt="" /></h1>
+            
+                            <p> A Doevida.com é uma plataforma dedicada a facilitar o processo de doação de sangue, conectando doadores a hospitais e hemocentros.</p>
+            
+                        </div>
+            
+                        <div className='cadastro-foo'>
+                            <p>Doe Vida</p>
+            
+                            <Link>
+                                <button>Cadastre-se</button>
+                            </Link>
+            
+                            <p>Entre em contato</p>
+                            <p className='email'>contato@doevida.com</p>
+            
+                        </div>
+            
+            
+            
+                        </div>
+            
+                    </footer>
 
         </div>
 

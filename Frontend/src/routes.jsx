@@ -10,6 +10,7 @@ export default function Navegacao() {
            <Routes>
             
              <Route path="/" element={<Inicio/>} />
+             <Route path="/Inicio" element={<Inicio/>} />
              <Route  path='/cadastro' element={<Cadastro/>}/>
              <Route path="/Quem somos" element={<QuemSomos/>} />
               <Route path="/login" element={<Login/>} />
