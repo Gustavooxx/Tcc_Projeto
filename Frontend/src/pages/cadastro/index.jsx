@@ -33,7 +33,7 @@ export default function Cadastro() {
     };
 
     return (
-        <div className='container-login'>
+        <div className='container-cadastro'>
 
             <section className="container-tags">
 
@@ -44,7 +44,7 @@ export default function Cadastro() {
 
                 <div className='tags-login'>
 
-                    <Link to='/inicio'><button className='ajudar'>Não posso doar e quero ajudar</button></Link>
+                    <Link to='/'><button className='ajudar'>Não posso doar e quero ajudar</button></Link>
                 </div>
 
             </section>
@@ -188,7 +188,7 @@ export default function Cadastro() {
 
 
                         <button type="submit">Cadastrar</button>
-                        <Link to='/inicio' className='semCadastro'>entrar sem cadastro</Link>
+                        <Link to='/' className='semCadastro'>entrar sem cadastro</Link>
                     </form>
                 </div>
 

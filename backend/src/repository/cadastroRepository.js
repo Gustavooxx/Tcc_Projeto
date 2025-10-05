@@ -2,7 +2,7 @@ import connection from "./connetion.js";
 
 export async function lista() {
     const comando = `
-    select * from tb_cadastro
+    select * from doadores
     `
     const [registros] = await connection.query(comando)
     return registros;
