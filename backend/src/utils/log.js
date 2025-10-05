@@ -1,9 +1,12 @@
+import winston from 'winston'
 
+ const logger = winston.createLogger({
+    level: "info",
+    format: winston.format.json(),
+    transports: [
+        new winston.transports.File({ filename: "error.log", level: "error" }),
+        new winston.transports.Console()
+    ]
+});
 
-export function logError(error) {
-  console.error('Erro:', error);
-}
-
-export function logInfo(message) {
-  console.log('Info:', message);
-}
+export default logger;

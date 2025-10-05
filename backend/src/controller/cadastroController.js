@@ -1,6 +1,8 @@
 import { Router } from "express";
 import { cadastrar, lista } from "../repository/cadastroRepository.js";
-import { logInfo } from "../utils/log.js";
+import logger, { logInfo } from "../utils/log.js";
+import { error } from "winston";
+import { serviceCadastrar } from "../service/serviceCadastrar.js";
 
 
 const cadastro = Router();
@@ -13,16 +15,14 @@ cadastro.get('/listar', async (req,resp) => {
 
 cadastro.post('/cadastro', async (req, resp) => {
     try {
-
     let novoCadastro = req.body;
-    let id = await cadastrar(novoCadastro);
-    logInfo(`Novo cadastro realizado com ID: ${id}`);
+    serviceCadastrar(novoCadastro).then((id) =>{
+        resp.status(201)
+        resp.send({novoId: id});
+        
+    })} catch (error) {
 
-    resp.send({novoId: id});
-    }
-    
-    catch (error) {
-        logInfo(`Erro ao realizar cadastro: ${error.message}`);
+        logger.error('Erro ao cadastrar: ' + (error.message));
         return resp.status(500).send({erro: error.message});
     }
 
