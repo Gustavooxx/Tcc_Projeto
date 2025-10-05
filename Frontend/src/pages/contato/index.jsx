@@ -36,6 +36,8 @@ export default function Contato(){
 
             </section>
 
+            <section className='conteudo'>
+
             <div className='title'>
 
                 <h1>Deixe sua dúvida, sugestão ou comentário.</h1>
@@ -43,24 +45,12 @@ export default function Contato(){
             </div>
 
             <div className="paragrafo">
-                <p>Teremos o maior prazer em responder o seu e-mail.</p>
+                <p>A sua opinião ajuda nossos agentes a esclarecer pontos cruciais que tornam nossos serviços cada vez melhores. Compartilhe suas dúvidas, sugestões ou feedbacks cada mensagem é uma oportunidade de aperfeiçoarmos a forma como atendemos você.
 
-                <br />
-
-                <p>Contate diretamente o banco de sangue para saber sobre declaração de doação, carteirinha de doador e resultado de exames de sangue.</p>
-            
-                <br />
-
-                <p>Não respondemos em nome dos hospitais</p>
-
-                <br />
-
-                <p>Para mais informações entre em contato diretamente conosco!</p>
-
-                <br />
-                
-                <p>doevida@gmail.com</p>
+Estamos prontos para ouvir o que você tem a dizer e oferecer o suporte necessário para que sua experiência seja clara, ágil e satisfatória..</p>
             </div>
+            
+            </section>
         </div>
     )
 }

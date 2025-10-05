@@ -16,7 +16,7 @@ export default function Navegacao() {
              <Route path="/Quem somos" element={<QuemSomos/>} />
               <Route path="/login" element={<Login/>} />
               <Route path="/contato" element={<Contato/>} />
-
+              
 
           </Routes>
         </BrowserRouter>

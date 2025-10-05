@@ -21,7 +21,7 @@ export default function Inicio() {
 
                         <Link to='/inicio'> Inicio </Link>
                         <Link to='/Quem somos'> Quem somos </Link>
-                        <Link to='/login'> Como Doar </Link>
+                        <Link to='/como doar'> Como Doar </Link>
                         <Link to='/contato'> Contato </Link>
 
                     </div>
