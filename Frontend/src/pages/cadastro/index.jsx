@@ -5,12 +5,19 @@ import axios from 'axios'
 
 export default function Cadastro() {
 
+    //
     const navigate = useNavigate();
 
+    //Função para enviar os dados do formulário para o backend
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        // Cria um objeto FormData com os dados do formulário
+        //FormData é uma interface que permite construir um conjunto de pares chave/valor representando os campos do formulário e seus valores
         const formData = new FormData(e.target);
+
+        //Pega os dados do formulário
+        //Cria um objeto com os dados do formulário
         const data = {
             nome_completo: formData.get('nome'),
             email: formData.get('email'),
@@ -23,11 +30,18 @@ export default function Cadastro() {
             origem: formData.get('conheceu')
         };
 
+        //Envia os dados para o backend
+        //data é o objeto com os dados do formulário
+        //Usa o axios para enviar os dados para o backend
         try {
-            const response = await axios.post('http://localhost:3000/cadastro', data);
+            const response = await axios.post('http://localhost:5010/cadastro', data);
             alert('Cadastro realizado com sucesso!');
+            //Quando o cadastro for sucesso, redireciona para a página de login
             navigate('/Inicio');
-        } catch (error) {
+        }
+        
+        //Se der erro, mostra o erro
+        catch (error) {
             alert('Erro ao cadastrar: ' + (error.response?.data || error.message));
         }
     };
@@ -73,6 +87,8 @@ export default function Cadastro() {
 
                 <div className="container-informacoes">
 
+                    //Formulário de cadastro
+                    //Quando o formulário for enviado, chama a função handleSubmit
                     <form onSubmit={handleSubmit}>
                         <div className='titulo'>
 
@@ -149,6 +165,7 @@ export default function Cadastro() {
                                     <option value="RJ">RJ</option>
                                     <option value="MG">MG</option>
                                     <option value="Outros">Outros...</option>
+                                    
                                 </select>
                             </div>
 
@@ -186,9 +203,8 @@ export default function Cadastro() {
                             </select>
                         </div>
 
-
+                        -- Botão para enviar o formulário --
                         <button type="submit">Cadastrar</button>
-                        <Link to='/' className='semCadastro'>entrar sem cadastro</Link>
                     </form>
                 </div>
 
