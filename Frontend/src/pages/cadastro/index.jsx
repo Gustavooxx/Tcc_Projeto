@@ -39,7 +39,7 @@ export default function Cadastro() {
             //Quando o cadastro for sucesso, redireciona para a página de login
             navigate('/Inicio');
         }
-        
+
         //Se der erro, mostra o erro
         catch (error) {
             alert('Erro ao cadastrar: ' + (error.response?.data || error.message));
@@ -59,6 +59,8 @@ export default function Cadastro() {
                 <div className='tags-login'>
 
                     <Link to='/'><button className='ajudar'>Não posso doar e quero ajudar</button></Link>
+                    
+                            <button>Voltar</button>
                 </div>
 
             </section>
@@ -80,22 +82,28 @@ export default function Cadastro() {
                         <div className='botao-como-funciona'>
                             <button>Como funciona?</button>
                         </div>
-
                     </div>
 
                 </div>
 
                 <div className="container-informacoes">
 
+<<<<<<< HEAD
  {/*    Formulário de cadastro */}
  {/*Quando o formulário for enviado, chama a função handleSubmit */}
                     
                 
+=======
+                    {/*Formulário de cadastr*/}
+                    {/*Quando o formulário for enviado, chama a função handleSubmit*/}
+>>>>>>> e8ee934c28c4ab37f1d9b85c6b28604ddbc28acc
                     <form onSubmit={handleSubmit}>
                         <div className='titulo'>
 
                             <h2>Cadastrar-se para ser um doador(a)</h2>
                         </div>
+
+
 
                         <div className="form-group">
                             <label htmlFor="nome">Nome Completo</label>
@@ -119,8 +127,8 @@ export default function Cadastro() {
                             />
                         </div>
 
-                            <div className="form-group">
-                                <label htmlFor="senha">Senha</label>
+                        <div className="form-group">
+                            <label htmlFor="senha">Senha</label>
 
                             <input
 
@@ -130,7 +138,7 @@ export default function Cadastro() {
                                 required
                                 minLength={6}
                                 maxLength={20}
-                                
+
 
                             />
                         </div>
@@ -167,7 +175,7 @@ export default function Cadastro() {
                                     <option value="RJ">RJ</option>
                                     <option value="MG">MG</option>
                                     <option value="Outros">Outros...</option>
-                                    
+
                                 </select>
                             </div>
 
@@ -205,7 +213,11 @@ export default function Cadastro() {
                             </select>
                         </div>
 
+<<<<<<< HEAD
                         {/*Botão para enviar o formulário*/} 
+=======
+                        {/*Botão para enviar o formulário */}
+>>>>>>> e8ee934c28c4ab37f1d9b85c6b28604ddbc28acc
                         <button type="submit">Cadastrar</button>
                     </form>
                 </div>
