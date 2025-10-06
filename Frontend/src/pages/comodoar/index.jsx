@@ -1,5 +1,5 @@
 import './index.scss'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 
 export default function Comodoar() {
 
@@ -20,6 +20,8 @@ export default function Comodoar() {
                     <Link to='/Quem somos'> Quem somos </Link>
                     <Link to='/login'> Como Doar </Link>
                     <Link to='/contato'> Contato </Link>
+                    <Link to='/login'> Marcar agendamento </Link>
+
 
                 </div>
 

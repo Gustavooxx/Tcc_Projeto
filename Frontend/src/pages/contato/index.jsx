@@ -23,6 +23,8 @@ export default function Contato(){
                         <Link to='/Quem somos'> Quem somos </Link>
                         <Link to='/como doar'> Como Doar </Link>
                         <Link to='/contato'> Contato </Link>
+                        <Link to='/login'> Marcar agendamento </Link>
+
 
                     </div>
 
