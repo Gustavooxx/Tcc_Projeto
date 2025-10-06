@@ -15,10 +15,10 @@ export default function Navegacao() {
              <Route path="/" element={<Inicio/>} />
              <Route path="/Inicio" element={<Inicio/>} />
              <Route  path='/cadastro' element={<Cadastro/>}/>
-             <Route path="/Quem somos" element={<QuemSomos/>} />
+             <Route path="/Quemsomos" element={<QuemSomos/>} />
               <Route path="/login" element={<Login/>} />
               <Route path="/contato" element={<Contato/>} />
-              <Route path="/como doar" element={<Comodoar/>} />
+              <Route path="/comodoar" element={<Comodoar/>} />
               
 
           </Routes>

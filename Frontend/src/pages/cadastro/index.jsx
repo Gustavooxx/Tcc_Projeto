@@ -88,15 +88,10 @@ export default function Cadastro() {
 
                 <div className="container-informacoes">
 
-<<<<<<< HEAD
  {/*    Formulário de cadastro */}
  {/*Quando o formulário for enviado, chama a função handleSubmit */}
                     
                 
-=======
-                    {/*Formulário de cadastr*/}
-                    {/*Quando o formulário for enviado, chama a função handleSubmit*/}
->>>>>>> e8ee934c28c4ab37f1d9b85c6b28604ddbc28acc
                     <form onSubmit={handleSubmit}>
                         <div className='titulo'>
 
@@ -213,11 +208,7 @@ export default function Cadastro() {
                             </select>
                         </div>
 
-<<<<<<< HEAD
                         {/*Botão para enviar o formulário*/} 
-=======
-                        {/*Botão para enviar o formulário */}
->>>>>>> e8ee934c28c4ab37f1d9b85c6b28604ddbc28acc
                         <button type="submit">Cadastrar</button>
                     </form>
                 </div>

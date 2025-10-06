@@ -20,8 +20,8 @@ export default function Inicio() {
                     <div className='tags-paginas'>
 
                         <Link to='/inicio'> Inicio </Link>
-                        <Link to='/Quem somos'> Quem somos </Link>
-                        <Link to='/como doar'> Como Doar </Link>
+                        <Link to='/Quemsomos'> Quem somos </Link>
+                        <Link to='/comodoar'> Como Doar </Link>
                         <Link to='/contato'> Contato </Link>
                         <Link to='/login'> Marcar agendamento </Link>
 
