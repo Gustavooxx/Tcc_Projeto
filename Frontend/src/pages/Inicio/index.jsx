@@ -42,10 +42,10 @@ export default function Inicio() {
 
                 <div className='texto-pagina'>
 
-                    <h2>Doe sangue, <br />
-                        Salve vidas.</h2>
+                    <h2>Doe <span style={{ color: '#A9233E' }}>Sangue</span>, <br />
+                        Salve vidas!</h2>
                     <p style={{ fontSize: '20px', maxWidth: '420px', marginBottom: '2rem', color: '#A9233E' }}>
-                        Sua atitude pode transformar o futuro de alguém. Ao doar sangue, você oferece esperança, solidariedade e a chance de recomeçar para quem mais precisa. Seja a diferença na vida de muitas pessoas!
+                        Sua atitude pode <span style={{fontWeight: 'bold'}}> transformar</span> o futuro de alguém. Ao doar sangue, você oferece <span style={{fontWeight: 'bold'}}> esperança</span>, solidariedade e a chance de recomeçar para quem mais precisa. Seja a <span style={{fontWeight: 'bold'}}>diferença</span> na vida de muitas pessoas!
                     </p>
 
                     <div className='botaos'>
