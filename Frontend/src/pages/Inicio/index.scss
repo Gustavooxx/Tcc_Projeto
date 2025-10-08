@@ -1,8 +1,10 @@
 .container-site {
 
+    border-radius: 12px;
     background-size: cover;
     background-position: left;
     background-repeat: no-repeat;
+    background-color: #e6e0e0;
 
     .container-tags {
         display: flex;
@@ -106,6 +108,8 @@
             flex-direction: column;
 
 
+
+
             h2 {
                 margin-bottom: 1rem;
                 font-size: 32px;
@@ -124,12 +128,20 @@
                     }
                 }
 
+                button:hover {
+
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+                }
+
                 button {
                     color: white;
                     border: 1px solid #EE666E;
                     border-radius: 10px;
                     padding: 10px 20px 10px 20px;
                     font-size: 18px;
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
 
                 }
             }
@@ -153,11 +165,12 @@
 
     .beneficios {
 
+
         h3 {
             margin-left: 5rem;
             font-size: 28px;
             margin-bottom: 2rem;
-            color: #A9233E;
+
             text-shadow: rgba(169, 35, 62, 0.35) 0px 5px 15px;
         }
 
@@ -167,12 +180,26 @@
             margin-top: 2rem;
 
 
+            .itens-beneficios:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+            }
+
             .itens-beneficios {
                 display: flex;
                 align-items: center;
                 gap: 1rem;
                 padding: 10px;
                 margin-left: 5rem;
+
+
+
+                background-color: rgba(255, 255, 255, 0.482);
+                backdrop-filter: blur(18px);
+                border-radius: 12px;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+
 
 
 
@@ -195,8 +222,20 @@
         }
     }
 
+    .requisitos-doar:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
     .requisitos-doar {
+        border: 1px solid #A9233E;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.482);
+
         margin-top: 5rem;
+        margin: 5rem;
+        padding-bottom: 5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
 
         h3 {
 
@@ -217,11 +256,11 @@
         }
 
 
-        h3 {
+        h4 {
             font-size: 28px;
             color: #A9233E;
             text-shadow: rgba(169, 35, 62, 0.35) 0px 5px 15px;
-
+            text-align: center;
         }
 
         ul {
@@ -239,17 +278,29 @@
         }
     }
 
-    .texto-doadores {
-        margin-top: 5rem;
-        margin-bottom: 5rem;
-        text-align: center;
 
+    .texto-doadores:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .texto-doadores {
+        text-align: center;
+        margin: 5rem;
+        border: 1px solid #A9233E;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.482);
+        padding: 50px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
 
         h4 {
             font-size: 32px;
             color: #A9233E;
             margin-bottom: 2rem;
             text-shadow: rgba(169, 35, 62, 0.35) 0px 5px 15px;
+
+
+
         }
 
         p {
@@ -266,14 +317,20 @@
         }
     }
 
+
+    .como-funciona:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
     .como-funciona {
         padding: 2rem;
         border-radius: 10px;
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 5rem;
-        margin-bottom: 5rem;
+        margin: 5rem;
+        border: 1px solid #A9233E;
+        background-color: rgba(255, 255, 255, 0.482);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
 
 
         h5 {
@@ -316,6 +373,7 @@
         }
     }
 
+
     .fazer-parte {
 
 
@@ -323,6 +381,7 @@
         justify-content: center;
         align-items: center;
         margin-bottom: 5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
 
         button {
             background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 100%);
@@ -337,6 +396,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             letter-spacing: 1px;
             outline: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
 
         }
 
@@ -344,6 +404,8 @@
             background: #A9233E;
             color: #fff;
             text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.7);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
     }
 
