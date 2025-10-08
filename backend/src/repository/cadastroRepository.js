@@ -22,3 +22,26 @@ VALUES
 
          return info.insertId;
 }
+
+export async function consultarCpf(novoCadastro){
+   const comando = `
+    select * from doadores
+     where cpf = ?
+    
+    `
+
+    const [info] = await connection.query(comando,[novoCadastro.cpf]);
+    return info[0];
+}
+
+export async function consultarEmail(novoCadastro){
+   const comando = `
+    select * from doadores
+     where email = ?
+    
+    `
+
+    const [info] = await connection.query(comando,[novoCadastro.email]);
+    return info[0];
+}
+

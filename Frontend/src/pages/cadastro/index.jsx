@@ -42,7 +42,8 @@ export default function Cadastro() {
 
         //Se der erro, mostra o erro
         catch (error) {
-            alert('Erro ao cadastrar: ' + (error.response?.data || error.message));
+            const errorMessage = error.response?.data?.erro || error.message;
+            alert('Erro ao cadastrar: ' + errorMessage);
         }
     };
 
