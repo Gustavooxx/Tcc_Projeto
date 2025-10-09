@@ -83,7 +83,7 @@ export default function Inicio() {
 
 
                 <div className='conteudo-requisitos'>
-                    <h3>Requisitos para Doar Sangue</h3>
+                    <h4>Requisitos para Doar Sangue</h4>
                     <ul>
                         <li>Estar em boas condições de saúde;</li>
                         <li>Ter entre 16 e 69 anos (menores de 18 anos precisam de autorização dos responsáveis);</li>
