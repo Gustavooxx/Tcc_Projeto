@@ -83,3 +83,16 @@ export function validarEmailBanco(registro){
 }
 
 
+export function validarCredenciais(cadastro){
+     if(!cadastro.email)
+          throw new Error('Email obrigatório');
+
+     if(!cadastro.senha)
+          throw new Error('Senha obrigatório');
+ 
+}
+
+export function validarLogin(registros){
+     if(!registros)
+     throw new Error('Usuário não encontrado');
+}

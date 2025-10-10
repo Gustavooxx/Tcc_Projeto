@@ -1,5 +1,5 @@
-import { cadastrar, consultarCpf, consultarEmail } from "../repository/cadastroRepository.js";
-import { validarCadastro, validarCpfBanco, validarEmailBanco } from "../validation/cadastro/cadastrarValidation.js";
+import { cadastrar, consultarCpf, consultarEmail, doadorToken, logarDoador } from "../repository/cadastroRepository.js";
+import { validarCadastro, validarCpfBanco, validarCredenciais, validarEmailBanco, validarLogin } from "../validation/cadastro/cadastrarValidation.js";
 
 export async function serviceCadastrar(novoCadastro){
     try {
@@ -21,4 +21,27 @@ export async function serviceCadastrar(novoCadastro){
     catch (error) {
         throw error;
     }
+}
+
+export async function serviceLogar(cadastro){
+    try {
+       validarCredenciais(cadastro);
+
+       let registros = await logarDoador(cadastro);
+
+       validarLogin(registros);
+
+       return registros;
+    
+
+    } 
+    catch (error) {
+        throw error;
+    }
+}
+
+export async function serviceToken(token, id){
+    let rows = await doadorToken(token, id);
+
+    return rows;
 }

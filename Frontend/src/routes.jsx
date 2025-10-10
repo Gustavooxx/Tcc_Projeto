@@ -7,6 +7,7 @@ import Contato from './pages/contato'
 import Comodoar from './pages/comodoar'
 
 
+
 export default function Navegacao() {
     return (
         <BrowserRouter>
@@ -19,9 +20,7 @@ export default function Navegacao() {
               <Route path="/login" element={<Login/>} />
               <Route path="/contato" element={<Contato/>} />
               <Route path="/comodoar" element={<Comodoar/>} />
-
-            {/*criar uma pagina para os nao escontrados*/}
-              <Route path="*" element={<NaoEncontrado/>} />
+              
               
 
           </Routes>
