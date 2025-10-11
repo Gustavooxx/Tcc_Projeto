@@ -23,13 +23,13 @@ export default function Contato() {
                 <div className="duvidas">
 
                     <h2>Tem <span style={{ color: '#A9233E' }}>duvidas</span> sobre como <span style={{ color: '#A9233E' }}>agendar</span> sua doação ou <span style={{ color: '#A9233E' }}>encontrar</span> o hemocentro mais proximo de você?
-                        <br/>
-                        <br/>
+                        <br />
+                        <br />
                         Nossa equipe está disponível para ajudar você de forma rápida e totalmente online.
                     </h2>
 
 
-            
+
 
                     <img src="assets/images/duvida.png" height={'250px'} />
 
@@ -38,15 +38,19 @@ export default function Contato() {
                 <div className='opcoes-contato'>
 
 
-                <h1>Aqui está nossas opções de contato</h1>
+                    <h1>Aqui está nossas opções de contato</h1>
+
+                    <div className="email"><h3>📧 Email:</h3><h3>contato@doevida.com</h3></div>
+                    <div className="whatsapp"><h3>📱 WhatsApp:</h3><h3>(11) 98765-4321</h3><div>
+                        <div className="redes-sociais"><h3>📲 Redes sociais:</h3> <h3>contato@doevida.com</h3><div/>
 
 
-                </div>
+                        </div>
 
-            </section>
+                    </section>
 
-            <Footer />
+                        <Footer />
 
-        </div>
-    )
+                    </div>
+                    )
 }

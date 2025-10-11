@@ -31,7 +31,39 @@
         }
 
         .opcoes-contato{
+            margin-top: 5rem;
 
+
+            h1{
+                margin-left: 5rem;
+            }
+            .email{
+                display: flex;
+                justify-content: left;
+                align-items: center;
+                gap: 9px;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                margin-left: 10rem;
+            }
+            .whatsapp{
+                display: flex;
+                justify-content: left;
+                align-items: center;
+                gap: 9px;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                margin-left: 3rem;
+            }
+            .redes-sociais{
+                display: flex;
+                justify-content: left;
+                align-items: center;
+                gap: 9px;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                margin-left: 3rem;
+            }
 
         }
 
