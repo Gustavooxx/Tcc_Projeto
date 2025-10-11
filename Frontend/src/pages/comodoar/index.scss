@@ -4,18 +4,20 @@
         display: flex;
         gap: 5rem;
         align-items: start;
-        margin: 3rem ;
+        margin: 3rem;
 
         .quem-pode-doar {
             padding: 1.5rem;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgb(196, 66, 66);
+
             width: 100%;
 
             h2 {
                 font-size: 1.6rem;
                 color: #A9233E;
-                            text-shadow: rgba(169, 35, 35, 0.35) 0px 5px 15px;
+                text-shadow: rgba(169, 35, 35, 0.35) 0px 5px 15px;
                 margin-bottom: 1rem;
             }
 
@@ -47,17 +49,17 @@
             }
         }
 
-        .restricoes{
+        .restricoes {
             display: block;
-            border: 2px solid red;
+            border: 2px solid rgb(196, 66, 66);
             border-radius: 10px;
             padding: 1.5rem;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
 
-            h2{
+            h2 {
                 color: #A9233E;
-                            text-shadow: rgba(169, 35, 35, 0.35) 0px 5px 15px;
+                text-shadow: rgba(169, 35, 35, 0.35) 0px 5px 15px;
                 margin-bottom: 1rem;
             }
 
@@ -89,28 +91,35 @@
         }
     }
 
-    .processo{
+    .processo {
         display: flex;
         flex-direction: column;
         gap: 2rem;
         margin: 3rem;
-        
-        h2{
+
+        h2 {
             color: #A9233E;
-                        text-shadow: rgba(169, 35, 35, 0.35) 0px 5px 15px;
+            text-shadow: rgba(169, 35, 35, 0.35) 0px 5px 15px;
         }
-        
-        .cards{
+
+        .cards {
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 2.5rem;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
 
-            .card{
-                border: 1px solid black;
+            .card:hover{
+                           transform: translateY(-5px);
+                    
+            }
+            .card {
                 text-align: center;
                 width: auto;
+             transition: transform 0.3s ease;
 
-                h4{
+            
+                h4 {
                     width: 130px;
                     color: #333;
                 }
@@ -118,24 +127,26 @@
         }
     }
 
-    .porque-doar{
+    .porque-doar {
         margin: 3rem;
-        h2{
-            color: #A9233E;  
-                        text-shadow: rgba(169, 35, 35, 0.35) 0px 5px 15px;
+
+        h2 {
+            color: #A9233E;
+            text-shadow: rgba(169, 35, 35, 0.35) 0px 5px 15px;
             margin-bottom: 1rem;
         }
-        .texto-image{
+
+        .texto-image {
             display: flex;
             gap: 5rem;
 
-            p{
+            p {
                 width: 500px;
                 font-size: 18px;
                 line-height: 1.6;
             }
-            
-            img{
+
+            img {
                 height: 600px;
                 width: auto;
             }
