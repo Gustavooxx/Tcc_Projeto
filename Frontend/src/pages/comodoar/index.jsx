@@ -54,22 +54,22 @@ export default function Comodoar() {
                     </div>
 
                     <div className='card'>
-                        <img src="assets/images/cronograma.png" alt="" height={'70px'} />
+                        <img src="assets/images/cadastro.png" alt="" height={'70px'} />
                         <h4>Cadastro e triagem no homocentro</h4>
                     </div>
 
                     <div className='card'>
-                        <img src="assets/images/cronograma.png" alt="" height={'70px'} />
+                        <img src="assets/images/exame-medico.png" alt="" height={'70px'} />
                         <h4>Exame rapido</h4>
                     </div>
 
                     <div className='card'>
-                        <img src="assets/images/cronograma.png" alt="" height={'70px'} />
+                        <img src="assets/images/doacao-de-sangue.png" alt="" height={'70px'} />
                         <h4>Doação (10 min)</h4>
                     </div>
 
                     <div className='card'>
-                        <img src="assets/images/cronograma.png" alt="" height={'70px'} />
+                        <img src="assets/images/descanso.png" alt="" height={'70px'} />
                         <h4>Lanche e descanso</h4>
                     </div>
 
