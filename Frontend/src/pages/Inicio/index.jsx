@@ -1,3 +1,5 @@
+import Footer from '../../components/footer/footer'
+import Tags from '../../components/tags/util'
 import './index.scss'
 import { Link } from 'react-router-dom'
 
@@ -6,37 +8,7 @@ export default function Inicio() {
     return (
         <div className='container-site'>
 
-            <section className='section-tags' >
-
-                <div className='container-tags'>
-
-                    <Link to={'/inicio'}>
-                        <div className='foto-tags'>
-                            <img src="/assets/images/image 4.svg" alt="logo1" />
-                            <h1>Doe Vida</h1>
-                        </div>
-                    </Link>
-
-                    <div className='tags-paginas'>
-
-                        <Link to='/inicio'> Inicio </Link>
-                        <Link to='/Quemsomos'> Quem somos </Link>
-                        <Link to='/comodoar'> Como Doar </Link>
-                        <Link to='/contato'> Contato </Link>
-                        <Link to='/login'> Marcar agendamento </Link>
-
-
-                    </div>
-
-                    <div className='botao-login'>
-
-                        <Link to='/login' className='login'> Login </Link>
-                        <Link to='/cadastro'> <button> Cadastra-se </button> </Link>
-                    </div>
-
-                </div>
-
-            </section>
+                <Tags/>
 
             <section className='container-pagina'>
 
@@ -135,36 +107,8 @@ export default function Inicio() {
                 <Link><button> Venha fazer parte</button></Link>
             </div>
         
-        <footer className='footer'>
-
-            <div className='conteinar-foo'>
-
-
-            <div className='Nos'>
-                <h1>Doevida.com <img src="assets/images/image 4.svg" alt="" /></h1>
-
-                <p> A Doevida.com é uma plataforma dedicada a facilitar o processo de doação de sangue, conectando doadores a hospitais e hemocentros.</p>
-
-            </div>
-
-            <div className='cadastro-foo'>
-                <p>Doe Vida</p>
-
-                <Link>
-                    <button>Cadastre-se</button>
-                </Link>
-
-                <p>Entre em contato</p>
-                <p className='email'>contato@doevida.com</p>
-
-            </div>
-
-
-
-            </div>
-
-        </footer>
-           
+       
+           <Footer/>
 
         </div>
     )

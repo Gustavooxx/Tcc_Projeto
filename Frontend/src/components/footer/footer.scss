@@ -1,0 +1,65 @@
+.footer {
+        background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 100%);
+        padding: 5rem;
+        color: #fff;
+        margin-bottom: 1rem;
+
+        .conteinar-foo {
+            display: flex;
+            justify-content: center;
+            gap: 10rem;
+
+            .Nos {
+                padding-right: 5rem;
+
+                h1 {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+
+                    img {
+                        height: 60px;
+                    }
+
+                }
+
+                p {
+                    font-size: 18px;
+                    width: 300px;
+                }
+            }
+
+            .cadastro-foo {
+
+                text-align: center;
+
+                .email {
+                    color: #333333;
+                }
+
+                p {
+                    font-size: 18px;
+                    margin-bottom: 2rem;
+                }
+
+                button {
+                    padding: 10px 25px;
+                    background-color: #DA2B1D;
+                    font-size: 17px;
+                    border: 1px solid #DA2B1D;
+                    border-radius: 20px;
+                    box-shadow: 0 4px 18px rgba(255, 255, 255, 0.526);
+                    color: white;
+                    margin-bottom: 3rem;
+
+                    &:hover {
+                        background-color: #fc3628;
+                        box-shadow: 0 4px 18px rgba(255, 255, 255, 0.932);
+
+                    }
+                }
+            }
+
+        }
+
+    }

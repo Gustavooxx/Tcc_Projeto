@@ -5,6 +5,7 @@ import QuemSomos from './pages/quemSomos'
 import Login from './pages/login'
 import Contato from './pages/contato'
 import Comodoar from './pages/comodoar'
+import MarcaAgendamento from './pages/marcarAgendamento'
 
 
 
@@ -16,10 +17,12 @@ export default function Navegacao() {
                 <Route path="/" element={<Inicio />} />
                 <Route path="/Inicio" element={<Inicio />} />
                 <Route path='/cadastro' element={<Cadastro />} />
-                <Route path="/Quemsomos" element={<QuemSomos />} />
+                <Route path="/Quem somos" element={<QuemSomos />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/contato" element={<Contato />} />
-                <Route path="/comodoar" element={<Comodoar />} />
+                <Route path="/como doar" element={<Comodoar />} />
+                <Route path="/Marcar agendamento" element={<MarcaAgendamento />} />
+
 
 
 
