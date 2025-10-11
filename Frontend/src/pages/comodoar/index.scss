@@ -95,6 +95,7 @@
         display: flex;
         flex-direction: column;
         gap: 2rem;
+        padding-top: 2.5rem;
         margin: 3rem;
 
         h2 {
@@ -129,11 +130,12 @@
 
     .porque-doar {
         margin: 3rem;
+        padding-top: 2.5rem;
 
         h2 {
             color: #A9233E;
             text-shadow: rgba(169, 35, 35, 0.35) 0px 5px 15px;
-            margin-bottom: 1rem;
+            
         }
 
         .texto-image {
@@ -144,11 +146,14 @@
                 width: 500px;
                 font-size: 18px;
                 line-height: 1.6;
+                margin-top:2rem ;
             }
 
             img {
                 height: 600px;
-                width: auto;
+                margin-left: 8rem;
+                border-radius: 25px;
+                
             }
         }
     }
