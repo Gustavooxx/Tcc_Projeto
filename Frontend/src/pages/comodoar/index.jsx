@@ -69,7 +69,7 @@ export default function Comodoar() {
                     </div>
 
                     <div className='card'>
-                        <img src="assets/images/descanso.png" alt="" height={'70px'} />
+                        <img src="assets/images/descanso.png" alt=""  />
                         <h4>Descanso</h4>
                     </div>
 

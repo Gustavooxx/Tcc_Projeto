@@ -3,31 +3,50 @@ import Tags from '../../components/tags/util'
 import './index.scss'
 import { Link } from 'react-router-dom'
 
-export default function Contato(){
+export default function Contato() {
 
-    return(
+    return (
         <div className="container-contato">
 
-                <Tags/>
-            
+            <Tags />
+
 
             <section className='conteudo'>
 
-            <div className='title'>
+                <div className='fale-conosco'>
 
-                <h1>Deixe sua dúvida, sugestão ou comentário.</h1>
+                    <h1>Fale Conosco!</h1>
+                    <img src="assets/images/faleconosco.png" height={'70px'} />
 
-            </div>
+                </div>
 
-            <div className="paragrafo">
-                <p>A sua opinião ajuda nossos agentes a esclarecer pontos cruciais que tornam nossos serviços cada vez melhores. Compartilhe suas dúvidas, sugestões ou feedbacks cada mensagem é uma oportunidade de aperfeiçoarmos a forma como atendemos você.
-                Estamos prontos para ouvir o que você tem a dizer e oferecer o suporte necessário para que sua experiência seja clara, ágil e satisfatória..</p>
-            </div>
+                <div className="duvidas">
+
+                    <h2>Tem <span style={{ color: '#A9233E' }}>duvidas</span> sobre como <span style={{ color: '#A9233E' }}>agendar</span> sua doação ou <span style={{ color: '#A9233E' }}>encontrar</span> o hemocentro mais proximo de você?
+                        <br/>
+                        <br/>
+                        Nossa equipe está disponível para ajudar você de forma rápida e totalmente online.
+                    </h2>
+
+
             
+
+                    <img src="assets/images/duvida.png" height={'250px'} />
+
+                </div>
+
+                <div className='opcoes-contato'>
+
+
+                <h1>Aqui está nossas opções de contato</h1>
+
+
+                </div>
+
             </section>
 
-                        <Footer/>
-            
+            <Footer />
+
         </div>
     )
 }
