@@ -1,70 +1,92 @@
-.container-contato{
+.container-contato {
 
-    .conteudo{
+    .conteudo {
 
-        .fale-conosco{
+        .fale-conosco {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 2rem;
             margin-bottom: 1rem;
             margin-top: 2rem;
-  
+            
+        }
+    }
+    
+    .duvidas {
+        
+        background-color: rgb(143, 141, 141);
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        gap: 5rem;
+        margin: 2rem;
+        border-radius: 10px;
+
+        img {
+            padding-right: 13rem;
+        }
+
+        h2 {
+            padding: 5rem;
+            padding-right: 15rem;
+
         }
     }
 
-        .duvidas{
+    .nossas-opcoes{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5rem;
 
+    }
+
+    .opcoes-contato {
+        display: flex;
+        margin: 2rem;
+        padding: 2rem;
+        background-color: rgb(143, 141, 141);
+        border-radius: 10px;
+        gap: 2rem;
+        margin-bottom: 7rem;
+        
+
+
+        h1 {
+            margin-left: 5rem;
+        }
+
+        .email {
             display: flex;
-            justify-content: left ;
+            justify-content: left;
             align-items: center;
-            gap: 5rem;
-            
-            img{
-                padding-right: 13rem;
-            }
-            h2{
-                padding: 5rem;
-                padding-right: 15rem;
-            
-            }
+            gap: 9px;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            margin-left: 3rem;
         }
 
-        .opcoes-contato{
-            margin-top: 5rem;
-
-
-            h1{
-                margin-left: 5rem;
-            }
-            .email{
-                display: flex;
-                justify-content: left;
-                align-items: center;
-                gap: 9px;
-                margin-top: 1rem;
-                margin-bottom: 1rem;
-                margin-left: 10rem;
-            }
-            .whatsapp{
-                display: flex;
-                justify-content: left;
-                align-items: center;
-                gap: 9px;
-                margin-top: 1rem;
-                margin-bottom: 1rem;
-                margin-left: 3rem;
-            }
-            .redes-sociais{
-                display: flex;
-                justify-content: left;
-                align-items: center;
-                gap: 9px;
-                margin-top: 1rem;
-                margin-bottom: 1rem;
-                margin-left: 3rem;
-            }
-
+        .whatsapp {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            gap: 9px;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+     
         }
+
+        .redes-sociais {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            gap: 9px;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+       
+        }
+
+    }
 
 }

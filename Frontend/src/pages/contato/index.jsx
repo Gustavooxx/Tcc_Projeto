@@ -35,22 +35,31 @@ export default function Contato() {
 
                 </div>
 
-                <div className='opcoes-contato'>
-
+                <div className="nossas-opcoes">
 
                     <h1>Aqui está nossas opções de contato</h1>
 
+                </div>
+
+                <div className='opcoes-contato'>
+
+
+
                     <div className="email"><h3>📧 Email:</h3><h3>contato@doevida.com</h3></div>
-                    <div className="whatsapp"><h3>📱 WhatsApp:</h3><h3>(11) 98765-4321</h3><div>
-                        <div className="redes-sociais"><h3>📲 Redes sociais:</h3> <h3>contato@doevida.com</h3><div/>
+
+                    <div className="whatsapp"><h3>📱 WhatsApp:</h3><h3>(11) 98765-4321</h3></div>
+
+                    <div className="redes-sociais"><h3>📲 Redes sociais:</h3> <h3>contato@doevida.com</h3></div>
+
+                    <img src="assets/images/atendimento.png" height={'70px'} />
 
 
-                        </div>
+                </div>
+            </section>
 
-                    </section>
+            <Footer />
 
-                        <Footer />
 
-                    </div>
-                    )
+        </div>
+    )
 }
