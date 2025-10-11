@@ -49,9 +49,7 @@ export default function Contato() {
 
                     <div className="whatsapp"><h3>📱 WhatsApp:</h3><h3>(11) 98765-4321</h3></div>
 
-                    <div className="redes-sociais"><h3>📲 Redes sociais:</h3> <h3>contato@doevida.com</h3></div>
 
-                    <img src="assets/images/atendimento.png" height={'70px'} />
 
 
                 </div>
