@@ -2,12 +2,16 @@
 
     border-radius: 12px;
     background-size: cover;
-    background-position: left;
+    background-position: center;
     background-repeat: no-repeat;
-    background-color: #e6e0e0;
 
+    .section-tags{
+        padding: 1rem;
+    }
+    
     .container-tags {
         display: flex;
+        border-radius: 20px;
         align-items: center;
         justify-content: space-between;
         padding: 5px;
@@ -108,8 +112,6 @@
             flex-direction: column;
 
 
-
-
             h2 {
                 margin-bottom: 1rem;
                 font-size: 32px;
@@ -124,7 +126,7 @@
                     background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 100%);
 
                     &:hover {
-                        background: #a7102eb9;
+                        background: #f63e3ef6;
                     }
                 }
 
@@ -170,8 +172,9 @@
             margin-left: 5rem;
             font-size: 28px;
             margin-bottom: 2rem;
+            color: #A9233E;
 
-            text-shadow: rgba(169, 35, 62, 0.35) 0px 5px 15px;
+            text-shadow: rgba(169, 35, 35, 0.35) 0px 5px 15px;
         }
 
         .conteudo-beneficios {
@@ -179,12 +182,6 @@
             align-items: center;
             margin-top: 2rem;
 
-
-            .itens-beneficios:hover {
-                transform: translateY(-10px);
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-
-            }
 
             .itens-beneficios {
                 display: flex;
@@ -199,8 +196,6 @@
                 backdrop-filter: blur(18px);
                 border-radius: 12px;
                 transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-
 
 
                 border: 1px solid #A9233E;
@@ -222,10 +217,7 @@
         }
     }
 
-    .requisitos-doar:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
+    
 
     .requisitos-doar {
         border: 1px solid #A9233E;
@@ -279,10 +271,6 @@
     }
 
 
-    .texto-doadores:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
 
     .texto-doadores {
         text-align: center;
@@ -318,10 +306,7 @@
     }
 
 
-    .como-funciona:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
+
 
     .como-funciona {
         padding: 2rem;

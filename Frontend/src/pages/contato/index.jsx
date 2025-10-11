@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom'
 export default function Contato(){
 
     return(
-        <div className="container-site">
-                        <section className='section-tags' >
+        <div className="container-contato">
+
+                 <section className='section-tags' >
 
                 <div className='container-tags'>
 
@@ -36,6 +37,7 @@ export default function Contato(){
                 </div>
 
             </section>
+            
 
             <section className='conteudo'>
 
@@ -47,8 +49,7 @@ export default function Contato(){
 
             <div className="paragrafo">
                 <p>A sua opinião ajuda nossos agentes a esclarecer pontos cruciais que tornam nossos serviços cada vez melhores. Compartilhe suas dúvidas, sugestões ou feedbacks cada mensagem é uma oportunidade de aperfeiçoarmos a forma como atendemos você.
-
-Estamos prontos para ouvir o que você tem a dizer e oferecer o suporte necessário para que sua experiência seja clara, ágil e satisfatória..</p>
+                Estamos prontos para ouvir o que você tem a dizer e oferecer o suporte necessário para que sua experiência seja clara, ágil e satisfatória..</p>
             </div>
             
             </section>
