@@ -60,8 +60,8 @@ export default function Cadastro() {
                 <div className='tags-login'>
 
                     <Link to='/'><button className='ajudar'>Não posso doar e quero ajudar</button></Link>
-                    
-                            <button>Voltar</button>
+
+                    <Link to={'/'}><button className='ajudar'>Voltar</button></Link>
                 </div>
 
             </section>
@@ -89,10 +89,10 @@ export default function Cadastro() {
 
                 <div className="container-informacoes">
 
- {/*    Formulário de cadastro */}
- {/*Quando o formulário for enviado, chama a função handleSubmit */}
-                    
-                
+                    {/*    Formulário de cadastro */}
+                    {/*Quando o formulário for enviado, chama a função handleSubmit */}
+
+
                     <form onSubmit={handleSubmit}>
                         <div className='titulo'>
 
@@ -166,42 +166,52 @@ export default function Cadastro() {
                         <div className="row">
                             <div className='form-group'>
                                 <select id="estado" name="estado">
-                                    <option value="">Estado</option>
-                                    <option value="SP">SP</option>
-                                    <option value="RJ">RJ</option>
+                                    <option value="" disabled selected>Estado</option>
+                                    <option value="AC">AC</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AP">AP</option>
+                                    <option value="AM">AM</option>
+                                    <option value="BA">BA</option>
+                                    <option value="CE">CE</option>
+                                    <option value="DF">DF</option>
+                                    <option value="ES">ES</option>
+                                    <option value="GO">GO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MT">MT</option>
+                                    <option value="MS">MS</option>
                                     <option value="MG">MG</option>
-                                    <option value="Outros">Outros...</option>
+                                    <option value="PA">PA</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PR">PR</option>
+                                    <option value="PE">PE</option>
+                                    <option value="PI">PI</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="RN">RN</option>
+                                    <option value="RS">RS</option>
+                                    <option value="RO">RO</option>
+                                    <option value="RR">RR</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SP">SP</option>
+                                    <option value="SE">SE</option>
+                                    <option value="TO">TO</option>
 
                                 </select>
                             </div>
 
                             <div className='form-group'>
                                 <select id="sexo" name="sexo">
-                                    <option value="">Sexo</option>
+                                    <option value="" disabled selected>Sexo</option>
                                     <option value="Masculino">Masculino</option>
                                     <option value="Feminino">Feminino</option>
                                     <option value="Outro">Outro</option>
                                 </select>
                             </div>
 
-                            <div className='form-group'>
-                                <select id="tipo_sanguineo" name="tipo_sanguineo">
-                                    <option value="">Tipo Sanguíneo</option>
-                                    <option value="A+">A+</option>
-                                    <option value="A-">A-</option>
-                                    <option value="B+">B+</option>
-                                    <option value="B-">B-</option>
-                                    <option value="AB+">AB+</option>
-                                    <option value="AB-">AB-</option>
-                                    <option value="O+">O+</option>
-                                    <option value="O-">O-</option>
-                                </select>
-                            </div>
                         </div>
 
                         <div className='form-group'>
                             <select id="conheceu" name="conheceu">
-                                <option value="">Onde nos conheceu?</option>
+                                <option value="" disabled selected>Onde nos conheceu?</option>
                                 <option value="Redes Sociais">Redes Sociais</option>
                                 <option value="Amigos/Família">Amigos/Família</option>
                                 <option value="Site">Site</option>
@@ -209,7 +219,7 @@ export default function Cadastro() {
                             </select>
                         </div>
 
-                        {/*Botão para enviar o formulário*/} 
+                        {/*Botão para enviar o formulário*/}
                         <button type="submit">Cadastrar</button>
                     </form>
                 </div>
