@@ -80,11 +80,11 @@ export default function MarcaAgendamento() {
       <section className="conteudo">
         <header className="cabecalho">
           <h1>Marcar Agendamento</h1>
-          <p>
-            Preencha os dados abaixo para realizar seu agendamento de doação.
+          <h3>
+            Preencha os dados abaixo para realizar seu agendamento de doação.<br/>
             As informações serão usadas apenas para o contato e organização do
             seu atendimento.
-          </p>
+          </h3>
         </header>
 
         <div className="grid">
