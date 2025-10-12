@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useState } from 'react'
 import Footer from '../../components/footer/footer'
 import Tags from '../../components/tags/util'
 import './index.scss'
@@ -9,18 +9,17 @@ export default function MarcaAgendamento() {
 
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-
-<<<<<<< HEAD
     nome_completo: "",
     email: "",
     telefone: "",
     estado: "",
     cidade: "",
+    hemocentro_id: "",
     tipo_sanguineo: "",
     data_agendamento: "",
     horario: "",
     observacoes: "",
-    confirmou_requisitos: ""
+    confirmou_requisitos: 0
   })
 
   const [mensagem, setMensagem] = useState("");
@@ -60,8 +59,7 @@ export default function MarcaAgendamento() {
         observacoes: "",
         confirmou_requisitos: 0
       });
-      // opcional: redirecionar após sucesso
-      // navigate('/confirmacao');
+
     } catch (error) {
       console.error("erro ao fazer agendamento", error)
 
@@ -195,10 +193,10 @@ export default function MarcaAgendamento() {
               </div>
 
               <div className="form-check">
-                <input type="checkbox" id="confirmou_requisitos" name="confirmou_requisitos" checked={!!formData.confirmou_requisitos} onChange={handleChange} />
-                <label htmlFor="aceite_requisitos">
-                  Confirmo que atendo aos requisitos para doação e estou em boas condições de saúde.
-                </label>
+                  <input type="checkbox" id="confirmou_requisitos" name="confirmou_requisitos" checked={!!formData.confirmou_requisitos} onChange={handleChange} />
+                  <label htmlFor="confirmou_requisitos">
+                    Confirmo que atendo aos requisitos para doação e estou em boas condições de saúde.
+                  </label>
               </div>
 
               <button type="submit" className="btn-primary">Marcar agendamento</button>
@@ -214,13 +212,7 @@ export default function MarcaAgendamento() {
               <li>Este agendamento é local e não envia dados ao servidor.</li>
             </ul>
           </aside>
-=======
-    return(
-        <div className="cotainer-agendamento">
-            <Tags/>
- 
-            <Footer/>
->>>>>>> f0badbeb459f60b5b79390b02f87d3852a00a267
+
         </div>
 
       </section>

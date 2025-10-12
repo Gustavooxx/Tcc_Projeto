@@ -1,107 +1,97 @@
-.section-tags {
-    padding: 1rem;
-}
 
-<<<<<<< HEAD
  .section-tags{
         padding: 1rem 2rem 1rem 2rem;
     }
     .container-tags {
-=======
-.container-tags {
-    display: flex;
-    border-radius: 10px;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px;
-    background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 100%);
-
-
-
-    .foto-tags {
->>>>>>> f0badbeb459f60b5b79390b02f87d3852a00a267
         display: flex;
+        border-radius: 10px;
         align-items: center;
+        justify-content: space-between;
         padding: 5px;
-        text-decoration: none;
+        background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 100%);
+
+        .foto-tags {
+            display: flex;
+            align-items: center;
+            padding: 5px;
 
 
 
-        img {
-            height: 20ox;
-            width: 50px;
-        }
-
-        h1 {
-            font-size: 15px;
-            color: white;
-            font-weight: bold;
-
-        }
-    }
-
-    .tags-paginas {
-        display: flex;
-        gap: 2rem;
-
-        a {
-            text-decoration: none;
-            color: #ffffff;
-            font-weight: 500;
-            padding: 5px 0;
-            border-bottom: 2px solid transparent;
-            transition: all 0.3s ease;
-
-            &:hover {
-                color: #f4868d;
-                border-bottom-color: #f4868d;
-                transition: all 0.3s ease;
-
-
+            img {
+                height: 20ox;
+                width: 50px;
             }
-        }
-    }
 
-    .botao-login {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-
-
-        .login {
-            color: white;
-            font-weight: bold;
-
-            &:hover {
-                cursor: pointer;
-                color: rgb(255, 0, 0);
-                transition: all 0.3s ease;
+            h1 {
+                font-size: 15px;
+                color: white;
+                font-weight: bold;
 
             }
         }
 
-        button {
-            padding-left: 20px;
-            padding-right: 20px;
-            padding-bottom: 10px;
-            padding-top: 10px;
-            margin-right: 2rem;
-            background-color: #ff0000f0;
-            box-shadow: 0 2px 20px rgba(255, 255, 255, 0.526);
-            border: 0px solid #A9233E;
-            text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.7);
-            color: white;
-            border-radius: 10px;
-            font-size: 17px;
+        .tags-paginas {
+            display: flex;
+            gap: 2rem;
 
-            &:hover {
-                background-color: #ff4c4cd2;
-                box-shadow: 0 2px 27px rgba(255, 255, 255, 0.932);
+            a {
+                text-decoration: none;
+                color: #ffffff;
+                font-weight: 500;
+                padding: 5px 0;
+                border-bottom: 2px solid transparent;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    color: #f4868d;
+                    border-bottom-color: #f4868d;
+                    transition: all 0.3s ease;
+
+
+                }
+            }
+        }
+
+        .botao-login {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+
+            .login {
+                color: white;
+                font-weight: bold;
+
+                &:hover {
+                    cursor: pointer;
+                    color: rgb(255, 0, 0);
+                    transition: all 0.3s ease;
+
+                }
+            }
+
+            button {
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-bottom: 10px;
+                padding-top: 10px;
+                margin-right: 2rem;
+                background-color: #ff0000f0;
+                box-shadow: 0 2px 20px rgba(255, 255, 255, 0.526);
+                border: 1px solid #A9233E;
                 text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.7);
-                transition: all 0.3s ease;
+                color: white;
+                border-radius: 10px;
+                font-size: 17px;
+
+                &:hover {
+                    background-color: #ff4c4cd2;
+                    box-shadow: 0 2px 27px rgba(255, 255, 255, 0.932);
+                    text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.7);
+                    transition: all 0.3s ease;
+                }
             }
+
         }
 
     }
-
-}
