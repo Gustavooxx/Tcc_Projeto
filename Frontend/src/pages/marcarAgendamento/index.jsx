@@ -10,6 +10,7 @@ export default function MarcaAgendamento() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
 
+<<<<<<< HEAD
     nome_completo: "",
     email: "",
     telefone: "",
@@ -213,6 +214,13 @@ export default function MarcaAgendamento() {
               <li>Este agendamento é local e não envia dados ao servidor.</li>
             </ul>
           </aside>
+=======
+    return(
+        <div className="cotainer-agendamento">
+            <Tags/>
+ 
+            <Footer/>
+>>>>>>> f0badbeb459f60b5b79390b02f87d3852a00a267
         </div>
 
       </section>

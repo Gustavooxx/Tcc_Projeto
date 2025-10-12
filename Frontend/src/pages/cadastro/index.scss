@@ -10,6 +10,7 @@
         justify-content: space-between;
         background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 100%);
         padding: 5px;
+        margin: 1rem;
 
         .img-tags {
             display: flex;
@@ -54,12 +55,12 @@
                     background-color: #da2a1d89;
                 }
             }
-            
+
             button {
                 border-radius: 10px;
                 padding: 10px;
             }
-                
+
         }
     }
 
@@ -73,7 +74,7 @@
         margin-top: 2rem;
 
         .texto-cadastro {
-            border:3px solid #DA2B1D;
+            border: 3px solid #DA2B1D;
             background-color: white;
             border-radius: 8px;
             max-width: 500px;
@@ -167,7 +168,7 @@
                 display: flex;
                 flex-direction: column;
                 margin: 10px;
-                    overflow: visible;
+                overflow: visible;
 
 
                 label {
@@ -178,12 +179,13 @@
 
                 input,
                 select {
-    min-width: 50px;   // Largura mínima do select
-    width: 100%;        // Pode expandir até o tamanho do container
-    padding: 8px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+                    min-width: 50px; // Largura mínima do select
+                    width: 100%; // Pode expandir até o tamanho do container
+                    padding: 8px;
+                    font-size: 16px;
+                    border-radius: 5px;
+                    border: 1px solid #ccc;
+
                     &:focus {
                         outline: none;
                         border: 2px solid #DA2B1D;
@@ -200,33 +202,33 @@
             }
 
 
-                button {
-                    grid-column: 1 / -1;
-                    background-color: #DA2B1D;
-                    color: white;
-                    border: none;
-                    border-radius: 10px;
-                    padding: 10px;
-                    font-size: 15px;
-                    font-weight: bold;
-                    margin-top: 6px;
-                    width: 180px;
-                    justify-self: center;
-                    margin-bottom: 4px;
-                    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            button {
+                grid-column: 1 / -1;
+                background-color: #DA2B1D;
+                color: white;
+                border: none;
+                border-radius: 10px;
+                padding: 10px;
+                font-size: 15px;
+                font-weight: bold;
+                margin-top: 6px;
+                width: 180px;
+                justify-self: center;
+                margin-bottom: 4px;
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
 
-                    &:hover {
-                        background-color: #b80202ea;
-                        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-                    }
+                &:hover {
+                    background-color: #b80202ea;
+                    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
                 }
+            }
 
-                .semCadastro{
-                    text-align: center;
-                    margin-bottom: 3rem ;
-                }
-            
+            .semCadastro {
+                text-align: center;
+                margin-bottom: 3rem;
+            }
+
         }
 
     }

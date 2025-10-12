@@ -9,6 +9,7 @@ import MarcaAgendamento from './pages/marcarAgendamento'
 
 
 
+
 export default function Navegacao() {
     return (
         <BrowserRouter>
@@ -22,6 +23,7 @@ export default function Navegacao() {
                 <Route path="/contato" element={<Contato />} />
                 <Route path="/como doar" element={<Comodoar />} />
                 <Route path="/Marcar agendamento" element={<MarcaAgendamento />} />
+
 
 
 

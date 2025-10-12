@@ -59,7 +59,7 @@ export default function Cadastro() {
 
                 <div className='tags-login'>
 
-                    <Link to='/'><button className='ajudar'>Não posso doar e quero ajudar</button></Link>
+                    <Link to='/ajuda'><button className='ajudar'>Não posso doar e quero ajudar</button></Link>
 
                     <Link to={'/'}><button className='ajudar'>Voltar</button></Link>
                 </div>

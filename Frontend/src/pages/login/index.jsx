@@ -8,14 +8,14 @@ export default function Login() {
         <div className='container-login'>
             <section className="container-tags">
                 <div className='img-tags'>
-                    <img src="/assets/images/image 4.svg" alt="logo1" />
+                    <Link to={'/'}><img src="/assets/images/image 4.svg" alt="logo1" /></Link>
                 </div>
             </section>
             <section className="login-form-section">
                 <h2>Entrar na sua conta</h2>
                 <form className="login-form" noValidate>
                     <div className="form-group">
-                        <label htmlFor="email">Email</label>
+                        <label htmlFor="email">Email</label>    
                         <input type="email" id="email" name="email" placeholder="Digite seu email" required autoComplete="email" />
                     </div>
                     <div className="form-group">
