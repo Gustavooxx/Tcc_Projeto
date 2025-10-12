@@ -2,7 +2,7 @@ import connection from "./connetion.js";
 
 export async function lista() {
     const comando = `
-    select * from doadores
+    select * from cadastro_users
     `
     const [registros] = await connection.query(comando)
     return registros;
@@ -14,7 +14,7 @@ export async function cadastrar(novoCadastro){
     `INSERT INTO cadastro_users
 (nome_completo, email, senha, cpf, telefone, estado, sexo, origem) 
 VALUES 
-(?, ?, MD5(?), ?, ?, ?, ?, ?, ?);
+(?, ?, MD5(?), ?, ?, ?, ?, ?);
 `
     const [info] = await connection.query(comando, [novoCadastro.nome_completo, novoCadastro.email,
          novoCadastro.senha, novoCadastro.cpf, novoCadastro.telefone, novoCadastro.estado,
@@ -27,7 +27,7 @@ VALUES
 
 export async function consultarCpf(novoCadastro){
    const comando = `
-    select * from doadores
+    select * from cadastro_users
      where cpf = ?
     
     `
@@ -38,7 +38,7 @@ export async function consultarCpf(novoCadastro){
 
 export async function consultarEmail(novoCadastro){
    const comando = `
-    select * from doadores
+    select * from cadastro_users
      where email = ?
     
     `

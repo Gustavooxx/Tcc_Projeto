@@ -1,9 +1,14 @@
 import { Router } from "express";
 import { serviceCadastrar, serviceLogar, serviceToken } from "../service/serviceCadastrar.js";
 import { generateToken } from "../utils/jwt.js";
+import { lista } from "../repository/cadastroRepository.js";
 
 const cadastro = Router();
 
+cadastro.get('/listar/cadastros', async (req,resp) => {
+    let registros = await lista();
+    resp.send(registros)
+})
 
 
 cadastro.post('/cadastro', async (req, resp) => {

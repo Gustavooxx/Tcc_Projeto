@@ -62,6 +62,8 @@ export default function MarcaAgendamento() {
 
     } catch (error) {
       console.error("erro ao fazer agendamento", error)
+          const errorMessage = error.response?.data?.erro || error.message;
+            alert('Erro ao cadastrar: ' + errorMessage);
 
       if (error.response && error.response.data && error.response.data.erro) {
         setMensagem(error.response.data.erro);
