@@ -10,6 +10,8 @@ export default function Login() {
                 <div className='img-tags'>
                     <Link to={'/'}><img src="/assets/images/image 4.svg" alt="logo1" /></Link>
                 </div>
+
+                <Link> <button>Voltar</button> </Link> 
             </section>
             <section className="login-form-section">
                 <h2>Entrar na sua conta</h2>

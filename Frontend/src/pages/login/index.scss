@@ -8,15 +8,38 @@
         background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 100%);
         padding: 0.5rem;
         display: flex;
-        justify-content: center;
         align-items: center;
+        justify-content: space-around;
 
         .img-tags {
+
             img {
                 height: 70px;
                 width: auto;
 
             }
+        }
+
+        button{
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-bottom: 10px;
+                padding-top: 10px;
+                margin-right: 2rem;
+                background-color: #ff0000f0;
+                box-shadow: 0 2px 20px rgba(255, 255, 255, 0.526);
+                border: 1px solid #A9233E;
+                text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.7);
+                color: white;
+                border-radius: 10px;
+                font-size: 17px;
+
+                &:hover {
+                    background-color: #ff4c4cd2;
+                    box-shadow: 0 2px 27px rgba(255, 255, 255, 0.932);
+                    text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.7);
+                    transition: all 0.3s ease;
+                }
         }
     }
 
