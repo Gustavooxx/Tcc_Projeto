@@ -71,7 +71,7 @@ export default function QuemSomos() {
 
                     <p>Nosso maior motivador é a crença de que cada doação de sangue tem o poder de salvar vidas e transformar comunidades. Através da solidariedade e do compromisso coletivo, buscamos criar um mundo onde a generosidade seja a força que impulsiona a esperança e a cura.</p>
 
-                    <img src="assets/images/amor.png" alt="" />
+                    <img src="assets/images/motivacao.png" alt="" />
                     </div>
                 </div>
 
