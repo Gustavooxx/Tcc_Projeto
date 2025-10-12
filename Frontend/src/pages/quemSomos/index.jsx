@@ -15,9 +15,8 @@ export default function QuemSomos() {
 
 
                 <div className='texto-pagina'>
-                    <h2>Quem Somos</h2>
-                    <p>Juntos pela vida. Conheça nossa missão e propósito.</p>
-                    <img src="/assets/images/mao coracao 1.svg" alt="" />
+                    <h2>Quem Somos?</h2>
+                    
                 </div>
 
             </section>
