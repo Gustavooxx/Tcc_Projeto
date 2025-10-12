@@ -110,16 +110,17 @@
             padding-top: 2rem;
             padding-bottom: 2rem;
 
-            .card:hover{
-                           transform: translateY(-5px);
-                    
+            .card:hover {
+                transform: translateY(-5px);
+
             }
+
             .card {
                 text-align: center;
                 width: auto;
-             transition: transform 0.3s ease;
+                transition: transform 0.3s ease;
 
-            
+
                 h4 {
                     width: 130px;
                     color: #333;
@@ -135,7 +136,7 @@
         h2 {
             color: #A9233E;
             text-shadow: rgba(169, 35, 35, 0.35) 0px 5px 15px;
-            
+
         }
 
         .texto-image {
@@ -146,14 +147,14 @@
                 width: 500px;
                 font-size: 18px;
                 line-height: 1.6;
-                margin-top:2rem ;
+                margin-top: 2rem;
             }
 
             img {
                 height: 600px;
                 margin-left: 10rem;
                 border-radius: 25px;
-                
+
             }
         }
     }

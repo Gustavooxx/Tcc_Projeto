@@ -56,9 +56,6 @@ export function validarCadastro(cadastro){
          throw new Error('Estado obrigatório');
 
 
-    if(!cadastro.tipo_sanguineo)
-         throw new Error('Tipo sanguíneo obrigatório');
-
 
     if(!cadastro.sexo)
          throw new Error('Sexo obrigatório');

@@ -5,7 +5,7 @@ import axios from 'axios'
 
 export default function Cadastro() {
 
-    //
+    
     const navigate = useNavigate();
 
     //Função para enviar os dados do formulário para o backend

@@ -4,10 +4,7 @@ import { generateToken } from "../utils/jwt.js";
 
 const cadastro = Router();
 
-cadastro.get('/listar', async (req, resp) => {
-    let registros = await lista()
-    resp.send(registros)
-})
+
 
 cadastro.post('/cadastro', async (req, resp) => {
     try {
@@ -18,7 +15,6 @@ cadastro.post('/cadastro', async (req, resp) => {
         return resp.status(400).json({ erro: error.message });
     }
 });
-
 
 
 cadastro.post('/logar', async (req,resp) => {

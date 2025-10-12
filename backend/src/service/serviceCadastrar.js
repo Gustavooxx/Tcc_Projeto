@@ -14,8 +14,6 @@ export async function serviceCadastrar(novoCadastro){
         
         let id = await cadastrar(novoCadastro);
         return id;
-
-
     } 
     
     catch (error) {
