@@ -59,7 +59,7 @@ export default function Cadastro() {
 
                 <div className='tags-login'>
 
-                    <Link to='/ajuda'><button className='ajudar'>Não posso doar e quero ajudar</button></Link>
+                    <Link to='/Como ajudar'><button className='ajudar'>Não posso doar e quero ajudar</button></Link>
 
                     <Link to={'/'}><button className='ajudar'>Voltar</button></Link>
                 </div>
@@ -81,7 +81,7 @@ export default function Cadastro() {
                         </p>
 
                         <div className='botao-como-funciona'>
-                            <button>Como funciona?</button>
+                           <Link to={"/como doar"}> <button>Como funciona?</button></Link>
                         </div>
                     </div>
 
