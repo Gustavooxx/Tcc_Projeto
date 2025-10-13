@@ -1,5 +1,5 @@
 
-export function validarLogin(login){
+export function validarLogin(login, rows){
 
     if(!cadastro.email)
         throw new Error('Email obrigatório');
@@ -11,7 +11,7 @@ export function validarLogin(login){
 
 export function validarEmailBanco(registro){
      if(registro){
-        throw new Error('Email obrigatori');
+        throw new Error('Email obrigatorio');
     }
 }
 
