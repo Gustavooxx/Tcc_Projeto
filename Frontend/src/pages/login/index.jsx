@@ -1,8 +1,36 @@
 import './index.scss'
+import { Link,useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
-import { Link } from 'react-router-dom'
 
 export default function Login() {
+    const navigate = useNavigate();
+
+    const logar = async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+
+        const data = {
+          email: formData.get('email'),
+          senha: formData.get('senha')  
+        };
+
+        try {
+        const response = await axios.post('http://localhost:5010/logar', data)
+        const token = response.data.token;
+
+        localStorage.setItem('token', token);
+        alert('Usuario logado!!');
+        navigate('/inicio')
+        }
+        catch (error) {
+        const errorMessage = error.response?.data.erro || error.message;
+        alert('Erro ao Logar: ' + errorMessage);
+
+
+        }
+    }
 
     return (
         <div className='container-login'>
@@ -15,7 +43,7 @@ export default function Login() {
             </section>
             <section className="login-form-section">
                 <h2>Entrar na sua conta</h2>
-                <form className="login-form" noValidate>
+                <form className="login-form" onSubmit={logar} noValidate>
                     <div className="form-group">
                         <label htmlFor="email">Email</label>    
                         <input type="email" id="email" name="email" placeholder="Digite seu email" required autoComplete="email" />

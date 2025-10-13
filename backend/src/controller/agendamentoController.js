@@ -17,7 +17,7 @@ endpoints.get('/listar', async (req, resp) => {
 
 endpoints.post('/agendamento', Authentication, async (req, resp) => {
     try{
-        const usuario_id = req.user && req.user.id;
+        const usuario_id = req.user && req.user.id_cadastro;
         if (!usuario_id) return resp.status(401).json({ error: 'Usuário não autenticado' });
 
         let novoAgendamento = req.body;

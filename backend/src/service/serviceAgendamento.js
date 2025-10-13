@@ -1,4 +1,4 @@
-import { validarAgendamento, validarEmailAgendamento } from "../validation/agendamento/agendamentoValidation.js";
+import { validarAgendamento, validarEmalAgendamento } from "../validation/agendamento/agendamentoValidation.js";
 import { consultarEmail, agendamentoUsario } from '../repository/agendamentoRepository.js';
 
 export default async function serviceAgendamento(novoAgendamento, usuario_id){
