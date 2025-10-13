@@ -1,65 +1,160 @@
 .footer {
-        background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 100%);
-        padding: 5rem;
-        color: #fff;
-
-        .conteinar-foo {
-            display: flex;
-            justify-content: center;
-            gap: 10rem;
-
-            .Nos {
-                padding-right: 5rem;
-
-                h1 {
-                    display: flex;
-                    align-items: center;
-                    gap: 5px;
-
-                    img {
-                        height: 60px;
-                    }
-
-                }
-
-                p {
-                    font-size: 18px;
-                    width: 300px;
-                }
-            }
-
-            .cadastro-foo {
-                
-                text-align: center;
-
-                .email {
-                    color: #333333;
-                }
-
-                p {
-                    font-size: 18px;
-                    margin-bottom: 2rem;
-                }
-
-                button {
-                    padding: 10px 25px;
-                    background-color: #DA2B1D;
-                    font-size: 17px;
-                    border: 1px solid #DA2B1D;
-                    border-radius: 20px;
-                    box-shadow: 0 4px 18px rgba(255, 255, 255, 0.526);
-                    color: white;
-                    margin-bottom: 3rem;
-
-                    &:hover {
-                        background-color: #fc3628;
-                        box-shadow: 0 4px 18px rgba(255, 255, 255, 0.932);
-
-                    }
-                }
-            }
-
-
+    background-color: #f8f8f8; // fundo neutro
+    color: #333;
+    padding: 3rem 2rem 1.5rem;
+    border-top: 2px solid #e3e3e3;
+  
+    .conteinar-foo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+  
+      div {
+        display: flex;
+        flex-direction: column;
+      }
+  
+      // --- SOBRE ---
+      .Nos {
+        h1 {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          font-size: 1.6rem;
+          color: #b30000; // vermelho sangue
+          font-weight: 700;
+  
+          img {
+            width: 30px;
+            height: auto;
+          }
         }
-
+  
+        p {
+          margin-top: 0.8rem;
+          font-size: 0.95rem;
+          line-height: 1.5;
+          color: #555;
+        }
+      }
+  
+      // --- LINKS ÚTEIS ---
+      .links-foo {
+        h2 {
+          font-size: 1.1rem;
+          color: #b30000;
+          margin-bottom: 0.8rem;
+        }
+  
+        ul {
+          list-style: none;
+          padding: 0;
+  
+          li {
+            margin-bottom: 0.5rem;
+  
+            a {
+              color: #333;
+              text-decoration: none;
+              font-size: 0.95rem;
+              transition: color 0.2s ease;
+  
+              &:hover {
+                color: #b30000;
+              }
+            }
+          }
+        }
+      }
+  
+      // --- CADASTRO E CONTATO ---
+      .cadastro-foo {
+        h2 {
+          font-size: 1.1rem;
+          color: #b30000;
+          margin-bottom: 0.8rem;
+        }
+  
+        button {
+          background-color: #b30000;
+          color: white;
+          border: none;
+          border-radius: 8px;
+          padding: 0.6rem 1.2rem;
+          font-size: 0.95rem;
+          font-weight: 500;
+          cursor: pointer;
+          margin-bottom: 1rem;
+          transition: background-color 0.2s ease;
+  
+          &:hover {
+            background-color: #8c0000;
+          }
+        }
+  
+        .contato {
+          p {
+            font-size: 0.9rem;
+            margin: 0.3rem 0;
+  
+            &.email,
+            &.telefone {
+              font-weight: 600;
+              color: #444;
+            }
+          }
+        }
+      }
+  
+      // --- LOCALIZAÇÃO ---
+      .localizacao {
+        h2 {
+          font-size: 1.1rem;
+          color: #b30000;
+          margin-bottom: 0.6rem;
+        }
+  
+        p {
+          font-size: 0.9rem;
+          color: #555;
+          margin-bottom: 0.3rem;
+        }
+      }
     }
+  
+    // --- RODAPÉ INFERIOR ---
+    .direitos {
+      border-top: 1px solid #ddd;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      text-align: center;
+  
+      p {
+        font-size: 0.85rem;
+        color: #666;
+        margin: 0.2rem 0;
+      }
+  
+      p:last-child {
+        font-style: italic;
+      }
+    }
+  
+    // --- RESPONSIVIDADE ---
+    @media (max-width: 768px) {
+      .conteinar-foo {
+        text-align: center;
+  
+        .Nos h1 {
+          justify-content: center;
+        }
+  
+        button {
+          align-self: center;
+        }
+      }
+    }
+  }
+  
