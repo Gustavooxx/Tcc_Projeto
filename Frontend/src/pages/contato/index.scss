@@ -9,19 +9,20 @@
             gap: 2rem;
             margin-bottom: 1rem;
             margin-top: 2rem;
-            
+
         }
     }
-    
+
     .duvidas {
-        
-        background-color: #c0bbbb8e;
+
         display: flex;
         justify-content: left;
         align-items: center;
         gap: 5rem;
         margin: 2rem;
         border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
 
         img {
             padding-right: 13rem;
@@ -34,7 +35,7 @@
         }
     }
 
-    .nossas-opcoes{
+    .nossas-opcoes {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -47,16 +48,19 @@
         justify-content: center;
         align-items: center;
         margin: 2rem;
+        
         padding: 2rem;
-        background-color: #c0bbbb8e;
         border-radius: 10px;
         gap: 2rem;
         margin-bottom: 7rem;
-        
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+
 
 
         h1 {
             margin-left: 5rem;
+            
         }
 
         .email {
@@ -66,7 +70,7 @@
             gap: 9px;
             margin-top: 1rem;
             margin-bottom: 1rem;
-            
+
         }
 
         .whatsapp {
@@ -76,7 +80,7 @@
             gap: 9px;
             margin-top: 1rem;
             margin-bottom: 1rem;
-     
+
         }
 
         .redes-sociais {
@@ -86,7 +90,7 @@
             gap: 9px;
             margin-top: 1rem;
             margin-bottom: 1rem;
-       
+
         }
 
     }

@@ -108,6 +108,7 @@ export default function Inicio() {
                 <Link><button> Venha fazer parte</button></Link>
             </div>
 
+
             <FAQ/>
         
        

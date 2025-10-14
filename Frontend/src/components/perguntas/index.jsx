@@ -30,7 +30,8 @@ const perguntas = [
 
 export function Perguntas() {
   return (
-    <section className="container-perguntas">
+
+    <section id="perguntas" className="container-perguntas">
       <div className="container">
         <div className="textos-center">
           <h2 className="titulo">Perguntas Frequentes</h2>
@@ -47,6 +48,7 @@ export function Perguntas() {
         </div>
       </div>
     </section>
+
   );
 }
 
