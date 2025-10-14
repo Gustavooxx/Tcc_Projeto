@@ -11,15 +11,14 @@ export async function lista() {
 export async function agendamentoUsario(novoAgendamento, usuario_id) {
   const comando = `
        INSERT INTO agendamentos (
-    usuario_id, hemocentro_id, nome_completo, email, telefone,
+    usuario_id, nome_completo, email, telefone,
     estado, cidade, tipo_sanguineo, data_agendamento,
     horario, observacoes, confirmou_requisitos
-  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 `;
 
   const [info] = await connection.query(comando, [
     usuario_id,
-    novoAgendamento.hemocentro_id,
     novoAgendamento.nome_completo,
     novoAgendamento.email,
     novoAgendamento.telefone,
@@ -31,6 +30,26 @@ export async function agendamentoUsario(novoAgendamento, usuario_id) {
     novoAgendamento.observacoes,
     novoAgendamento.confirmou_requisitos,
   ]);
+
+  const comando2 = `
+
+  select id_hemocentro from hemocentros
+  where nome_hemocentro = ?
+  `
+
+  const [idResult] = await connection.query(comando2,[novoAgendamento.nome_hemocentro]);
+  const hemocentroId = idResult[0]?.id_hemocentro;
+
+  const comando3 = `
+   update agendamentos
+   set hemocentro_id = ?
+   where id = ?
+
+  `
+
+   await connection.query(comando3,[hemocentroId, info.insertId]);
+
+  
   return info.insertId;
 }
 

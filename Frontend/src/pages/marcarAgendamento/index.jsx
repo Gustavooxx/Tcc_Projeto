@@ -14,12 +14,12 @@ export default function MarcaAgendamento() {
     telefone: "",
     estado: "",
     cidade: "",
-    hemocentro_id: "",
     tipo_sanguineo: "",
     data_agendamento: "",
     horario: "",
     observacoes: "",
-    confirmou_requisitos: 0
+    confirmou_requisitos: 0,
+    nome_hemocentro: ''
   })
 
   const [mensagem, setMensagem] = useState("");
@@ -52,18 +52,21 @@ export default function MarcaAgendamento() {
         telefone: "",
         estado: "",
         cidade: "",
-        hemocentro_id: "",
         tipo_sanguineo: "",
         data_agendamento: "",
         horario: "",
         observacoes: "",
-        confirmou_requisitos: 0
+        confirmou_requisitos: 0,
+        nome_hemocentro: ''
       });
 
     } catch (error) {
-      console.error("erro ao fazer agendamento", error)
+      console.error("Erro ao fazer agendamento", error)
           const errorMessage = error.response?.data?.erro || error.message;
             alert('Erro ao cadastrar: ' + errorMessage);
+
+          
+
 
       if (error.response && error.response.data && error.response.data.erro) {
         setMensagem(error.response.data.erro);
@@ -152,7 +155,7 @@ export default function MarcaAgendamento() {
               <div className="row">
                 <div className="form-group">
                   <label htmlFor="hemocentro">Hemocentro</label>
-                  <select id="hemocentro_id" name="hemocentro_id" value={formData.hemocentro_id} onChange={handleChange} required>
+                  <select id="nome_hemocentro" name="nome_hemocentro" value={formData.nome_hemocentro} onChange={handleChange} required>
                     <option value="" disabled>Selecione um hemocentro</option>
                     <option value="Fundação Pró-Sangue - São Paulo (SP)">Fundação Pró-Sangue - São Paulo (SP)</option>
                     <option value="HemoRio - Rio de Janeiro (RJ)">HemoRio - Rio de Janeiro (RJ)</option>
@@ -203,6 +206,7 @@ export default function MarcaAgendamento() {
 
               <button type="submit" className="btn-primary">Marcar agendamento</button>
             </form>
+            {mensagem && <p className="mensagem">{mensagem}</p>}
           </section>
 
           <aside className="card-info">

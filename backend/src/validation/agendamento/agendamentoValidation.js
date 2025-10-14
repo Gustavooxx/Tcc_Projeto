@@ -22,7 +22,7 @@ export function validarAgendamento(agendamento) {
         throw new Error('Cidade obrigatório');
 
 
-    if (!agendamento.hemocentro)
+    if (!agendamento.nome_hemocentro)
         throw new Error('Hemocentro obrigatório');
 
 
@@ -44,7 +44,7 @@ export function validarAgendamento(agendamento) {
 }
 
 export function validarEmailAgendamento(registro){
-     if(registro){
+     if(registro && registro.length > 0){
         throw new Error('Email já cadastrado');
     }
 }

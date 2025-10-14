@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { agendamentoUsario, lista, consultarEmail } from "../repository/agendamentoRepository.js";
+import { agendamentoUsario, lista } from "../repository/agendamentoRepository.js";
 import { getAuthentication } from "../utils/jwt.js";
 import serviceAgendamento from "../service/serviceAgendamento.js";
 
