@@ -1,7 +1,7 @@
-    
- .section-tags{
+    .section-tags {
         padding: 1rem 2rem 1rem 2rem;
     }
+
     .container-tags {
         display: flex;
         border-radius: 10px;
@@ -10,10 +10,15 @@
         padding: 5px;
         background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 100%);
 
+        a {
+            text-decoration: none;
+        }
+
         .foto-tags {
             display: flex;
             align-items: center;
             padding: 5px;
+
 
 
             img {
@@ -49,7 +54,7 @@
 
                 }
 
-                &::after{
+                &::after {
                     content: '';
                     position: absolute;
                     bottom: 0;
@@ -57,10 +62,10 @@
                     width: 0;
                     height: 2px;
                     background-color: #f4868d;
-                    transition:  0.8s ease;
+                    transition: 0.8s ease;
                 }
 
-                &:hover::after{
+                &:hover::after {
                     width: 100%;
                 }
             }
@@ -71,6 +76,9 @@
             align-items: center;
             gap: 20px;
 
+            a {
+                text-decoration: none;
+            }
 
             .login {
                 color: white;
@@ -91,19 +99,19 @@
                 padding-top: 10px;
                 margin-right: 2rem;
                 background-color: #c41818f0;
-                box-shadow: 0 2px 20px rgba(255, 255, 255, 0.526);
                 border: 1px solid #A9233E;
-                text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.7);
-                color: white;
+                text-shadow: 1px rgba(255, 255, 255, 0.7);
+                color: rgb(255, 255, 255);
                 border-radius: 10px;
                 font-size: 17px;
 
                 &:hover {
-                    background-color: #ff4c4cd2;
-                    box-shadow: 0 2px 27px rgba(255, 255, 255, 0.932);
-                    text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.7);
-                    transition: all 0.3s ease;
+                    background-color: #df3131d2;
+                    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.932);
+                    transition: all 0.5s ease;
+
                 }
+
             }
 
         }
