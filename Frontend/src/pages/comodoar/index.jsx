@@ -1,4 +1,5 @@
 import Footer from '../../components/footer/footer'
+import BloodTypes, { Sangues } from '../../components/sangues'
 import Tags from '../../components/tags/util'
 import './index.scss'
 import { Link } from 'react-router'
@@ -76,6 +77,8 @@ export default function Comodoar() {
                 </div>
             </section>
 
+            <Sangues/>
+
             <section className='porque-doar'>
                 <h2>Por que doar sangue?</h2>
                 <div className='texto-image'>
@@ -84,7 +87,7 @@ export default function Comodoar() {
                     Esse gesto é um ato de solidariedade e empatia, pois qualquer pessoa pode precisar de sangue em algum momento da vida. Como não existe forma de produzir sangue artificialmente, a doação voluntária é a única fonte disponível.
                     Segura, rápida e gratuita, a doação transforma minutos doados em esperança para quem luta pela vida. Doar sangue é, acima de tudo, doar vida.</p>
 
-                    <img src="/assets/images/doação de sangue img 1.png" alt="" height={"100px"} />
+                    <img src="/assets/images/doandosangue.webp" alt="" height={"100px"} />
                 </div>
             </section>
 

@@ -1,0 +1,57 @@
+:root{
+  --faq-bg: #fff;
+  --faq-contrast: #f7f7fb;
+  --faq-border: #e6e6ef;
+  --faq-title: #2b2b33;
+  --faq-subtitle: #52525b;
+  --faq-accent: #c62828; /* vermelho suave para temas de doação */
+}
+
+.container-perguntas{
+  padding: 3rem 1rem;
+  background: linear-gradient(180deg, rgba(198,24,24,0.04), rgba(255,255,255,0));
+
+  .container{
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .textos-center{ text-align:center; margin-bottom:1.5rem }
+
+  .titulo{ font-size:2rem; font-weight:700; color:var(--faq-title); margin-bottom:0.5rem }
+  .subtitulo{ color:var(--faq-subtitle); font-size:1.05rem }
+
+  .detalhes{ display:grid; gap:1rem }
+
+  .detalhe-item{
+    background: var(--faq-bg);
+    border: 1px solid var(--faq-border);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 2px 8px rgba(41, 41, 63, 0.04);
+    transition: transform 160ms ease, box-shadow 160ms ease;
+    overflow: hidden;
+  }
+
+  .detalhe-item[open]{ transform: translateY(-2px); box-shadow: 0 8px 24px rgba(41,41,63,0.08) }
+
+  .detalhe-pergunta{
+    list-style: none; cursor:pointer; font-weight:600; color:var(--faq-title);
+    display:flex; align-items:center; justify-content:space-between; gap:0.75rem; padding:0.25rem 0;
+  }
+
+  .detalhe-pergunta::after{ content:'\25be'; display:inline-block; transform-origin:center; transition:transform 0.18s ease; color:var(--faq-accent) }
+  .detalhe-item[open] .detalhe-pergunta::after{ transform: rotate(-180deg) }
+
+  .detalhe-resposta{ margin-top:0.75rem; color:var(--faq-subtitle); line-height:1.5; font-size:0.975rem; padding-bottom:0.5rem }
+
+  .detalhe-resposta{ max-height:0; overflow:hidden; transition:max-height 220ms ease, opacity 140ms ease; opacity:0 }
+  .detalhe-item[open] .detalhe-resposta{ max-height:400px; opacity:1 }
+
+  @media(min-width:768px){ .titulo{ font-size:2.5rem } .detalhes{ gap:1.25rem } }
+
+  /* Remove marker */
+  .detalhe-item summary{ list-style:none }
+  .detalhe-item summary::-webkit-details-marker{ display:none }
+  .detalhe-item summary{ outline:none }
+}

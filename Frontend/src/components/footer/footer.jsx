@@ -20,7 +20,6 @@ export default function Footer() {
                     <h2>Links úteis</h2>
                     <ul>
                         <li><Link to="/como doar">Como doar</Link></li>
-                        <li><Link to="/locais">Locais de doação</Link></li>
                         <li><Link to="/faq">Perguntas frequentes</Link></li>
                         <li><Link to="/voluntariado">Seja voluntário</Link></li>
                     </ul>

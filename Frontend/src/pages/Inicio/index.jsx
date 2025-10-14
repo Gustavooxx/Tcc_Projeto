@@ -1,4 +1,5 @@
 import Footer from '../../components/footer/footer'
+import FAQ from '../../components/perguntas'
 import Tags from '../../components/tags/util'
 import './index.scss'
 import { Link } from 'react-router-dom'
@@ -106,6 +107,8 @@ export default function Inicio() {
             <div className='fazer-parte'>
                 <Link><button> Venha fazer parte</button></Link>
             </div>
+
+            <FAQ/>
         
        
            <Footer/>

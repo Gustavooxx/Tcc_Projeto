@@ -106,20 +106,17 @@
         .cards {
             display: flex;
             justify-content: center;
+            justify-content: space-evenly;
             gap: 2.5rem;
             padding-top: 2rem;
             padding-bottom: 2rem;
-
-
 
             .card {
                 text-align: center;
                 width: auto;
                 
-
-
                 h4 {
-                    width: 130px;
+                    width: 170px;
                     color: #333;
                 }
             }
@@ -127,8 +124,10 @@
     }
 
     .porque-doar {
+        display: flex;
+        flex-direction: column;
         margin: 3rem;
-        padding-top: 2.5rem;
+        padding-top: 2rem;
 
         h2 {
             color: #A9233E;
@@ -138,17 +137,18 @@
 
         .texto-image {
             display: flex;
+            align-items: center;
             gap: 5rem;
 
             p {
                 width: 500px;
                 font-size: 18px;
                 line-height: 1.6;
-                margin-top: 2rem;
+                margin-top: 1rem;
             }
 
             img {
-                height: 600px;
+                height: 400px;
                 margin-left: 10rem;
                 border-radius: 25px;
 

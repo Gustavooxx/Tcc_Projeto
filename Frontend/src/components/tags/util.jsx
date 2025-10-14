@@ -1,5 +1,6 @@
 import './index.scss'
 import { Link } from 'react-router'
+
 export default function Tags() {
     return (
         <section className='section-tags' >
