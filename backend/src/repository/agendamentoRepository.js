@@ -14,7 +14,7 @@ export async function agendamentoUsario(novoAgendamento, usuario_id) {
     usuario_id, nome_completo, email, telefone,
     estado, cidade, tipo_sanguineo, data_agendamento,
     horario, observacoes, confirmou_requisitos
-  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)
 `;
 
   const [info] = await connection.query(comando, [
