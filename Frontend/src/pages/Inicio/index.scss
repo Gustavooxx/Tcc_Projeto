@@ -10,7 +10,7 @@
         margin-bottom: 5rem;
         display: flex;
         align-items: center;
-        background-color: #c0bbbb8e;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
         padding: 2rem;
 
@@ -58,7 +58,7 @@
 
         .imagem-pagina {
             border-radius: 20px;
-            box-shadow: rgba(134, 133, 133, 0.56) 0px 5px 20px 10px;
+            box-shadow: rgba(134, 133, 133, 0.56) 0px 5px 10px 4px;
             margin-left: auto;
 
             img {
