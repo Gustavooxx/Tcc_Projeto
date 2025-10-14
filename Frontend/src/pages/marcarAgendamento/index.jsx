@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Footer from '../../components/footer/footer'
 import Tags from '../../components/tags/util'
 import './index.scss'
@@ -23,6 +23,7 @@ export default function MarcaAgendamento() {
   })
 
   const [mensagem, setMensagem] = useState("");
+  const [nome, setNome] = useState([]);
 
   // handleChange atualiza o state quando o usuário digita/select/checkbox
   const handleChange = (e) => {
@@ -32,6 +33,19 @@ export default function MarcaAgendamento() {
       [name]: type === 'checkbox' ? (checked ? 1 : 0) : value
     }));
   }
+
+const listarHemocentros = async () => {
+  try {
+    const resposta = await axios.get("http://localhost:5010/listarHemocentros");
+    setNome(resposta.data.registros); 
+  } catch (error) {
+    console.error("Erro ao listar hemocentros", error);
+  }
+};
+
+useEffect(() => {
+  listarHemocentros();
+}, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -155,13 +169,19 @@ export default function MarcaAgendamento() {
               <div className="row">
                 <div className="form-group">
                   <label htmlFor="hemocentro">Hemocentro</label>
-                  <select id="nome_hemocentro" name="nome_hemocentro" value={formData.nome_hemocentro} onChange={handleChange} required>
+                 <select
+                    id="nome_hemocentro"
+                    name="nome_hemocentro"
+                    value={formData.nome_hemocentro}
+                    onChange={handleChange}
+                    required
+                      >
                     <option value="" disabled>Selecione um hemocentro</option>
-                    <option value="Fundação Pró-Sangue - São Paulo (SP)">Fundação Pró-Sangue - São Paulo (SP)</option>
-                    <option value="HemoRio - Rio de Janeiro (RJ)">HemoRio - Rio de Janeiro (RJ)</option>
-                    <option value="Hemominas - Belo Horizonte (MG)">Hemominas - Belo Horizonte (MG)</option>
-                    <option value="HemoPE - Recife (PE)">HemoPE - Recife (PE)</option>
-                    <option value="Outro">Outro</option>
+                    {nome.map((item, index) => (
+                      <option key={index} value={item.nome_hemocentro_verificar}>
+                        {item.nome_hemocentro_verificar}
+                      </option>
+                    ))}
                   </select>
                 </div>
 

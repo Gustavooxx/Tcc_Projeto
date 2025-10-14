@@ -61,3 +61,25 @@ export async function consultarEmail(emailObj) {
   const [registros] = await connection.query(comando, [emailObj.email]);
   return registros;
 }
+
+export async function listarHemocentro(){
+  const comando = `
+  select nome_hemocentro_verificar from verificar_hemocentros
+  `
+
+  const [registros] = await connection.query(comando);
+
+  return registros;
+}
+
+export async function listarAgenda(nome){
+  const comando = `
+  select * from verificar_hemocentros
+  where nome_hemocentro_verificar = ?
+  `
+
+  const [registros] = await connection.query(comando, [nome]);
+
+  return registros[0];
+
+}

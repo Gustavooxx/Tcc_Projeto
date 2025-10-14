@@ -48,3 +48,15 @@ export function validarEmailAgendamento(registro){
         throw new Error('Email já cadastrado');
     }
 }
+
+
+export function validarAgenda(nome,registro){
+    if (!nome){
+        throw new Error('É necessario selecionar um hemocentro ');
+    }
+
+    if(!registro){
+        throw new Error('Não tem horarios disponiveis para esse hemocentro');
+
+    }
+} 

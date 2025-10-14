@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { agendamentoUsario, lista } from "../repository/agendamentoRepository.js";
 import { getAuthentication } from "../utils/jwt.js";
-import serviceAgendamento from "../service/serviceAgendamento.js";
+import serviceAgendamento, { listarAgendaService, listarHemocentrosDisponiveisService } from "../service/serviceAgendamento.js";
 
 const Authentication = getAuthentication();
 const endpoints = Router();
@@ -26,6 +26,31 @@ endpoints.post('/agendamento', Authentication, async (req, resp) => {
     } catch(error){
         resp.status(400).json({error: error.message})
     }
+})
+
+endpoints.get('/listarHemocentros', async (req,resp) => {
+    const registros = await listarHemocentrosDisponiveisService();
+    
+    resp.status(201).send({
+        registros
+    })
+})
+
+endpoints.post('/agenda', async (req,resp) => {
+try {
+    const nome = req.body.nome_hemocentro;
+
+    const registros = await listarAgendaService(nome);
+
+    resp.status(201).send({
+        registros
+    });
+} 
+catch (error) {
+resp.status(400).send({
+    erro: error.message
+})    
+}
 })
 
 export default endpoints
