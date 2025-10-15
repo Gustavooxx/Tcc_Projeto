@@ -2,6 +2,7 @@ import Footer from '../../components/footer/footer'
 import Tags from '../../components/tags/util'
 import './index.scss'
 import { Link } from 'react-router-dom'
+import RegisterModal from '../../components'
 
 export default function Ajuda (){
     return(
@@ -31,6 +32,7 @@ export default function Ajuda (){
                         </div>
                     </div>
 
+                        <RegisterModal/>
                     <div className='card'>
                         <h2>Doações financeiras ou materiais</h2>
                         <p>Contribuições financeiras e doações de suprimentos ajudam os hemocentros a manter a estrutura de coleta e atendimento. Informe-se com os parceiros locais.</p>
@@ -46,6 +48,8 @@ export default function Ajuda (){
                     <Link to='/contato'><button className='btn-ghost'>Falar com a equipe</button></Link>
                 </footer>
             </main>
+
+            
 
             <Footer/>
         </div>

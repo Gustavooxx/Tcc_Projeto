@@ -1,5 +1,5 @@
 /* O fundo continua visível (a página original), apenas escurecido */
-.register-overlay {
+.fundo-modal {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.55); /* escurece, mas ainda mostra a página atrás */
@@ -11,7 +11,7 @@
   animation: fadeIn 0.25s ease;
 }
 
-.register-modal {
+.modal-registro {
   background: #fff;
   width: 100%;
   height: 680px;
@@ -24,7 +24,7 @@
   text-align: center;
 }
 
-.close-btn {
+.botao-fechar {
   position: absolute;
   top: 14px;
   right: 18px;
@@ -40,7 +40,7 @@
   }
 }
 
-.modal-header {
+.cabecalho-modal {
   margin-bottom: 1.8rem;
 
   h2 {
@@ -50,14 +50,14 @@
   }
 }
 
-.register-form {
+.formulario-registro {
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
   text-align: left;
 }
 
-.form-group {
+.grupo-formulario {
   display: flex;
   flex-direction: column;
 
@@ -86,7 +86,7 @@
   }
 }
 
-.submit-btn {
+.botao-enviar {
   margin-top: 0.5rem;
   padding: 0.9rem;
   background: #007bff;
@@ -103,7 +103,7 @@
   }
 }
 
-.footer-text {
+.texto-rodape {
   font-size: 0.8rem;
   color: #666;
   margin-top: 1rem;

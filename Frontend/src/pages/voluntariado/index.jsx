@@ -1,34 +1,43 @@
-// src/components/VoluntarioForm/index.jsx
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router";
 import "./index.scss";
 
-const VoluntarioForm = ({onClose}) => {
- return (
-    <div className="register-overlay">
-      <div className="register-modal">
-        <button className="close-btn" onClick={onClose}>×</button>
+const VoluntarioForm = () => {
+  const [showModal, setShowModal] = useState(true)
 
-        <div className="modal-header">
+  const onClose = () => setShowModal(false);
+ 
+
+  if (!showModal) return null;
+
+  return (
+    <div className="fundo-modal">
+      <div className="modal-registro">
+
+
+        <Link to='/como doar'><button className="botao-fechar" >×</button></Link>
+
+        <div className="cabecalho-modal">
           <h2>Cadastre-se e receba mais informações</h2>
         </div>
 
-        <form className="register-form">
-          <div className="form-group">
+        <form className="formulario-registro">
+          <div className="grupo-formulario">
             <label>Nome completo</label>
             <input type="text" placeholder="Digite seu nome" />
           </div>
 
-          <div className="form-group">
+          <div className="grupo-formulario">
             <label>E-mail</label>
             <input type="email" placeholder="Digite seu e-mail" />
           </div>
 
-          <div className="form-group">
+          <div className="grupo-formulario">
             <label>Telefone</label>
             <input type="tel" placeholder="(00) 00000-0000" />
           </div>
 
-          <div className="form-group">
+          <div className="grupo-formulario">
             <label>Disponibilidade</label>
             <input
               type="text"
@@ -36,7 +45,7 @@ const VoluntarioForm = ({onClose}) => {
             />
           </div>
 
-          <div className="form-group">
+          <div className="grupo-formulario">
             <label>Mensagem</label>
             <textarea
               rows="3"
@@ -44,12 +53,12 @@ const VoluntarioForm = ({onClose}) => {
             ></textarea>
           </div>
 
-          <button type="button" className="submit-btn">
+          <button type="button" className="botao-enviar">
             Enviar
           </button>
         </form>
 
-        <p className="footer-text">
+        <p className="texto-rodape">
           Ao enviar, você concorda com nossos{" "}
           <a href="#">termos de uso</a> e <a href="#">política de privacidade</a>.
         </p>
