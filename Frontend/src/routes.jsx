@@ -7,6 +7,7 @@ import Contato from './pages/contato'
 import Comodoar from './pages/comodoar'
 import MarcaAgendamento from './pages/marcarAgendamento'
 import Ajuda from './pages/ajuda'
+import VoluntarioForm from './pages/voluntariado'
 
 
 
@@ -25,6 +26,7 @@ export default function Navegacao() {
                 <Route path="/como doar" element={<Comodoar />} />
                 <Route path="/Marcar agendamento" element={<MarcaAgendamento />} />
                 <Route path="/Como Ajudar" element={<Ajuda />} />
+                <Route path='/voluntariado' element={<VoluntarioForm/>}></Route>
 
             </Routes>
         </BrowserRouter>

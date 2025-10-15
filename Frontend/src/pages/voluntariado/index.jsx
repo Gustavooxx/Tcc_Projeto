@@ -2,7 +2,7 @@
 import React from "react";
 import "./index.scss";
 
-const VoluntarioForm = () => {
+export default function VoluntarioForm (){
   return (
     <div className="voluntario-container">
       <h1>Cadastro de Voluntário</h1>
@@ -56,5 +56,3 @@ const VoluntarioForm = () => {
     </div>
   );
 };
-
-export default VoluntarioForm;
