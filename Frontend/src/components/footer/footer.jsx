@@ -21,7 +21,7 @@ export default function Footer() {
                     <ul>
                         <li><Link to="/como doar">Como doar</Link></li>
                         <li><Link to="/#perguntas">Perguntas frequentes</Link></li>
-                        <li><Link to="/voluntariado">Seja voluntário</Link></li>
+                        <li><Link to="/Voluntario">Seja voluntário</Link></li>
                     </ul>
                 </div>
 
