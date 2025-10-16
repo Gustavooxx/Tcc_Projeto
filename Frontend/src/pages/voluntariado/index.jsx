@@ -15,7 +15,7 @@ const VoluntarioForm = () => {
       <div className="modal-registro">
 
 
-        <Link to='/como doar'><button className="botao-fechar" >×</button></Link>
+        <Link to='/Comoajudar'><button className="botao-fechar" >×</button></Link>
 
         <div className="cabecalho-modal">
           <h2>Cadastre-se e receba mais informações</h2>

@@ -23,7 +23,7 @@ export default function Navegacao() {
                 <Route path="/contato" element={<Contato />} />
                 <Route path="/como doar" element={<Comodoar />} />
                 <Route path="/Marcar agendamento" element={<MarcaAgendamento />} />
-                <Route path="/Como Ajudar" element={<Ajuda />} />
+                <Route path="/Comoajudar" element={<Ajuda />} />
                 <Route path="/Voluntario" element={<VoluntarioForm />} />
 
 
