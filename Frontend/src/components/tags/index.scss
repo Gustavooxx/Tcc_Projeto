@@ -17,12 +17,13 @@
         .foto-tags {
             display: flex;
             align-items: center;
+            gap: 1rem;
             padding: 5px;
 
 
-
             img {
-                height: 50px;
+                border-radius: 5px;
+                height: 70px;
                 width: auto;
             }
 

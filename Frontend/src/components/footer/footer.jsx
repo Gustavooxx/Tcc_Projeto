@@ -8,7 +8,7 @@ export default function Footer() {
 
                 {/* SOBRE */}
                 <div className='Nos'>
-                    <h1>Doevida.com <img src="assets/images/image 4.svg" alt="Logo Doe Vida" /></h1>
+                    <h1>Doevida.com <img src="assets/images/logoTcc.webp" alt="Logo Doe Vida" /></h1>
                     <p>
                         A Doevida.com é uma iniciativa do <strong>Instituto Doe Vida</strong>,
                         dedicada a facilitar o processo de doação de sangue, conectando doadores a hospitais e hemocentros em todo o Brasil.
