@@ -57,13 +57,13 @@ export default function Cadastro() {
             <section className="container-tags">
 
                 <div className='img-tags'>
-                    <img src="/assets/images/image 4.svg" alt="logoTa" />
+                    <img src="/assets/images/logoTcc.webp" alt="logoTa" />
                     <h1>Doe Vida</h1>
                 </div>
 
                 <div className='tags-login'>
 
-                    <Link to='/Como ajudar'><button className='ajudar'>Não posso doar e quero ajudar</button></Link>
+                    <Link to='/Comoajudar'><button className='ajudar'>Não posso doar e quero ajudar</button></Link>
 
                     <Link to={'/'}><button className='ajudar'>Voltar</button></Link>
                 </div>

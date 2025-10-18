@@ -17,7 +17,7 @@ export default function Tags() {
                     <Link to='/como doar'> Como Doar </Link>
                     <Link to='/contato'> Contato </Link>
                     <Link to='/Marcar agendamento'> Marcar agendamento </Link>
-                    <Link to="/Comoajudar">Ajudar</Link>
+                    <Link to="/Comoajudar">Como apoiar</Link>
 
                 </div>
                 <div className='botao-login'>

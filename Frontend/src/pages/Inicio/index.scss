@@ -2,6 +2,7 @@
 
 
     .container-pagina {
+        background-color: #fffefe;
         margin: 2rem;
         margin-bottom: 5rem;
         display: flex;
@@ -54,7 +55,6 @@
 
         .imagem-pagina {
             border-radius: 20px;
-            box-shadow: rgba(134, 133, 133, 0.56) 0px 5px 10px 4px;
             margin-left: auto;
 
             img {
@@ -87,6 +87,7 @@
 
 
             .itens-beneficios {
+                background-color: #fffefe;
                 display: flex;
                 align-items: center;
                 gap: 1rem;
@@ -140,9 +141,6 @@
             width: 80%;
             margin-left: auto;
             margin-right: auto;
-            
-
-
         }
 
 
@@ -176,16 +174,13 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
         padding: 50px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background-color: #fffefe;
 
         h4 {
             font-size: 32px;
             color: #A9233E;
             margin-bottom: 2rem;
             text-shadow: rgba(169, 35, 62, 0.35) 0px 5px 15px;
-
-
-
         }
 
         p {
@@ -202,18 +197,12 @@
         }
     }
 
-
-
-
     .como-funciona {
         padding: 2rem;
         border-radius: 10px;
         margin: 5rem;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    
-
-
+        background-color: #fffefe;
 
         h5 {
             font-size: 32px;
@@ -257,8 +246,6 @@
 
 
     .fazer-parte {
-
-
         display: flex;
         justify-content: center;
         align-items: center;
@@ -286,7 +273,7 @@
             background: #A9233E;
             color: #fff;
             text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.7);
-            transform: translateY(-10px);
+            transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
     }
