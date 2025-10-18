@@ -10,7 +10,7 @@
         justify-content: space-between;
         background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 100%);
         padding: 5px;
-        margin: 1rem;
+        margin: 1rem 2rem 1rem 2rem;
 
         .img-tags {
             display: flex;
@@ -20,6 +20,7 @@
             img {
                 height: 70px;
                 width: auto;
+                border-radius: 10px;
             }
 
             h1 {
