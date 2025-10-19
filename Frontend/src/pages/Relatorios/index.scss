@@ -1,0 +1,24 @@
+@import "../HemoControl/index.scss";
+
+.relatorio-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+
+  select, button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  button {
+    background-color: #d30000;
+    color: #fff;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #b00000;
+    }
+  }
+}
