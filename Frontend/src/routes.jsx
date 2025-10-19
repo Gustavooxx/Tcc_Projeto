@@ -8,6 +8,12 @@ import Comodoar from './pages/comodoar'
 import MarcaAgendamento from './pages/marcarAgendamento'
 import Ajuda from './pages/ajuda'
 import VoluntarioForm from './pages/voluntariado'
+import HemoControl from "./pages/HemoControl"
+import CadastrarHemoCentro from "./pages/CadastrarHemoCentro"
+import BuscarHemoCentro from "./pages/BuscarHemoCentro"
+import Agendamentos from "./pages/Agendamentos"
+import Relatorios from "./pages/Relatorios"
+import Configuracoes from "./pages/Configuracoes"
 
 
 export default function Navegacao() {
@@ -25,6 +31,12 @@ export default function Navegacao() {
                 <Route path="/Marcar agendamento" element={<MarcaAgendamento />} />
                 <Route path="/Comoajudar" element={<Ajuda />} />
                 <Route path="/Voluntario" element={<VoluntarioForm />} />
+                <Route path="/HemoControl" element={<HemoControl />} />
+                <Route path="/cadastrar" element={<CadastrarHemoCentro />} />
+                <Route path="/buscar" element={<BuscarHemoCentro />} />
+                <Route path="/agendamentos" element={<Agendamentos />} />
+                <Route path="/relatorios" element={<Relatorios />} />
+                <Route path="/configuracoes" element={<Configuracoes />} />
 
 
             </Routes>
