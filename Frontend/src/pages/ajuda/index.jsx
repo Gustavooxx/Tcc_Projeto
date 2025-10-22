@@ -27,7 +27,7 @@ export default function Ajuda (){
                         <h2>Voluntariado</h2>
                         <p>Ofereça seu tempo para ajudar na logística de campanhas, organização de eventos, triagem ou apoio aos doadores nos postos.</p>
                         <div className='card-actions'>
-                            <Link to='/contato'><button className='btn-primary'>Quero ser voluntário</button></Link>
+                            <Link to='/Voluntario'><button className='btn-primary'>Quero ser voluntário</button></Link>
                         </div>
                     </div>
 
@@ -46,6 +46,8 @@ export default function Ajuda (){
                     <Link to='/contato'><button className='btn-ghost'>Falar com a equipe</button></Link>
                 </footer>
             </main>
+
+            
 
             <Footer/>
         </div>

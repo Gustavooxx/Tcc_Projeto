@@ -7,7 +7,7 @@ export default function Tags() {
             <div className='container-tags'>
                 <Link to={'/inicio'}>
                     <div className='foto-tags'>
-                        <img src="/assets/images/image 4.svg" alt="logo1" />
+                        <img src="/assets/images/logoTcc.webp" alt="logo1" />
                         <h1>Doe Vida</h1>
                     </div>
                 </Link>
@@ -17,7 +17,7 @@ export default function Tags() {
                     <Link to='/como doar'> Como Doar </Link>
                     <Link to='/contato'> Contato </Link>
                     <Link to='/Marcar agendamento'> Marcar agendamento </Link>
-                    <Link to="/Como ajudar">Ajudar</Link>
+                    <Link to="/Comoajudar">Como apoiar</Link>
 
                 </div>
                 <div className='botao-login'>

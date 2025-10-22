@@ -5,20 +5,24 @@ import axios from 'axios'
 
 export default function Cadastro() {
 
-    
+    //hook para navegar entre as páginas
+    //
     const navigate = useNavigate();
 
     //Função para enviar os dados do formulário para o backend
     const handleSubmit = async (e) => {
+        //Previne o comportamento padrão do formulário
         e.preventDefault();
 
         // Cria um objeto FormData com os dados do formulário
         //FormData é uma interface que permite construir um conjunto de pares chave/valor representando os campos do formulário e seus valores
+        //e.target representa o formulário
         const formData = new FormData(e.target);
 
         //Pega os dados do formulário
         //Cria um objeto com os dados do formulário
         const data = {
+            //formData.get('nome') pega o valor do input com o name="nome"
             nome_completo: formData.get('nome'),
             email: formData.get('email'),
             senha: formData.get('senha'),
@@ -53,13 +57,13 @@ export default function Cadastro() {
             <section className="container-tags">
 
                 <div className='img-tags'>
-                    <img src="/assets/images/image 4.svg" alt="logoTa" />
+                    <img src="/assets/images/logoTcc.webp" alt="logoTa" />
                     <h1>Doe Vida</h1>
                 </div>
 
                 <div className='tags-login'>
 
-                    <Link to='/Como ajudar'><button className='ajudar'>Não posso doar e quero ajudar</button></Link>
+                    <Link to='/Comoajudar'><button className='ajudar'>Não posso doar e quero ajudar</button></Link>
 
                     <Link to={'/'}><button className='ajudar'>Voltar</button></Link>
                 </div>
@@ -91,8 +95,7 @@ export default function Cadastro() {
 
                     {/*    Formulário de cadastro */}
                     {/*Quando o formulário for enviado, chama a função handleSubmit */}
-
-
+                    {/*onSubmit chama a função handleSubmit */}
                     <form onSubmit={handleSubmit}>
                         <div className='titulo'>
 
@@ -220,6 +223,7 @@ export default function Cadastro() {
                         </div>
 
                         {/*Botão para enviar o formulário*/}
+                        {/*type="submit" envia o formulário */}
                         <button type="submit">Cadastrar</button>
                     </form>
                 </div>

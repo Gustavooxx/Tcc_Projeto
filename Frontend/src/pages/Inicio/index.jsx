@@ -49,6 +49,8 @@ export default function Inicio() {
                         <p>A cada 2 segundos alguém
                             precisa de sangue no Brasil </p>
                     </div>
+
+
                 </div>
             </section>
 

@@ -1,57 +1,70 @@
-// src/components/VoluntarioForm/index.jsx
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router";
 import "./index.scss";
 
+<<<<<<< HEAD
 export default function VoluntarioForm (){
+=======
+const VoluntarioForm = () => {
+  const [showModal, setShowModal] = useState(true)
+
+  const onClose = () => setShowModal(false);
+ 
+
+  if (!showModal) return null;
+
+>>>>>>> f2e0038ec3b1501ad52a307fa0d98ab494116c9a
   return (
-    <div className="voluntario-container">
-      <h1>Cadastro de Voluntário</h1>
-      <p>Junte-se a nós para fazer a diferença!</p>
+    <div className="fundo-modal">
+      <div className="modal-registro">
 
-      <form
-        action="https://formspree.io/f/mayvzzlz"
-        method="POST"
-        className="voluntario-form"
-      >
-        <label htmlFor="nome">Nome completo *</label>
-        <input type="text" id="nome" name="nome" required />
+        <Link to='/Comoajudar'><button className="botao-fechar" >×</button></Link>
 
-        <label htmlFor="email">E-mail *</label>
-        <input type="email" id="email" name="email" required />
+        <div className="cabecalho-modal">
+          <h2>Cadastre-se e receba mais informações</h2>
+        </div>
 
-        <label htmlFor="telefone">Telefone *</label>
-        <input type="tel" id="telefone" name="telefone" required />
+        <form className="formulario-registro">
+          <div className="grupo-formulario">
+            <label>Nome completo</label>
+            <input type="text" placeholder="Digite seu nome" />
+          </div>
 
-        <label htmlFor="interesse">Área de interesse *</label>
-        <select id="interesse" name="interesse" required>
-          <option value="">Selecione...</option>
-          <option value="Saúde">Saúde</option>
-          <option value="Educação">Educação</option>
-          <option value="Eventos">Eventos</option>
-          <option value="Campanhas">Campanhas de arrecadação</option>
-          <option value="Outro">Outro</option>
-        </select>
+          <div className="grupo-formulario">
+            <label>E-mail</label>
+            <input type="email" placeholder="Digite seu e-mail" />
+          </div>
 
-        <label htmlFor="disponibilidade">Disponibilidade *</label>
-        <textarea
-          id="disponibilidade"
-          name="disponibilidade"
-          placeholder="Ex: Fins de semana, manhãs, tardes..."
-          required
-        ></textarea>
+          <div className="grupo-formulario">
+            <label>Telefone</label>
+            <input type="tel" placeholder="(00) 00000-0000" />
+          </div>
 
-        <label htmlFor="mensagem">Mensagem (opcional)</label>
-        <textarea
-          id="mensagem"
-          name="mensagem"
-          placeholder="Conte um pouco sobre você ou deixe uma mensagem."
-        ></textarea>
+          <div className="grupo-formulario">
+            <label>Disponibilidade</label>
+            <input
+              type="text"
+              placeholder="Ex: Segunda a Sexta - 9h às 18h"
+            />
+          </div>
 
-        <button type="submit">Quero ser voluntário</button>
-      </form>
+          <div className="grupo-formulario">
+            <label>Mensagem</label>
+            <textarea
+              rows="3"
+              placeholder="Escreva aqui sua mensagem..."
+            ></textarea>
+          </div>
 
-      <div className="voluntario-footer">
-        © 2025 Projeto Voluntário. Juntos somos mais fortes.
+          <button type="button" className="botao-enviar">
+            Enviar
+          </button>
+        </form>
+
+        <p className="texto-rodape">
+          Ao enviar, você concorda com nossos{" "}
+          <a href="#">termos de uso</a> e <a href="#">política de privacidade</a>.
+        </p>
       </div>
     </div>
   );

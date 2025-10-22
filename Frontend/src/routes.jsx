@@ -8,7 +8,10 @@ import Comodoar from './pages/comodoar'
 import MarcaAgendamento from './pages/marcarAgendamento'
 import Ajuda from './pages/ajuda'
 import VoluntarioForm from './pages/voluntariado'
+<<<<<<< HEAD
 
+=======
+>>>>>>> f2e0038ec3b1501ad52a307fa0d98ab494116c9a
 
 
 
@@ -25,8 +28,15 @@ export default function Navegacao() {
                 <Route path="/contato" element={<Contato />} />
                 <Route path="/como doar" element={<Comodoar />} />
                 <Route path="/Marcar agendamento" element={<MarcaAgendamento />} />
+<<<<<<< HEAD
                 <Route path="/Como Ajudar" element={<Ajuda />} />
                 <Route path='/voluntariado' element={<VoluntarioForm/>}></Route>
+=======
+                <Route path="/Comoajudar" element={<Ajuda />} />
+                <Route path="/Voluntario" element={<VoluntarioForm />} />
+
+
+>>>>>>> f2e0038ec3b1501ad52a307fa0d98ab494116c9a
 
             </Routes>
         </BrowserRouter>
