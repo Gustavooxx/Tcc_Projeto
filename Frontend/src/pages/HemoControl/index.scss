@@ -3,9 +3,8 @@
     flex-direction: column;
     height: 100vh;
     font-family: "Segoe UI", sans-serif;
-  }
-  
-  .hemo-header {
+    
+    .hemo-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,7 +12,7 @@
     color: #fff;
     padding: 10px 20px;
     font-weight: 600;
-  
+    
     .logo {
       font-size: 1.2rem;
       cursor: pointer;
@@ -38,7 +37,7 @@
     display: flex;
     flex-direction: column;
     padding-top: 10px;
-  
+    
     button {
       background: none;
       color: #fff;
@@ -48,7 +47,7 @@
       font-size: 0.95rem;
       cursor: pointer;
       transition: background 0.2s ease;
-  
+      
       &:hover {
         background-color: #2f435b;
       }
@@ -74,14 +73,14 @@
     justify-content: center;
     position: relative;
     font-size: 1rem;
-
+    
     &:hover {
       background-color: #cfcfcf;
       transform: translateX(3px);
       transition: all 0.5s ease;
-
+      
     }
-  
+    
     &::before {
       content: "";
       position: absolute;
@@ -92,16 +91,16 @@
       background-color: #d30000;
       border-top-left-radius: 10px;
       border-bottom-left-radius: 10px;
-
+      
     }
-  
+    
     .card-title {
       color: #333;
       margin-bottom: 10px;
       cursor: pointer;
       transition: all 0.2s ease;
       overflow: hidden;
-
+      
     }
   
     .card-value {
@@ -114,3 +113,4 @@
     }
   }
   
+  }

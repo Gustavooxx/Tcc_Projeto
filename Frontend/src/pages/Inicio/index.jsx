@@ -50,11 +50,6 @@ export default function Inicio() {
                             precisa de sangue no Brasil </p>
                     </div>
 
-                     <div className='itens-beneficios'>
-                        <img src="/assets/images/relogio.png" alt="" />
-                        <p>A cada 2 segundos alguém
-                            precisa de sangue no Brasil </p>
-                    </div>
 
                 </div>
             </section>

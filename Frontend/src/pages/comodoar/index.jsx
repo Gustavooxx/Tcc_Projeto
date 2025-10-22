@@ -22,7 +22,6 @@ export default function Comodoar() {
                         <li>Estar em boas condições de saude</li>
                         <li>Intervalo: homens (2 meses) mulheres (3 meses)</li>
                         <li>ter entre 16 a 69 anos</li>
-                        <li>ter entre 16 a 69 anos</li>
 
                     </ul>
 
@@ -36,7 +35,6 @@ export default function Comodoar() {
                         <li>Pesar acima de 50 kg</li>
                         <li>Estar em boas condições de saude</li>
                         <li>Intervalo: homens (2 meses) mulheres (3 meses)</li>
-                        <li>ter entre 16 a 69 anos</li>
                         <li>ter entre 16 a 69 anos</li>
 
                     </ul>
