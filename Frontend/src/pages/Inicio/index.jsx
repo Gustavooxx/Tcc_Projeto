@@ -18,12 +18,12 @@ export default function Inicio() {
                     <h2>Doe <span style={{ color: '#A9233E' }}>Sangue</span>, <br />
                         Salve vidas!</h2>
                     <p style={{ fontSize: '20px', maxWidth: '420px', marginBottom: '2rem', color: '#A9233E' }}>
-                        Doe sangue e salve vidas! Sua doação oferece esperança e solidariedade para quem precisa. Seja a diferença!
+                        Doe sangue e <span style={{fontWeight:"bold"}}>salve vidas!</span> Sua doação oferece esperança e solidariedade para quem precisa. Seja a diferença!
                     </p>
 
                     <div className='botaos'>
                        
-                        <Link to='/agendar'><button className='agendar'> Agendar minha doação </button></Link>
+                        <Link to='/Marcar agendamento'><button className='agendar'> Agendar minha doação </button></Link>
                     
                     </div>
 

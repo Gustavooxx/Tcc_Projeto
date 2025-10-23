@@ -44,7 +44,7 @@ export default function VoluntarioForm (){
           <h2>Cadastre-se e receba mais informações</h2>
         </div>
 
-        <form className="formulario-registro" onChange={handleSubmit}>
+        <form className="formulario-registro" onSubmit={handleSubmit}>
           <div className="grupo-formulario">
             <label>Nome completo</label>
             <input type="text" placeholder="Digite seu nome"

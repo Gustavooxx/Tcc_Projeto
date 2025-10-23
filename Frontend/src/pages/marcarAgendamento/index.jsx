@@ -10,6 +10,7 @@ export default function MarcaAgendamento() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     nome_completo: "",
+    cpf: "",
     email: "",
     telefone: "",
     estado: "",
@@ -25,7 +26,6 @@ export default function MarcaAgendamento() {
   const [mensagem, setMensagem] = useState("");
   const [nome, setNome] = useState([]);
 
-  // handleChange atualiza o state quando o usuário digita/select/checkbox
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
@@ -62,6 +62,7 @@ useEffect(() => {
 
       setFormData({
         nome_completo: "",
+        cpf: "",
         email: "",
         telefone: "",
         estado: "",
@@ -90,6 +91,7 @@ useEffect(() => {
     }
   }
 
+
   return (
     <div className="container-agendamento">
       <Tags />
@@ -108,9 +110,16 @@ useEffect(() => {
           <section className="card-form">
             <h2>Dados do agendamento</h2>
             <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label htmlFor="nome_completo">Nome completo</label>
-                <input type="text" name="nome_completo" id="nome_completo" placeholder="Seu nome" required value={formData.nome_completo} onChange={handleChange} />
+              <div className="row">
+                <div className="form-group">
+                  <label htmlFor="nome_completo">Nome completo</label>
+                  <input type="text" name="nome_completo" id="nome_completo" placeholder="Seu nome" required value={formData.nome_completo} onChange={handleChange} />
+                </div>
+
+                <div className='form-group'>
+                  <label htmlFor="cpf">CPF</label>
+                  <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" maxLength={14} value={formData.cpf} onChange={handleChange} />
+                </div>
               </div>
 
               <div className="row">
@@ -124,6 +133,7 @@ useEffect(() => {
                   <input type="tel" name="telefone" id="telefone" placeholder="(00) 00000-0000" maxLength={15} value={formData.telefone} onChange={handleChange} />
                 </div>
               </div>
+
 
               <div className="row">
                 <div className="form-group">
