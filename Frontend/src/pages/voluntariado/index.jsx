@@ -2,18 +2,16 @@ import React, { useState } from "react";
 import { Link } from "react-router";
 import "./index.scss";
 
-<<<<<<< HEAD
 export default function VoluntarioForm (){
-=======
 const VoluntarioForm = () => {
   const [showModal, setShowModal] = useState(true)
+}
 
   const onClose = () => setShowModal(false);
  
 
   if (!showModal) return null;
 
->>>>>>> f2e0038ec3b1501ad52a307fa0d98ab494116c9a
   return (
     <div className="fundo-modal">
       <div className="modal-registro">
