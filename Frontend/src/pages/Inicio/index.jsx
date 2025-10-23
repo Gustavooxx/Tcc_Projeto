@@ -18,7 +18,7 @@ export default function Inicio() {
                     <h2>Doe <span style={{ color: '#A9233E' }}>Sangue</span>, <br />
                         Salve vidas!</h2>
                     <p style={{ fontSize: '20px', maxWidth: '420px', marginBottom: '2rem', color: '#A9233E' }}>
-                        Sua atitude pode <span style={{fontWeight: 'bold'}}> transformar</span> o futuro de alguém. Ao doar sangue, você oferece <span style={{fontWeight: 'bold'}}> esperança</span>, solidariedade e a chance de recomeçar para quem mais precisa. Seja a <span style={{fontWeight: 'bold'}}>diferença</span> na vida de muitas pessoas!
+                        Doe sangue e salve vidas! Sua doação oferece esperança e solidariedade para quem precisa. Seja a diferença!
                     </p>
 
                     <div className='botaos'>
