@@ -12,6 +12,8 @@ dist
 dist-ssr
 *.local
 .env
+gitComandos.git
+*bancoDados.mysql
 
 # Editor directories and files
 .vscode/*
