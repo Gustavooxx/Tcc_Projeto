@@ -6,9 +6,13 @@
 
 body{
     font-family: Arial, Helvetica, sans-serif;
-     scroll-behavior: smooth;
-     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-sLfsADusN162qUZIZmkSgy36s5qGQH5hxA&s");
-     background-size: cover;
+
+    background: linear-gradient(135deg, #b0b0b0 0%, #e6e6e6 50%, #ffffff 100%);
+  background-size: cover;
+  background-position: center;
+
+
+  background-size: cover;
      background-position: center;
      background-repeat: no-repeat;
 }

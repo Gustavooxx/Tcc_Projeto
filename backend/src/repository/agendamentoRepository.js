@@ -11,7 +11,7 @@ export async function lista() {
 export async function agendamentoUsario(novoAgendamento, usuario_id) {
   const comando = `
        INSERT INTO agendamentos (
-    usuario_id, nome_completo, email, telefone,
+    usuario_id, nome_completo,cpf, email, telefone,
     estado, cidade, tipo_sanguineo, data_agendamento,
     horario, observacoes, confirmou_requisitos
   ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)
@@ -20,6 +20,7 @@ export async function agendamentoUsario(novoAgendamento, usuario_id) {
   const [info] = await connection.query(comando, [
     usuario_id,
     novoAgendamento.nome_completo,
+    novoAgendamento.cpf,
     novoAgendamento.email,
     novoAgendamento.telefone,
     novoAgendamento.estado,
