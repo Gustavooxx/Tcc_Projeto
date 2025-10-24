@@ -54,4 +54,113 @@
   .detalhe-item summary{ list-style:none }
   .detalhe-item summary::-webkit-details-marker{ display:none }
   .detalhe-item summary{ outline:none }
+
+  // Media queries adicionais para responsividade já estão presentes e foram mantidas
+  @media (max-width: 1024px) {
+    padding: 2rem 0.75rem;
+
+    .container {
+      max-width: 700px;
+    }
+
+    .titulo {
+      font-size: 1.8rem;
+    }
+
+    .subtitulo {
+      font-size: 1rem;
+    }
+
+    .detalhes {
+      gap: 0.75rem;
+    }
+
+    .detalhe-item {
+      padding: 0.6rem 0.8rem;
+    }
+
+    .detalhe-pergunta {
+      font-size: 0.95rem;
+      gap: 0.5rem;
+      padding: 0.2rem 0;
+    }
+
+    .detalhe-resposta {
+      margin-top: 0.6rem;
+      font-size: 0.9rem;
+      padding-bottom: 0.4rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 0.5rem;
+
+    .container {
+      max-width: 600px;
+    }
+
+    .titulo {
+      font-size: 1.6rem;
+    }
+
+    .subtitulo {
+      font-size: 0.95rem;
+    }
+
+    .detalhes {
+      gap: 0.5rem;
+    }
+
+    .detalhe-item {
+      padding: 0.5rem 0.7rem;
+    }
+
+    .detalhe-pergunta {
+      font-size: 0.9rem;
+      gap: 0.4rem;
+      padding: 0.15rem 0;
+    }
+
+    .detalhe-resposta {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      padding-bottom: 0.3rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem 0.25rem;
+
+    .container {
+      max-width: 100%;
+    }
+
+    .titulo {
+      font-size: 1.4rem;
+    }
+
+    .subtitulo {
+      font-size: 0.9rem;
+    }
+
+    .detalhes {
+      gap: 0.25rem;
+    }
+
+    .detalhe-item {
+      padding: 0.4rem 0.6rem;
+    }
+
+    .detalhe-pergunta {
+      font-size: 0.85rem;
+      gap: 0.3rem;
+      padding: 0.1rem 0;
+    }
+
+    .detalhe-resposta {
+      margin-top: 0.4rem;
+      font-size: 0.8rem;
+      padding-bottom: 0.2rem;
+    }
+  }
 }

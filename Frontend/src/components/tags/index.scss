@@ -9,6 +9,7 @@
         justify-content: space-between;
         padding: 5px;
         background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 100%);
+        position: relative;
 
         a {
             text-decoration: none;
@@ -52,8 +53,6 @@
                     color: #f4868d;
                     border-bottom-color: #f4868d;
                     transition: all 0.3s ease;
-
-
                 }
 
                 &::after {
@@ -90,7 +89,6 @@
                     cursor: pointer;
                     color: rgb(255, 0, 0);
                     transition: all 0.3s ease;
-
                 }
             }
 
@@ -112,11 +110,165 @@
                     background-color: #df3131d2;
                     box-shadow: 0 2px 10px rgba(255, 255, 255, 0.932);
                     transition: all 0.5s ease;
-
                 }
-
             }
-
         }
 
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+
+            .bar {
+                width: 25px;
+                height: 3px;
+                background-color: white;
+                transition: 0.3s ease;
+                border-radius: 2px;
+            }
+
+            .bar.active:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .bar.active:nth-child(2) {
+                opacity: 0;
+            }
+
+            .bar.active:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+        }
+    }
+
+    // Media queries para responsividade já estão presentes e foram mantidas
+    @media (max-width: 1024px) {
+        .section-tags {
+            padding: 0.75rem 1.5rem;
+        }
+
+        .container-tags {
+            .foto-tags {
+                gap: 0.75rem;
+                padding: 4px;
+
+                img {
+                    height: 60px;
+                }
+
+                h1 {
+                    font-size: 16px;
+                }
+            }
+
+            .tags-paginas {
+                gap: 1.5rem;
+
+                a {
+                    font-size: 17px;
+                    padding: 4px 0;
+                }
+            }
+
+            .botao-login {
+                gap: 15px;
+
+                .login {
+                    font-size: 16px;
+                }
+
+                button {
+                    padding-left: 15px;
+                    padding-right: 15px;
+                    padding-bottom: 8px;
+                    padding-top: 8px;
+                    margin-right: 1.5rem;
+                    font-size: 16px;
+                    margin-left: 8px;
+                }
+            }
+
+            .hamburger {
+                .bar {
+                    width: 22px;
+                    height: 2.5px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .section-tags {
+            padding: 1rem;
+        }
+
+        .container-tags {
+            .tags-paginas {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 100%);
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                z-index: 1000;
+
+                &.active {
+                    transform: translateY(0);
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                a {
+                    padding: 10px 0;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                }
+            }
+
+            .botao-login {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .section-tags {
+            padding: 0.5rem;
+        }
+
+        .container-tags {
+            .foto-tags {
+                gap: 0.5rem;
+
+                img {
+                    height: 50px;
+                }
+
+                h1 {
+                    font-size: 14px;
+                }
+            }
+
+            .tags-paginas {
+                padding: 0.5rem;
+
+                a {
+                    font-size: 16px;
+                }
+            }
+        }
     }
