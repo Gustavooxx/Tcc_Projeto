@@ -11,19 +11,19 @@ export async function lista() {
 export async function agendamentoUsario(novoAgendamento, usuario_id) {
   const comando = `
        INSERT INTO agendamentos (
-    usuario_id, nome_completo,cpf, email, telefone,
-    estado, cidade, tipo_sanguineo, data_agendamento,
+    usuario_id, nome_completo, email, telefone,
+    estado, cpf, cidade, tipo_sanguineo, data_agendamento,
     horario, observacoes, confirmou_requisitos
-  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)
+  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 `;
 
   const [info] = await connection.query(comando, [
     usuario_id,
     novoAgendamento.nome_completo,
-    novoAgendamento.cpf,
     novoAgendamento.email,
-    novoAgendamento.telefone,
+    novoAgendamento.telefo5ne,
     novoAgendamento.estado,
+    novoAgendamento.cpf,
     novoAgendamento.cidade,
     novoAgendamento.tipo_sanguineo,
     novoAgendamento.data_agendamento,
@@ -50,7 +50,7 @@ export async function agendamentoUsario(novoAgendamento, usuario_id) {
 
    await connection.query(comando3,[hemocentroId, info.insertId]);
 
-  
+
   return info.insertId;
 }
 
@@ -91,4 +91,3 @@ and a.data_disponivel = ?
 
   return datas;
 }
-

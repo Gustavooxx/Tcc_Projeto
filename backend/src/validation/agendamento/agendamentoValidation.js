@@ -5,6 +5,8 @@ export function validarAgendamento(agendamento) {
     if (!agendamento.nome_completo)
         throw new Error('Nome obrigatório');
 
+    if (!agendamento.cpf)
+        throw new Error('CPF obrigatório');
 
     if (!agendamento.email)
         throw new Error('Email obrigatório');
@@ -36,7 +38,7 @@ export function validarAgendamento(agendamento) {
 
     if (!agendamento.horario)
         throw new Error('Horário obrigatório');
-    
+
 
     if (!agendamento.confirmou_requisitos)
         throw new Error('Requisitos obrigatório');
