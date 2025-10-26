@@ -40,7 +40,7 @@ resposta = horarios.map(h => {
 });
 }
 else {
-    resposta = 'Não temos horarios para o dia selecionado'
+    resposta = []
 }
 
 return resposta;

@@ -27,6 +27,7 @@ export default function MarcaAgendamento() {
   const [nome, setNome] = useState([]);
   const [horarios, setHorarios] = useState([]);
   const [carregandoHorarios, setCarregandoHorarios] = useState(false);
+  const [horarioError, setHorarioError] = useState("");
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -49,6 +50,7 @@ const listarHemocentros = async () => {
 
 const listarHorarios = async (nomeHemocentro, data) => {
   setCarregandoHorarios(true);
+  setHorarioError("");
   try {
     // Converter data de YYYY-MM-DD para DD/MM/YYYY
     const [ano, mes, dia] = data.split('-');
@@ -58,10 +60,20 @@ const listarHorarios = async (nomeHemocentro, data) => {
       nome: nomeHemocentro,
       data: dataFormatada
     });
-    setHorarios(Array.isArray(resposta.data.resposta) ? resposta.data.resposta : []);
+    const horariosRecebidos = Array.isArray(resposta.data.resposta) ? resposta.data.resposta : [];
+    setHorarios(horariosRecebidos);
+
+    if (horariosRecebidos.length === 0) {
+      setHorarioError("escolha um dia nos próximos dois meses");
+      setDadosFormulario((prev) => ({
+        ...prev,
+        horario: ""
+      }));
+    }
   } catch (error) {
     console.error("Erro ao listar horários", error);
     setHorarios([]);
+    setHorarioError("Não foi possível carregar horários. Tente novamente.");
   } finally {
     setCarregandoHorarios(false);
   }
@@ -71,8 +83,16 @@ useEffect(() => {
   listarHemocentros();
 }, []);
 
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Verificar se não há horários disponíveis
+    if (horarios.length === 0 && dadosFormulario.nome_hemocentro && dadosFormulario.data_agendamento) {
+      alert('Não é possível fazer agendamento. Não há horários disponíveis para o dia selecionado.');
+      return;
+    }
 
     const url = 'http://localhost:5000/agendamento';
     try {
@@ -107,6 +127,7 @@ useEffect(() => {
           
 
 
+
       if (error.response && error.response.data && error.response.data.erro) {
         setMensagem(error.response.data.erro);
       } else {
@@ -137,7 +158,7 @@ useEffect(() => {
               <div className="row">
                 <div className="form-group">
                   <label htmlFor="nome_completo">Nome completo</label>
-                  <input type="text" name="nome_completo" id="nome_completo" placeholder="Seu nome" required value={dadosFormulario.nome_completo} onChange={handleChange} />
+                  <input type="text" name="nome_completo" id="nome_completo" placeholder="Seu nome" maxLength={100} required value={dadosFormulario.nome_completo} onChange={handleChange} />
                 </div>
 
                 <div className='form-group'>
@@ -196,7 +217,7 @@ useEffect(() => {
 
                 <div className="form-group">
                   <label htmlFor="cidade">Cidade</label>
-                  <input type="text" name="cidade" id="cidade" placeholder="Sua cidade" required value={dadosFormulario.cidade} onChange={handleChange} />
+                  <input type="text" name="cidade" id="cidade" placeholder="Sua cidade" maxLength={50} required value={dadosFormulario.cidade} onChange={handleChange} />
                 </div>
               </div>
 
@@ -250,7 +271,7 @@ useEffect(() => {
               <div className="row">
                 <div className="form-group">
                   <label htmlFor="data">Data</label>
-                  <input type="date" name="data_agendamento" id="data_agendamento" required value={dadosFormulario.data_agendamento} onChange={async (e) => {
+                  <input type="date" name="data_agendamento" id="data_agendamento" required value={dadosFormulario.data_agendamento} min={new Date().toISOString().split('T')[0]} max={new Date(Date.now() + 60 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]} onChange={async (e) => {
                     handleChange(e);
                     try {
                       if (dadosFormulario.nome_hemocentro && e.target.value) {
@@ -266,7 +287,7 @@ useEffect(() => {
                 </div>
                 <div className="form-group">
                   <label htmlFor="hora">Horário</label>
-                  <select id="horario" name="horario" value={dadosFormulario.horario} onChange={handleChange} required disabled={!dadosFormulario.nome_hemocentro || !dadosFormulario.data_agendamento || carregandoHorarios}>
+                  <select id="horario" name="horario" value={dadosFormulario.horario} onChange={handleChange} required disabled={!dadosFormulario.nome_hemocentro || !dadosFormulario.data_agendamento || carregandoHorarios || horarios.length === 0 || horarioError}>
                     <option value="" disabled>Selecione um horário</option>
                     {Array.isArray(horarios) && horarios.map((horario, index) => (
                       <option key={index} value={horario}>
@@ -274,12 +295,15 @@ useEffect(() => {
                       </option>
                     ))}
                   </select>
+                  {horarioError && (
+                    <p style={{ color: 'red', marginTop: '5px' }}>{horarioError}</p>
+                  )}
                 </div>
               </div>
 
               <div className="form-group">
                 <label htmlFor="observacoes">Observações</label>
-                <textarea id="observacoes" name="observacoes" rows={3} placeholder="Informações adicionais (opcional)" value={dadosFormulario.observacoes} onChange={handleChange} />
+                <textarea id="observacoes" name="observacoes" rows={3} placeholder="Informações adicionais (opcional)" maxLength={200} value={dadosFormulario.observacoes} onChange={handleChange} />
               </div>
 
               <div className="form-check">

@@ -21,7 +21,7 @@ export async function agendamentoUsario(novoAgendamento, usuario_id) {
     usuario_id,
     novoAgendamento.nome_completo,
     novoAgendamento.email,
-    novoAgendamento.telefo5ne,
+    novoAgendamento.telefone,
     novoAgendamento.estado,
     novoAgendamento.cpf,
     novoAgendamento.cidade,
@@ -77,8 +77,12 @@ inner join hemocentros h on h.id_hemocentro = a.id_hemocentro;
 
 export async function listarHorarios(requisitos){
   // Converter data de DD/MM/YYYY para YYYY-MM-DD para o banco
-  const [dia, mes, ano] = requisitos.data.split('/');
-  const dataFormatada = `${ano}-${mes}-${dia}`;
+  const partes = requisitos.data.split('/');
+  if (partes.length !== 3) {
+    throw new Error('Formato de data inválido. Use DD/MM/YYYY.');
+  }
+  const [dia, mes, ano] = partes;
+  const dataFormatada = `${ano}-${mes.padStart(2, '0')}-${dia.padStart(2, '0')}`;
 
   const comando = `
 select a.horario_disponivel from agenda a

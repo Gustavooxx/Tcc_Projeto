@@ -39,6 +39,9 @@ export function validarAgendamento(agendamento) {
     if (!agendamento.horario)
         throw new Error('Horário obrigatório');
 
+    if (typeof agendamento.horario === 'string' && agendamento.horario.trim() === '')
+        throw new Error('Escolha outro dia e horário');
+
 
     if (!agendamento.confirmou_requisitos)
         throw new Error('Requisitos obrigatório');
