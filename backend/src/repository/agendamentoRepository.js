@@ -65,7 +65,8 @@ export async function consultarEmail(emailObj) {
 
 export async function listarHemocentro(){
   const comando = `
-  select nome_hemocentro_verificar from verificar_hemocentros
+  select distinct h.nome_hemocentro from agenda a
+inner join hemocentros h on h.id_hemocentro = a.id_hemocentro;
   `
 
   const [registros] = await connection.query(comando);
@@ -73,14 +74,21 @@ export async function listarHemocentro(){
   return registros;
 }
 
-export async function listarAgenda(nome){
+
+export async function listarHorarios(requisitos){
+  // Converter data de DD/MM/YYYY para YYYY-MM-DD para o banco
+  const [dia, mes, ano] = requisitos.data.split('/');
+  const dataFormatada = `${ano}-${mes}-${dia}`;
+
   const comando = `
-  select * from verificar_hemocentros
-  where nome_hemocentro_verificar = ?
+select a.horario_disponivel from agenda a
+inner join hemocentros h on h.id_hemocentro = a.id_hemocentro
+where h.nome_hemocentro = ?
+and a.data_disponivel = ?
   `
 
-  const [registros] = await connection.query(comando, [nome]);
+  const [datas] = await connection.query(comando, [requisitos.nome, dataFormatada]);
 
-  return registros[0];
-
+  return datas;
 }
+

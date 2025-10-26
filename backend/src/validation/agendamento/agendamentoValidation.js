@@ -49,14 +49,18 @@ export function validarEmailAgendamento(registro){
     }
 }
 
+export async function validareListarHorarios(requisitos){
+if(!requisitos.nome)
+    throw new Error('Escolha hemocentro');
+if(!requisitos.data)
+    throw new Error('escolha data');
 
-export function validarAgenda(nome,registro){
-    if (!nome){
-        throw new Error('É necessario selecionar um hemocentro ');
-    }
+// Validar formato da data: DD/MM/YYYY
+const dataRegex = /^\d{2}\/\d{2}\/\d{4}$/;
+if (!dataRegex.test(requisitos.data)) {
+    throw new Error('Data deve estar no formato DD/MM/YYYY');
+}
 
-    if(!registro){
-        throw new Error('Não tem horarios disponiveis para esse hemocentro');
+}
 
-    }
-} 
+

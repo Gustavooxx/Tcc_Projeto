@@ -7,8 +7,8 @@ import axios from 'axios'
 
 export default function MarcaAgendamento() {
 
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState({
+  const navegar = useNavigate();
+  const [dadosFormulario, setDadosFormulario] = useState({
     nome_completo: "",
     cpf: "",
     email: "",
@@ -25,21 +25,45 @@ export default function MarcaAgendamento() {
 
   const [mensagem, setMensagem] = useState("");
   const [nome, setNome] = useState([]);
+  const [horarios, setHorarios] = useState([]);
+  const [carregandoHorarios, setCarregandoHorarios] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({
+    const newValue = type === 'checkbox' ? (checked ? 1 : 0) : value;
+
+    setDadosFormulario((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? (checked ? 1 : 0) : value
+      [name]: newValue
     }));
   }
 
 const listarHemocentros = async () => {
   try {
-    const resposta = await axios.get("http://localhost:5010/listarHemocentros");
-    setNome(resposta.data.registros); 
+    const resposta = await axios.get("http://localhost:5000/listarHemocentros");
+    setNome(resposta.data.registros);
   } catch (error) {
     console.error("Erro ao listar hemocentros", error);
+  }
+};
+
+const listarHorarios = async (nomeHemocentro, data) => {
+  setCarregandoHorarios(true);
+  try {
+    // Converter data de YYYY-MM-DD para DD/MM/YYYY
+    const [ano, mes, dia] = data.split('-');
+    const dataFormatada = `${dia}/${mes}/${ano}`;
+
+    const resposta = await axios.post("http://localhost:5000/listarHorariosDisponiveis", {
+      nome: nomeHemocentro,
+      data: dataFormatada
+    });
+    setHorarios(Array.isArray(resposta.data.resposta) ? resposta.data.resposta : []);
+  } catch (error) {
+    console.error("Erro ao listar horários", error);
+    setHorarios([]);
+  } finally {
+    setCarregandoHorarios(false);
   }
 };
 
@@ -50,17 +74,17 @@ useEffect(() => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const url = 'http://localhost:5010/agendamento';
+    const url = 'http://localhost:5000/agendamento';
     try {
       const token = localStorage.getItem('token');
-      const resposta = await axios.post(url, formData, {
+      const resposta = await axios.post(url, dadosFormulario, {
         headers: { 'x-access-token': token }
       });
 
       setMensagem("Agendamento feito com sucesso!");
       console.log("Resposta da API:", resposta.data);
 
-      setFormData({
+      setDadosFormulario({
         nome_completo: "",
         cpf: "",
         email: "",
@@ -113,24 +137,24 @@ useEffect(() => {
               <div className="row">
                 <div className="form-group">
                   <label htmlFor="nome_completo">Nome completo</label>
-                  <input type="text" name="nome_completo" id="nome_completo" placeholder="Seu nome" required value={formData.nome_completo} onChange={handleChange} />
+                  <input type="text" name="nome_completo" id="nome_completo" placeholder="Seu nome" required value={dadosFormulario.nome_completo} onChange={handleChange} />
                 </div>
 
                 <div className='form-group'>
                   <label htmlFor="cpf">CPF</label>
-                  <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" maxLength={14} value={formData.cpf} onChange={handleChange} />
+                  <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" maxLength={14} value={dadosFormulario.cpf} onChange={handleChange} />
                 </div>
               </div>
 
               <div className="row">
                 <div className="form-group">
                   <label htmlFor="email">E-mail</label>
-                  <input type="email" name="email" id="email" placeholder="seu@email.com" value={formData.email} onChange={handleChange} />
+                  <input type="email" name="email" id="email" placeholder="seu@email.com" value={dadosFormulario.email} onChange={handleChange} />
                 </div>
 
                 <div className="form-group">
                   <label htmlFor="telefone">Telefone</label>
-                  <input type="tel" name="telefone" id="telefone" placeholder="(00) 00000-0000" maxLength={15} value={formData.telefone} onChange={handleChange} />
+                  <input type="tel" name="telefone" id="telefone" placeholder="(00) 00000-0000" maxLength={15} value={dadosFormulario.telefone} onChange={handleChange} />
                 </div>
               </div>
 
@@ -138,7 +162,7 @@ useEffect(() => {
               <div className="row">
                 <div className="form-group">
                   <label htmlFor="estado">Estado</label>
-                  <select id="estado" name="estado" value={formData.estado} onChange={handleChange} required>
+                  <select id="estado" name="estado" value={dadosFormulario.estado} onChange={handleChange} required>
                     <option value="" disabled>Estado</option>
                     <option value="AC">AC</option>
                     <option value="AL">AL</option>
@@ -172,7 +196,7 @@ useEffect(() => {
 
                 <div className="form-group">
                   <label htmlFor="cidade">Cidade</label>
-                  <input type="text" name="cidade" id="cidade" placeholder="Sua cidade" required value={formData.cidade} onChange={handleChange} />
+                  <input type="text" name="cidade" id="cidade" placeholder="Sua cidade" required value={dadosFormulario.cidade} onChange={handleChange} />
                 </div>
               </div>
 
@@ -182,14 +206,26 @@ useEffect(() => {
                  <select
                     id="nome_hemocentro"
                     name="nome_hemocentro"
-                    value={formData.nome_hemocentro}
-                    onChange={handleChange}
+                    value={dadosFormulario.nome_hemocentro}
+                    onChange={async (e) => {
+                      handleChange(e);
+                      try {
+                        if (e.target.value && dadosFormulario.data_agendamento) {
+                          await listarHorarios(e.target.value, dadosFormulario.data_agendamento);
+                        } else {
+                          setHorarios([]);
+                        }
+                      } catch (error) {
+                        console.error("Erro ao buscar horários:", error);
+                        setHorarios([]);
+                      }
+                    }}
                     required
                       >
                     <option value="" disabled>Selecione um hemocentro</option>
                     {nome.map((item, index) => (
-                      <option key={index} value={item.nome_hemocentro_verificar}>
-                        {item.nome_hemocentro_verificar}
+                      <option key={index} value={item.nome_hemocentro}>
+                        {item.nome_hemocentro}
                       </option>
                     ))}
                   </select>
@@ -197,7 +233,7 @@ useEffect(() => {
 
                 <div className="form-group">
                   <label htmlFor="tipo_sanguineo">Tipo sanguíneo</label>
-                  <select id="tipo_sanguineo" name="tipo_sanguineo" value={formData.tipo_sanguineo} onChange={handleChange} required>
+                  <select id="tipo_sanguineo" name="tipo_sanguineo" value={dadosFormulario.tipo_sanguineo} onChange={handleChange} required>
                     <option value="" disabled>Selecione</option>
                     <option value="A+">A+</option>
                     <option value="A-">A-</option>
@@ -214,21 +250,40 @@ useEffect(() => {
               <div className="row">
                 <div className="form-group">
                   <label htmlFor="data">Data</label>
-                  <input type="date" name="data_agendamento" id="data_agendamento" required value={formData.data_agendamento} onChange={handleChange} />
+                  <input type="date" name="data_agendamento" id="data_agendamento" required value={dadosFormulario.data_agendamento} onChange={async (e) => {
+                    handleChange(e);
+                    try {
+                      if (dadosFormulario.nome_hemocentro && e.target.value) {
+                        await listarHorarios(dadosFormulario.nome_hemocentro, e.target.value);
+                      } else {
+                        setHorarios([]);
+                      }
+                    } catch (error) {
+                      console.error("Erro ao buscar horários:", error);
+                      setHorarios([]);
+                    }
+                  }} />
                 </div>
                 <div className="form-group">
                   <label htmlFor="hora">Horário</label>
-                  <input type="time" name="horario" id="horario" min="08:00" max="17:30" step={1800} required value={formData.horario} onChange={handleChange} />
+                  <select id="horario" name="horario" value={dadosFormulario.horario} onChange={handleChange} required disabled={!dadosFormulario.nome_hemocentro || !dadosFormulario.data_agendamento || carregandoHorarios}>
+                    <option value="" disabled>Selecione um horário</option>
+                    {Array.isArray(horarios) && horarios.map((horario, index) => (
+                      <option key={index} value={horario}>
+                        {horario}
+                      </option>
+                    ))}
+                  </select>
                 </div>
               </div>
 
               <div className="form-group">
                 <label htmlFor="observacoes">Observações</label>
-                <textarea id="observacoes" name="observacoes" rows={3} placeholder="Informações adicionais (opcional)" value={formData.observacoes} onChange={handleChange} />
+                <textarea id="observacoes" name="observacoes" rows={3} placeholder="Informações adicionais (opcional)" value={dadosFormulario.observacoes} onChange={handleChange} />
               </div>
 
               <div className="form-check">
-                  <input type="checkbox" id="confirmou_requisitos" name="confirmou_requisitos" checked={!!formData.confirmou_requisitos} onChange={handleChange} />
+                  <input type="checkbox" id="confirmou_requisitos" name="confirmou_requisitos" checked={!!dadosFormulario.confirmou_requisitos} onChange={handleChange} />
                   <label htmlFor="confirmou_requisitos">
                     Confirmo que atendo aos requisitos para doação e estou em boas condições de saúde.
                   </label>

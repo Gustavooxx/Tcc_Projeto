@@ -38,7 +38,7 @@ export default function Cadastro() {
         //data é o objeto com os dados do formulário
         //Usa o axios para enviar os dados para o backend
         try {
-            const response = await axios.post('http://localhost:5010/cadastro', data);
+            const response = await axios.post('http://localhost:5000/cadastro', data);
             alert('Cadastro realizado com sucesso!');
             //Quando o cadastro for sucesso, redireciona para a página de login
             navigate('/Inicio');

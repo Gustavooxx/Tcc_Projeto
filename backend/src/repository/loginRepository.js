@@ -14,16 +14,7 @@ export async function logarDoador(cadastro){
 
 }
 
-export async function doadorToken(token, id){
-const comando = `
-insert ignore into tokens (token,id_doador) 
-values
-(?,?)
-`
-const [info] = await connection.query(comando,[token,id]);
-return info.affectedRows;
 
-}
 
 
 

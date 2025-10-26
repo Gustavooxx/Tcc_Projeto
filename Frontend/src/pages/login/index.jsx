@@ -17,7 +17,7 @@ export default function Login() {
         };
 
         try {
-        const response = await axios.post('http://localhost:5010/logar', data)
+        const response = await axios.post('http://localhost:5000/logar', data)
         const token = response.data.token;
 
         localStorage.setItem('token', token);

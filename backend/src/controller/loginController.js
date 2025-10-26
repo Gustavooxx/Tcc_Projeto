@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {  serviceLogar, serviceToken } from "../service/serviceLogin.js";
+import {  serviceLogar } from "../service/serviceLogin.js";
 import { generateToken } from "../utils/jwt.js";
 
 const endpoints = Router();
@@ -13,11 +13,10 @@ try {
 
     let token =  generateToken(registros);
 
-    let rows = await serviceToken(token, registros.id_cadastro);
+  
 
     resp.status(201).send({
-       token,
-       rows
+       token
     });
 
 } 

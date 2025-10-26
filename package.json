@@ -1,7 +1,6 @@
 {
   "name": "tcc_projeto",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "dependencies": {
     "accepts": "^2.0.0",
@@ -73,7 +72,7 @@
   },
   "devDependencies": {},
   "scripts": {
-     "start": "node index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -86,5 +85,6 @@
   "bugs": {
     "url": "https://github.com/Gustavooxx/Tcc_Projeto/issues"
   },
-  "homepage": "https://github.com/Gustavooxx/Tcc_Projeto#readme"
+  "homepage": "https://github.com/Gustavooxx/Tcc_Projeto#readme",
+  "description": ""
 }
