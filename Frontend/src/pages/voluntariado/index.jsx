@@ -10,7 +10,7 @@ export default function VoluntarioForm (){
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const formData = new data(e.target);
+    const formData = new FormData(e.target);
 
     const data = {
       nome: formData.get('nome'),
@@ -22,8 +22,8 @@ export default function VoluntarioForm (){
 
     }
       try{
-        const response = await app.post('/voluntariar')
-        alert('Obrigado por ser voluntariar')
+        const response = await app.post('/voluntarios', data)
+        alert('Obrigado por ser voluntário')
         navigate('/Como ajudar')
       }
 
@@ -64,7 +64,7 @@ export default function VoluntarioForm (){
           <div className="grupo-formulario">
             <label>CPF</label>
             <input type="text" placeholder="Digite seu CPF"
-            name="cpf " 
+            name="cpf"
             required
             />
           </div>
