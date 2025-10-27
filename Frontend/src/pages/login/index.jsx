@@ -1,6 +1,7 @@
 import './index.scss'
 import { Link,useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import app from '../../api';
 
 
 export default function Login() {
@@ -17,9 +18,11 @@ export default function Login() {
         };
 
         try {
-        const response = await axios.post('http://localhost:5000/logar', data)
+        const response = await app.post('/logar', data)
         const token = response.data.token;
-
+        const emailUsuario = response.data.email;
+        
+        localStorage.setItem('USUARIO', emailUsuario);
         localStorage.setItem('token', token);
         alert('Usuario logado!!');
         navigate('/inicio')

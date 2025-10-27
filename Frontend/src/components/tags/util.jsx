@@ -1,4 +1,4 @@
-import './index.scss'
+    import './index.scss'
 import { Link } from 'react-router'
 import { useEffect, useState } from "react"
 
@@ -38,20 +38,18 @@ export default function Tags() {
                     <Link to="/Comoajudar" onClick={() => setMenuOpen(false)}>Como apoiar</Link>
                 </div>
 
-                <div className='botao-login'>
-                    {logado ? (
-                        // Usuário logado - mostra botões adicionais
-                        <div className='user-logged'>
-                            <Link to='/AgendamentoUser'>Informações usuário</Link>
-                            <Link to='/listar'>Listar</Link>
-                            <span>Logado</span>
+                <div className='botoes'>
+                    {  logado &&
+                        <div className='botoes-logado'>
+                            <Link to='/perfil'><button>Meu perfil</button></Link>                            
                         </div>
-                    ) : (
-                        <div className='user-not-logged'>
-                            <Link to='/login' className='login'> Login </Link>
-                            <Link to='/cadastro'> <button> Cadastra-se </button> </Link>
+                    }
+
+                    {!logado &&
+                        <div className='botoes-login'>
+                           <Link to='/login'><button>Entrar</button></Link>
                         </div>
-                    )}
+                    }
                 </div>
 
                 <div className='hamburger' onClick={toggleMenu}>
