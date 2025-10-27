@@ -50,6 +50,15 @@ export async function agendamentoUsario(novoAgendamento, usuario_id) {
 
    await connection.query(comando3,[hemocentroId, info.insertId]);
 
+   const comando4 = `
+   insert into agenda_user (data_disponivel,horario_disponivel,hemocentros_id,usuario_id)
+   values
+  (?,?,?,?)
+   `
+
+  await connection.query(comando4,[ novoAgendamento.data_agendamento,novoAgendamento.horario,hemocentroId,usuario_id]);
+
+ 
 
   return info.insertId;
 }
