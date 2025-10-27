@@ -32,7 +32,7 @@ export async function atualizarSenha(senha, id_cadastro) {
 
 
 export async function editarAgendamento(atualizarAgendamento) {
-    const comando = `update agendamentos set data_agendamento = ?, horario = ?, id_hemocentro = ? where id_agendamento = ? `;
-    const [registros] = await connection.query(comando, [atualizarAgendamento.data_agendamento, atualizarAgendamento.horario, atualizarAgendamento.id_hemocentro, atualizarAgendamento.id_agendamento]);
+    const comando = `update agendamentos set data_agendamento = ?, horario = ?, hemocentro_id = ? where id = ? `;
+    const [registros] = await connection.query(comando, [atualizarAgendamento.data_agendamento, atualizarAgendamento.horario, atualizarAgendamento.hemocentro_id, atualizarAgendamento.id]);
     return registros;
 }

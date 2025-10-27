@@ -1,11 +1,11 @@
 import { Router } from "express";
-import { deletarAgendamento, listarAgendamentoUsario, editarAgendamento } from "../repository/agendamentoUserRepository";
-import { authentication } from "../utils/jwt.js";
+import { deletarAgendamento, listarAgendamentoUsario, editarAgendamento, atualizarInformacoes } from "../repository/agendamentoUserRepository.js";
+import { getAuthentication } from "../utils/jwt.js";
 
-const autenticar = authentication();
+const autenticar = getAuthentication();
 const agendamentoUser = Router();
 
-agendamentoUser.post('/listar/agendamentos/usuario', autenticar, async (req, resp) => {
+agendamentoUser.get('/listar/agendamentos/usuario', autenticar, async (req, resp) => {
     try{
         let usuario_id = req.user && req.user.id_cadastro;
         if(!usuario_id) return resp.status(401).json({ erro: 'Usuário nao autenticado' });
@@ -22,7 +22,7 @@ agendamentoUser.put('/atualizar/:id_agendamento', autenticar, async (req, resp) 
         let atualizar = req.body;
         atualizar.id_agendamento = id_agendamento;
         let agendamentos = await editarAgendamento(atualizar);
-        resp.send(agendamentos);
+        resp.send("Agendamento atualizado com sucesso");
     } catch(error){
         return resp.status(400).json({erro: error.message})
     }
@@ -32,13 +32,23 @@ agendamentoUser.delete('/deletar/:id_agendamento', autenticar, async (req, resp)
     try{
         let id_agendamento = req.params.id_agendamento;
         let agendamentos = await deletarAgendamento(id_agendamento);
-        resp.send(agendamentos);
+        resp.send("Agendamento cancelado com sucesso");
     }catch(error){
         return resp.status(400).json({erro: error.message})
     }
 })
 
-
+agendamentoUser.put('/informacoes/atualizar', autenticar, async (req, resp) => {
+    try{
+        let id_cadastro = req.user && req.user.id_cadastro;
+        let atualizar = req.body;
+        atualizar.id_cadastro = id_cadastro;
+        let agendamentos = await atualizarInformacoes(atualizar, id_cadastro);
+        resp.send("informacoes atualizadas com sucesso");
+    } catch(error){
+        return resp.status(400).json({erro: error.message})
+    }
+})
 
 
 export default agendamentoUser;
