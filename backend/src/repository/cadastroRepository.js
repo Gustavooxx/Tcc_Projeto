@@ -8,6 +8,14 @@ export async function lista() {
     return registros;
 }
 
+export async function dataCriacao() {
+    const comando = `
+    select criado_em from cadastro_users
+    `
+    const [registros] = await connection.query(comando)
+    return registros;
+    
+}
 
 export async function cadastrar(novoCadastro){
     const comando = 

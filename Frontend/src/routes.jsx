@@ -8,6 +8,7 @@ import Comodoar from './pages/comodoar'
 import MarcaAgendamento from './pages/marcarAgendamento'
 import Ajuda from './pages/ajuda'
 import VoluntarioForm from './pages/voluntariado'
+import AgendamentoUser from './pages/agendamentoUser'
 
 
 
@@ -28,6 +29,7 @@ export default function Navegacao() {
                 <Route path='/voluntariado' element={<VoluntarioForm/>}></Route>
                 <Route path="/Comoajudar" element={<Ajuda />} />
                 <Route path="/Voluntario" element={<VoluntarioForm />} />
+                <Route path="/perfil" element={<AgendamentoUser />} />
 
 
 

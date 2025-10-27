@@ -41,12 +41,13 @@ export default function Tags() {
                 <div className='botoes'>
                     {  logado &&
                         <div className='botoes-logado'>
-                            <Link to='/perfil'><button>Meu perfil</button></Link>                            
+                            <Link to='/perfil'><button>Perfil</button></Link>                            
                         </div>
                     }
 
                     {!logado &&
                         <div className='botoes-login'>
+                           <Link to='/cadastro'><button>Cadastre-se</button></Link>
                            <Link to='/login'><button>Entrar</button></Link>
                         </div>
                     }
