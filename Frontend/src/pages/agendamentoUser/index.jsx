@@ -109,24 +109,27 @@ export default function AgendamentoUser() {
 
                 
                 <div className="informacoes">
-                    {
-                     agendamentos.map((hemo) => (
-                        <div key={hemo.id_agendamento} className="agendamentos">
-                            <h2>{hemo.nome_hemocentro}</h2>
-                            <p> <img src="/assets/images/pin.png" alt="" height='20px' /> {hemo.cidade_hemocentro}</p>
-                            <p> <img src="/assets/images/cronograma(1).png" alt="" height='20px' /> {new Date(hemo.data_agendamento).toLocaleDateString('pt-BR')}</p>
-                            <p><img src="/assets/images/relogio.png" alt="" height='20px' /> {hemo.horario}</p>
+                    {agendamentos.length === 0 ? (
+                        <div className="sem-agendamentos">
+                            <h2>Você ainda não possui agendamentos</h2>
+                            <p>Que tal agendar sua primeira doação?</p>
+                            <Link to="/Marcar agendamento">
+                                <button>Agendar Agora</button>
+                            </Link>
                         </div>
-                    ))}
+                    ) : (
+                        agendamentos.map((hemo) => (
+                            <div key={hemo.id_agendamento} className="agendamentos">
+                                <h2>{hemo.nome_hemocentro}</h2>
+                                <p> <img src="/assets/images/pin.png" alt="" height='20px' /> {hemo.cidade_hemocentro}</p>
+                                <p> <img src="/assets/images/cronograma(1).png" alt="" height='20px' /> {new Date(hemo.data_agendamento).toLocaleDateString('pt-BR')}</p>
+                                <p><img src="/assets/images/relogio.png" alt="" height='20px' /> {hemo.horario}</p>
 
-                    <div className="botoes">
-                        <button>Cancelar agendamento</button>
-
-                        <span>
-
-                        <button>Editar</button>
-                        </span>
-                    </div>
+                                <button>Editar</button>
+                                <button>Cancelar</button>
+                            </div>
+                        ))
+                    )}
                 </div>
 
                 </div>
