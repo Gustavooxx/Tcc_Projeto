@@ -10,6 +10,7 @@ export default function AgendamentoUser() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const [editarAgend, setEditarAgend] = useState({});
+    const [excluirAgend, setExcluirAgend] = useState({});
 
      function sair() {
         localStorage.removeItem("USUARIO");
@@ -56,6 +57,44 @@ export default function AgendamentoUser() {
     useEffect(() => {
         carregarAgendamentos();
     }, []);
+
+    const handleEditar = (hemo) => {
+        setEditarAgend({...hemo});
+        se
+    }
+
+    const handleSalvarEdit = async () => {
+        try {
+            const response = await app.put(`atualizar/${editarAgend.id_agendamento}`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    nome_hemocentro: editarAgend.nome_hemocentro,
+                    cidade_hemocentro: editarAgend.cidade_hemocentro,
+                    estado_hemocentro: editarAgend.estado_hemocentro,
+                    data_agendamento: editarAgend.data_agendamento,
+                    horario_agendamento: editarAgend.horario_agendamento
+                }),
+            });
+            if(!response.ok) {
+                throw new Error('Erro ao atualizar agendamento. Tente novamente');
+            }
+            setAgendamentos(resultados.map(hemo => 
+            hemo.id === editarAgend.id ? {...hemo, ...editarAgend} : hemo
+            ));
+            setExcluirAgend(false)
+            alert('Agendamento atualizado com sucesso!');
+            carregarAgendamentos();
+        } catch (error) {
+            console.error('Erro ao atualizar agendamento:', error);
+        }
+    }
+
+    const handleExcluir = () => {
+        setExcluirAgend(false);
+        setEditarAgend({})
+    }
 
     return (
         <div className="agendamentoUser">
@@ -125,7 +164,7 @@ export default function AgendamentoUser() {
                                 <p> <img src="/assets/images/cronograma(1).png" alt="" height='20px' /> {new Date(hemo.data_agendamento).toLocaleDateString('pt-BR')}</p>
                                 <p><img src="/assets/images/relogio.png" alt="" height='20px' /> {hemo.horario}</p>
 
-                                <button>Editar</button>
+                                <button onClick={() => handleEditar(hemo)}>Editar</button>
                                 <button>Cancelar</button>
                             </div>
                         ))
