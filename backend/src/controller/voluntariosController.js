@@ -12,8 +12,6 @@ try {
 const infos = req.body;
 const usuario_id = req.user && req.user.id_cadastro;
 
-if(!usuario_id)return resp.status(401).json({ erro: 'Usuário não autenticado' });
-
 const id = await cadastrarVoluntariosService(infos,usuario_id);
 
 resp.status(201).send({
