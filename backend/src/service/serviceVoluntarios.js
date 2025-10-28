@@ -4,7 +4,7 @@ import validarVoluntarios from "../validation/voluntarios/voluntariosValidation.
 
 export async function cadastrarVoluntariosService(infos,usuario_id){
 try {
-    // Set mensagem to 'sem mensagem' if empty
+    
     infos.mensagem = infos.mensagem || 'sem mensagem';
 
     validarVoluntarios(infos,usuario_id);
