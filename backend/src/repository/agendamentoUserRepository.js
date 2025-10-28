@@ -2,10 +2,13 @@ import connection from "./connetion.js";
 
 export async function listarAgendamentoUsario(usuario_id){
     const comando = `
-    select * from agendamentos
-    where usuario_id = ?
+    select a.id, a.data_agendamento, a.horario, h.nome_hemocentro, h.cidade_hemocentro
+    from agendamentos a
+    inner join hemocentros h on a.hemocentro_id = h.id_hemocentro
+    where a.usuario_id = ?
     `
     const [registros] = await connection.query(comando,[usuario_id])
+    console.log('Registros encontrados:', registros);
     return registros;
 }
 

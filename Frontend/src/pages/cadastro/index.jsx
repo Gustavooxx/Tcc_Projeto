@@ -137,7 +137,7 @@ export default function Cadastro() {
                                 required
                                 minLength={6}
                                 maxLength={20}
-
+                                
 
                             />
                         </div>

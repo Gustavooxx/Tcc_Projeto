@@ -1,7 +1,62 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { useState, useEffect } from "react";
 import "./index.scss";
+import app from "../../api";
 
 export default function AgendamentoUser() {
+    const navigate = useNavigate();
+    const [totalAgend, setTotalAgend] = useState([]);
+    const [agendamentos, setAgendamentos] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState('');
+    const [editarAgend, setEditarAgend] = useState({});
+
+     function sair() {
+        localStorage.removeItem("USUARIO");
+        localStorage.removeItem("TOKEN");
+
+        navigate('/Inicio')
+    }
+
+    const carregarAgendamentos = async () => {
+        setLoading(true);
+        setError('');
+        setAgendamentos([]);
+
+        try{
+            console.log('Carregando agendamentos...');
+            let url = '/listar/agendamentos/usuario';
+
+            const response = await app.get(url)
+            console.log('Resposta da API:', response);
+            console.log('Status da resposta:', response.status);
+
+            const data = await response.data;
+            console.log('Dados recebidos:', data);
+            console.log('Tipo dos dados:', typeof data);
+            console.log('É array?', Array.isArray(data));
+
+            // Verificar se é um array válido
+            if (Array.isArray(data)) {
+                setAgendamentos(data);
+            } else {
+                console.error('Dados não são um array:', data);
+                setAgendamentos([]);
+            }
+            setLoading(false);
+
+        }catch(error){
+            setError('Erro ao listar agendamentos. Tente novamente');
+            console.error('Erro detalhado:', error);
+        } finally {
+            setLoading(false);
+        }
+    }
+
+    useEffect(() => {
+        carregarAgendamentos();
+    }, []);
+
     return (
         <div className="agendamentoUser">
             <div className="cabelho">
@@ -13,7 +68,12 @@ export default function AgendamentoUser() {
                         <p>membro desde...</p>
                     </div>
                 </div>
-                <button> <img src="/assets/images/sair.png" alt="" /> Sair</button>
+
+                <div className="botoes">
+
+                <Link to="/inicio"><button> Voltar</button></Link>
+                <button onClick={sair}> <img src="/assets/images/sair.png" alt="" /> Sair</button>
+                </div>
             </div>
 
             <div className="grupos-agendamentos">
@@ -44,28 +104,31 @@ export default function AgendamentoUser() {
 
                 <h2>Meus agendamentos</h2>
 
+
+                <div className="grupos-agendamento">
+
+                
                 <div className="informacoes">
-                    <h3>nome hemo</h3>
-                    <p> <img src="/assets/images/pin.png" alt="" height='20px' />local</p>
-                    <p> <img src="/assets/images/cronograma(1).png" alt="" height='20px' />data</p>
-                    <p><img src="/assets/images/relogio.png" alt="" height='20px' />horario</p>
-                    {/*
-                {
-                    proximosAgendamentos.map(() => {
-                        
-                        })
-                        }
-                        
-                        */}
+                    {
+                     agendamentos.map((hemo) => (
+                        <div key={hemo.id_agendamento} className="agendamentos">
+                            <h2>{hemo.nome_hemocentro}</h2>
+                            <p> <img src="/assets/images/pin.png" alt="" height='20px' /> {hemo.cidade_hemocentro}</p>
+                            <p> <img src="/assets/images/cronograma(1).png" alt="" height='20px' /> {new Date(hemo.data_agendamento).toLocaleDateString('pt-BR')}</p>
+                            <p><img src="/assets/images/relogio.png" alt="" height='20px' /> {hemo.horario}</p>
+                        </div>
+                    ))}
 
                     <div className="botoes">
-                        <button>cancelar</button>
+                        <button>Cancelar agendamento</button>
 
                         <span>
 
-                        <button>editar</button>
+                        <button>Editar</button>
                         </span>
                     </div>
+                </div>
+
                 </div>
 
             </div>
