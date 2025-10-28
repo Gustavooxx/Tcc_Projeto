@@ -112,7 +112,7 @@
                         background-color: #DA2B1D;
                         color: white;
                         border: none;
-                        border-radius: 10px;
+                        border-radius: 8px;
                         padding: 10px 30px;
                         font-size: 16px;
                         font-weight: bold;
@@ -139,6 +139,7 @@
 
             .titulo {
                 background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 50%);
+                border-radius: 7px 7px 0 0;
                 padding: 10px;
                 grid-column: 1 / -1;
 
@@ -170,7 +171,40 @@
                     font-weight: bold;
                 }
 
-                input,
+                .password-field {
+                    display: flex;
+                    align-items: center;
+
+                    input {
+                        flex: 1;
+                        padding: 8px;
+                        font-size: 16px;
+                        border-radius: 5px 0 0 5px;
+                        border: 1px solid #ccc;
+                        border-right: none;
+
+                        &:focus {
+                            outline: none;
+                            border: 2px solid #DA2B1D;
+                            border-right: none;
+                        }
+                    }
+
+                    .toggle-password {
+                        background: none;
+                        border-left: none;
+                        cursor: pointer;
+                        color: #666;
+                        padding: 8px ;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: auto;
+
+                    }
+                }
+
+                input:not(.input-container input),
                 select {
                     min-width: 50px; // Largura mínima do select
                     width: 100%; // Pode expandir até o tamanho do container
@@ -200,20 +234,18 @@
                 background-color: #DA2B1D;
                 color: white;
                 border: none;
-                border-radius: 10px;
+                border-radius: 8px;
                 padding: 10px;
                 font-size: 15px;
                 font-weight: bold;
                 margin-top: 6px;
                 width: 180px;
                 justify-self: center;
-                margin-bottom: 4px;
-                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                margin-bottom: 10px;
 
 
                 &:hover {
-                    background-color: #b80202ea;
-                    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+                    background-color: #c82017b2;
                 }
             }
 

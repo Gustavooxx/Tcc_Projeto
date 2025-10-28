@@ -1,9 +1,12 @@
 import './index.scss'
 import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 import axios from 'axios'
+import { Eye, EyeOff } from "lucide-react";
 
 
 export default function Cadastro() {
+    const [mostrarSenha, setMostrarSenha] = useState(false);
 
     //hook para navegar entre as páginas
     //
@@ -129,17 +132,23 @@ export default function Cadastro() {
                         <div className="form-group">
                             <label htmlFor="senha">Senha</label>
 
-                            <input
+                            <div className="password-field">
+                                <input
 
-                                type="password"
-                                name="senha"
-                                placeholder="Senha"
-                                required
-                                minLength={6}
-                                maxLength={20}
-                                
+                                    type={mostrarSenha ? 'text' : 'password'}
+                                    name="senha"
+                                    placeholder="Senha"
+                                    required
+                                    minLength={6}
+                                    maxLength={20}
+                                    
+                                />
+                                <button
+                                 type='button' onClick={() => setMostrarSenha(!mostrarSenha)} className='toggle-password'>
+                                     {mostrarSenha ? <EyeOff size={16} /> : <Eye size={16} />}
 
-                            />
+                                </button>
+                            </div>
                         </div>
 
                         <div className="form-group">
