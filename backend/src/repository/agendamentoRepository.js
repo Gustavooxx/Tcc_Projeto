@@ -74,8 +74,7 @@ export async function consultarEmail(emailObj) {
 
 export async function listarHemocentro(){
   const comando = `
-  select distinct h.nome_hemocentro from agenda a
-inner join hemocentros h on h.id_hemocentro = a.id_hemocentro;
+  select id_hemocentro, nome_hemocentro, cidade_hemocentro, rua_hemocentro, bairro_hemocentro from hemocentros;
   `
 
   const [registros] = await connection.query(comando);

@@ -35,7 +35,7 @@ export async function atualizarSenha(senha, id_cadastro) {
 
 
 export async function editarAgendamento(atualizarAgendamento) {
-    const comando = `update agendamentos set data_agendamento = ?, horario = ? where id = ? `;
+    const comando = `update agendamentos set data_agendamento = ?, horario = ?,  where id = ? `;
     const [registros] = await connection.query(comando, [atualizarAgendamento.data_agendamento, atualizarAgendamento.horario, atualizarAgendamento.id]);
     return registros;
 }

@@ -20,12 +20,12 @@ agendamentoUser.get('/listar/agendamentos/usuario', autenticar, async (req, resp
     }
 })
 
-agendamentoUser.put('/atualizar/:id_agendamento', autenticar, async (req, resp) => {
+agendamentoUser.put('/atualizar/:id', autenticar, async (req, resp) => {
     try{
-        let id_agendamento = req.params.id_agendamento;
+        let id = req.params.id;
         let atualizar = req.body;
-        atualizar.id_agendamento = id_agendamento;
-        let agendamentos = await editarAgendamento(atualizar);
+        atualizar.id = id;
+        let agendamentos = await editarAgendamentoCompleto(atualizar);
         resp.send("Agendamento atualizado com sucesso");
     } catch(error){
         return resp.status(400).json({erro: error.message})
