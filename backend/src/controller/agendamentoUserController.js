@@ -1,6 +1,7 @@
 import { Router } from "express";
-import { deletarAgendamento, listarAgendamentoUsario, editarAgendamento, atualizarInformacoes, atualizarSenha } from "../repository/agendamentoUserRepository.js";
+import { deletarAgendamento, listarAgendamentoUsario, editarAgendamento, editarAgendamentoCompleto, atualizarInformacoes, atualizarSenha } from "../repository/agendamentoUserRepository.js";
 import { getAuthentication } from "../utils/jwt.js";
+import { listarHemocentro } from "../repository/agendamentoRepository.js";
 
 const autenticar = getAuthentication();
 const agendamentoUser = Router();
@@ -49,6 +50,16 @@ agendamentoUser.put('/informacoes/atualizar', autenticar, async (req, resp) => {
         let agendamentos = await atualizarInformacoes(atualizar, id_cadastro);
         resp.send("informacoes atualizadas com sucesso");
     } catch(error){
+        return resp.status(400).json({erro: error.message})
+    }
+})
+
+agendamentoUser.get('/listarHemocentros/user', autenticar, async (req,resp) => {
+    try{
+        let registros = await listarHemocentro();
+        resp.send(registros);
+
+    }catch(error){
         return resp.status(400).json({erro: error.message})
     }
 })

@@ -2,7 +2,7 @@ import connection from "./connetion.js";
 
 export async function listarAgendamentoUsario(usuario_id){
     const comando = `
-    select a.id, a.data_agendamento, a.horario, h.nome_hemocentro, h.cidade_hemocentro
+    select a.id, a.data_agendamento, a.horario, h.id_hemocentro, h.nome_hemocentro, h.cidade_hemocentro, h.bairro_hemocentro, h.rua_hemocentro
     from agendamentos a
     inner join hemocentros h on a.hemocentro_id = h.id_hemocentro
     where a.usuario_id = ?
@@ -35,7 +35,13 @@ export async function atualizarSenha(senha, id_cadastro) {
 
 
 export async function editarAgendamento(atualizarAgendamento) {
-    const comando = `update agendamentos set data_agendamento = ?, horario = ?, hemocentro_id = ? where id = ? `;
-    const [registros] = await connection.query(comando, [atualizarAgendamento.data_agendamento, atualizarAgendamento.horario, atualizarAgendamento.hemocentro_id, atualizarAgendamento.id]);
+    const comando = `update agendamentos set data_agendamento = ?, horario = ? where id = ? `;
+    const [registros] = await connection.query(comando, [atualizarAgendamento.data_agendamento, atualizarAgendamento.horario, atualizarAgendamento.id]);
+    return registros;
+}
+
+export async function editarAgendamentoCompleto(atualizarAgendamento) {
+    const comando = `update agendamentos set hemocentro_id = ?, data_agendamento = ?, horario = ? where id = ? `;
+    const [registros] = await connection.query(comando, [atualizarAgendamento.id_hemocentro, atualizarAgendamento.data_agendamento, atualizarAgendamento.horario, atualizarAgendamento.id]);
     return registros;
 }
