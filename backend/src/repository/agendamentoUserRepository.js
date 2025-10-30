@@ -15,7 +15,7 @@ export async function listarAgendamentoUsario(usuario_id){
 export async function deletarAgendamento(id_agendamento){
     const comando = `
     delete from agendamentos
-    where id_agendamento = ?
+    where id = ?
     `
     const [registros] = await connection.query(comando,[id_agendamento])
     return registros;

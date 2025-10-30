@@ -13,13 +13,14 @@ try {
 
     let token =  generateToken(registros);
 
-  
-
     resp.status(201).send({
-       token
+       token,
+       id_cadastro: registros.id_cadastro,
+       nome_completo: registros.nome_completo,
+       email: registros.email
     });
 
-} 
+}
 catch (error) {
     return resp.status(400).json({ erro: error.message });
 }

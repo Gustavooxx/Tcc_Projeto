@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router";
+import { data, Link, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 import "./index.scss";
 import app from "../../api";
@@ -6,21 +6,31 @@ import axios from 'axios';
 
 export default function AgendamentoUser() {
     const navigate = useNavigate();
-    const [totalAgend, setTotalAgend] = useState([]);
+    const [editarInfo, setEditarInfo] = useState({
+        nome_completo: '',
+        email: '',
+        telefone: ''
+    })
     const [agendamentos, setAgendamentos] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const [editarAgend, setEditarAgend] = useState({});
     const [isAgend, setIsAgend] = useState(false);
-    const [hemocentros, setHemocentros] = useState([]); // Mudei de "nome" para "hemocentros"
+    const [hemocentros, setHemocentros] = useState([]);
     const [horarios, setHorarios] = useState([]);
     const [carregandoHorarios, setCarregandoHorarios] = useState(false);
     const [horarioError, setHorarioError] = useState("");
+    const [usuario, setUsuario] = useState({
+        nome_completo: '',
+        email: '',
+        telefone: '',
+        data_cadastro: ''
+    });
 
     function sair() {
         if (window.confirm('Tem certeza que deseja sair da sua conta?')) {
             localStorage.removeItem("USUARIO");
-            localStorage.removeItem("TOKEN");
+            localStorage.removeItem("token");
             navigate('/Inicio');
         }
     }
@@ -58,14 +68,39 @@ export default function AgendamentoUser() {
 
     useEffect(() => {
         carregarAgendamentos();
+        carregarUsuario();
         listarHemocentros();
     }, []);
+
+
+const carregarUsuario = async () => {
+  try {
+    const idCadastro = localStorage.getItem('id_cadastro');
+
+    if (!idCadastro) {
+      console.warn("Nenhum id_cadastro encontrado no localStorage.");
+      return;
+    }
+
+    const response = await app.get(`/listar/cadastros/${idCadastro}`);
+
+    if (response.status === 200 && Array.isArray(response.data) && response.data.length > 0) {
+      const userData = response.data[0];
+      setUsuario(userData);
+      console.log("Usuário carregado:", userData);
+    } else {
+      console.warn("Nenhum usuário encontrado na API.");
+    }
+  } catch (error) {
+    console.error("Erro ao carregar usuário:", error);
+  }
+};
+
 
     const listarHemocentros = async () => {
         try {
             const resposta = await app.get("/listarHemocentros");
             console.log("Hemocentros carregados:", resposta.data);
-            // Verifica a estrutura da resposta
             if (resposta.data && resposta.data.registros) {
                 setHemocentros(resposta.data.registros);
             } else if (Array.isArray(resposta.data)) {
@@ -79,25 +114,23 @@ export default function AgendamentoUser() {
         }
     };
 
-    // Função para buscar informações do hemocentro selecionado
     const buscarInfoHemocentro = (nomeHemocentro) => {
         console.log("Buscando hemocentro:", nomeHemocentro);
         console.log("Lista de hemocentros disponíveis:", hemocentros);
-        
-        const hemocentroSelecionado = hemocentros.find(h => 
-            h.nome_hemocentro === nomeHemocentro || 
+
+        const hemocentroSelecionado = hemocentros.find(h =>
+            h.nome_hemocentro === nomeHemocentro ||
             h.nome === nomeHemocentro
         );
-        
+
         console.log("Hemocentro encontrado:", hemocentroSelecionado);
-        
+
         if (hemocentroSelecionado) {
             return {
                 id_hemocentro: hemocentroSelecionado.id_hemocentro || hemocentroSelecionado.id,
                 cidade_hemocentro: hemocentroSelecionado.cidade_hemocentro || hemocentroSelecionado.cidade || '',
                 bairro_hemocentro: hemocentroSelecionado.bairro_hemocentro || hemocentroSelecionado.bairro || '',
                 rua_hemocentro: hemocentroSelecionado.rua_hemocentro || hemocentroSelecionado.rua || '',
-                // Inclui todos os campos possíveis para debug
                 ...hemocentroSelecionado
             };
         }
@@ -108,7 +141,6 @@ export default function AgendamentoUser() {
         setCarregandoHorarios(true);
         setHorarioError("");
         try {
-            // Converter data de YYYY-MM-DD para DD/MM/YYYY
             const [ano, mes, dia] = data.split('-');
             const dataFormatada = `${dia}/${mes}/${ano}`;
 
@@ -137,7 +169,7 @@ export default function AgendamentoUser() {
     };
 
     const handleDeletar = async (id) => {
-        if (window.confirm('Tem certeza que deseja deletar o agendamento?')) {
+        if (window.confirm('Tem certeza que deseja cancelar agendamento?')) {
             try {
                 await app.delete(`deletar/${id}`);
                 alert('Agendamento deletado com sucesso!');
@@ -191,15 +223,14 @@ export default function AgendamentoUser() {
         setHorarioError("");
     }
 
-    // Função para lidar com a seleção do hemocentro
     const handleSelecionarHemocentro = async (nomeHemocentro) => {
         console.log("Hemocentro selecionado:", nomeHemocentro);
-        
+
         const infoHemocentro = buscarInfoHemocentro(nomeHemocentro);
-        
+
         if (infoHemocentro) {
             console.log("Informações do hemocentro encontradas:", infoHemocentro);
-            
+
             setEditarAgend(prev => ({
                 ...prev,
                 nome_hemocentro: nomeHemocentro,
@@ -209,7 +240,6 @@ export default function AgendamentoUser() {
                 rua_hemocentro: infoHemocentro.rua_hemocentro
             }));
 
-            // Buscar horários se já tiver uma data selecionada
             if (editarAgend.data_agendamento) {
                 try {
                     await listarHorarios(nomeHemocentro, editarAgend.data_agendamento);
@@ -222,7 +252,6 @@ export default function AgendamentoUser() {
             }
         } else {
             console.log("Hemocentro não encontrado na lista");
-            // Limpar campos se nenhum hemocentro for encontrado
             setEditarAgend(prev => ({
                 ...prev,
                 nome_hemocentro: nomeHemocentro,
@@ -235,15 +264,45 @@ export default function AgendamentoUser() {
         }
     };
 
+    const handleSalvarInfo = async () => {
+        try {
+            const response = await app.put('/informacoes/atualizar', {
+                nome_completo: editarInfo.nome_completo,
+                email: editarInfo.email,
+                telefone: editarInfo.telefone
+            });
+            if (response.status !== 200) {
+                throw new Error('Erro ao atualizar informações. Tente novamente');
+            }
+            alert("Informações atualizadas com sucesso!");
+            // Atualiza também o estado do usuário
+            setUsuario(prev => ({
+                ...prev,
+                nome_completo: editarInfo.nome_completo,
+                email: editarInfo.email,
+                telefone: editarInfo.telefone
+            }));
+        } catch (error) {
+            console.error('Erro ao atualizar informações:', error);
+            alert(error.message || 'Erro ao atualizar informações. Tente novamente');
+        }
+    }
+
     return (
         <div className="agendamentoUser">
             <div className="cabelho">
                 <div className="logo-usuario">
-                    <img src="/assets/images/logoTcc.webp" alt="" />
+                    <img src="/assets/images/logoTcc.webp" alt="Logo" />
                     <div className="usuario">
-                        <h1>Nome do usuário</h1>
-                        <p>membro desde...</p>
+                        <h1>
+                            Olá,{" "}
+                            {usuario?.nome_completo
+                                ? `${usuario.nome_completo}, seja bem-vindo!`
+                                : "carregando..."}
+                        </h1>
                     </div>
+
+
                 </div>
 
                 <div className="botoes">
@@ -303,7 +362,7 @@ export default function AgendamentoUser() {
                 <div className="container-editar">
                     <div className="contents">
                         <h3>Editar agendamento</h3>
-                        
+
                         <div className="form-group">
                             <label htmlFor="nome_hemocentro">Hemocentro</label>
                             <select
@@ -321,43 +380,42 @@ export default function AgendamentoUser() {
                             </select>
                         </div>
 
-                        {/* Informações do hemocentro */}
                         <div className="form-group">
                             <label htmlFor="cidade_hemocentro">Cidade</label>
-                            <input 
+                            <input
                                 type="text"
                                 id="cidade_hemocentro"
                                 value={editarAgend.cidade_hemocentro || ''}
-                                readOnly 
+                                readOnly
                                 placeholder="Selecione um hemocentro para ver a cidade"
                             />
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="bairro_hemocentro">Bairro</label>
-                            <input 
+                            <input
                                 type="text"
                                 id="bairro_hemocentro"
                                 value={editarAgend.bairro_hemocentro || ''}
-                                readOnly 
+                                readOnly
                                 placeholder="Selecione um hemocentro para ver o bairro"
                             />
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="rua_hemocentro">Rua</label>
-                            <input 
+                            <input
                                 type="text"
                                 id="rua_hemocentro"
                                 value={editarAgend.rua_hemocentro || ''}
-                                readOnly 
+                                readOnly
                                 placeholder="Selecione um hemocentro para ver a rua"
                             />
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="data_agendamento">Data</label>
-                            <input 
+                            <input
                                 type="date"
                                 id="data_agendamento"
                                 value={editarAgend.data_agendamento || ''}
@@ -375,23 +433,23 @@ export default function AgendamentoUser() {
                                         console.error("Erro ao buscar horários:", error);
                                         setHorarios([]);
                                     }
-                                }} 
+                                }}
                             />
                         </div>
-                        
+
                         <div className="form-group">
                             <label htmlFor="horario_agendamento">Horário</label>
-                            <select 
-                                id="horario_agendamento" 
-                                value={editarAgend.horario_agendamento || ''} 
-                                onChange={(e) => setEditarAgend({ ...editarAgend, horario_agendamento: e.target.value })} 
-                                required 
+                            <select
+                                id="horario_agendamento"
+                                value={editarAgend.horario_agendamento || ''}
+                                onChange={(e) => setEditarAgend({ ...editarAgend, horario_agendamento: e.target.value })}
+                                required
                                 disabled={!editarAgend.nome_hemocentro || !editarAgend.data_agendamento || carregandoHorarios || horarios.length === 0}
                             >
                                 <option value="" disabled>{
-                                    carregandoHorarios ? "Carregando horários..." : 
-                                    horarios.length === 0 ? "Nenhum horário disponível" : 
-                                    "Selecione um horário"
+                                    carregandoHorarios ? "Carregando horários..." :
+                                        horarios.length === 0 ? "Nenhum horário disponível" :
+                                            "Selecione um horário"
                                 }</option>
                                 {Array.isArray(horarios) && horarios.map((horario, index) => (
                                     <option key={index} value={horario}>
@@ -403,7 +461,7 @@ export default function AgendamentoUser() {
                                 <p style={{ color: 'red', marginTop: '5px' }}>{horarioError}</p>
                             )}
                         </div>
-                        
+
                         <div className="button-group">
                             <button onClick={handleSalvarEdit} disabled={!editarAgend.horario_agendamento}>
                                 Salvar
@@ -420,26 +478,38 @@ export default function AgendamentoUser() {
 
                 <div className="editar-informacoes">
                     <div className="informacoes">
-                        <label htmlFor=""> Nome</label>
-                        <input type="text"
+                        <label htmlFor="nome">Nome</label>
+                        <input
+                            type="text"
+                            id="nome"
                             placeholder="Nome"
-                            name="nome" />
+                            value={editarInfo.nome_completo}
+                            onChange={(e) => setEditarInfo({ ...editarInfo, nome_completo: e.target.value })}
+                        />
                     </div>
                     <div className="informacoes">
-                        <label htmlFor="">Email</label>
-                        <input type="text"
+                        <label htmlFor="email">Email</label>
+                        <input
+                            type="email"
+                            id="email"
                             placeholder="Email"
-                            name="email" />
+                            value={editarInfo.email}
+                            onChange={(e) => setEditarInfo({ ...editarInfo, email: e.target.value })}
+                        />
                     </div>
 
                     <div className="informacoes">
-                        <label htmlFor="">Telefone</label>
-                        <input type="text"
+                        <label htmlFor="telefone">Telefone</label>
+                        <input
+                            type="text"
+                            id="telefone"
                             placeholder="(11) 99999-9999"
-                            name="telefone" />
+                            value={editarInfo.telefone}
+                            onChange={(e) => setEditarInfo({ ...editarInfo, telefone: e.target.value })}
+                        />
                     </div>
 
-                    <button>Salvar alterações</button>
+                    <button onClick={handleSalvarInfo}>Salvar alterações</button>
 
                     <span>
                         <button>Cancelar</button>

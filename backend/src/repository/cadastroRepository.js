@@ -1,10 +1,10 @@
 import connection from "./connetion.js";
 
-export async function lista() {
+export async function lista(id_cadastro) {
     const comando = `
-    select * from cadastro_users
+    select * from cadastro_users where id_cadastro= ?
     `
-    const [registros] = await connection.query(comando)
+    const [registros] = await connection.query(comando, [id_cadastro])
     return registros;
 }
 

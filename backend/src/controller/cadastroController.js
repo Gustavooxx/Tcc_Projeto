@@ -5,8 +5,9 @@ import { lista } from "../repository/cadastroRepository.js";
 
 const cadastro = Router();
 
-cadastro.get('/listar/cadastros', async (req,resp) => {
-    let registros = await lista();
+cadastro.get('/listar/cadastros/:id', async (req,resp) => {
+    let id = req.params.id;
+    let registros = await lista(id);
     resp.send(registros)
 })
 
