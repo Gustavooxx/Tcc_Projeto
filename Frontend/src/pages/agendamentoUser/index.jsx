@@ -73,30 +73,37 @@ export default function AgendamentoUser() {
     }, []);
 
 
-const carregarUsuario = async () => {
-  try {
-    const idCadastro = localStorage.getItem('id_cadastro');
-
-    if (!idCadastro) {
-      console.warn("Nenhum id_cadastro encontrado no localStorage.");
-      return;
-    }
-
-    const response = await app.get(`/listar/cadastros/${idCadastro}`);
-
-    if (response.status === 200 && Array.isArray(response.data) && response.data.length > 0) {
-      const userData = response.data[0];
-      setUsuario(userData);
-      console.log("Usuário carregado:", userData);
-    } else {
-      console.warn("Nenhum usuário encontrado na API.");
-    }
-  } catch (error) {
-    console.error("Erro ao carregar usuário:", error);
-  }
-};
-
-
+    const carregarUsuario = async () => {
+        setLoading(true)
+        setError('')
+        try {
+            const usuarioStorage = JSON.parse(localStorage.getItem('USUARIO'));
+            const id_cadastro = usuarioStorage?.id_cadastro;
+            if (!id_cadastro) {
+                throw new Error('ID do usuário não encontrado no localStorage');
+            }
+            let url = `/listar/cadastros/${id_cadastro}`
+            const response = await app.get(url)
+            const data = response.data[0] 
+            setUsuario({
+                nome_completo: data.nome_completo,
+                email: data.email,
+                telefone: data.telefone,
+                data_cadastro: data.criado_em
+            });
+            setEditarInfo({
+                nome_completo: data.nome_completo,
+                email: data.email,
+                telefone: data.telefone
+            });
+            console.log('Usuario carregado:', data);
+        } catch (err) {
+            setError('Erro ao carregar usuario')
+            console.error(err);
+        } finally {
+            setLoading(false)
+        }
+    };
     const listarHemocentros = async () => {
         try {
             const resposta = await app.get("/listarHemocentros");
