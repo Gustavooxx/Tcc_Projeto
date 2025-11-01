@@ -24,7 +24,8 @@ export default function AgendamentoUser() {
         nome_completo: '',
         email: '',
         telefone: '',
-        data_cadastro: ''
+        data_cadastro: '',
+        sexo: ''
     });
 
     function sair() {
@@ -84,12 +85,13 @@ export default function AgendamentoUser() {
             }
             let url = `/listar/cadastros/${id_cadastro}`
             const response = await app.get(url)
-            const data = response.data[0] 
+            const data = response.data[0]
             setUsuario({
                 nome_completo: data.nome_completo,
                 email: data.email,
                 telefone: data.telefone,
-                data_cadastro: data.criado_em
+                data_cadastro: data.criado_em,
+                sexo: data.sexo
             });
             setEditarInfo({
                 nome_completo: data.nome_completo,
@@ -298,15 +300,22 @@ export default function AgendamentoUser() {
     return (
         <div className="agendamentoUser">
             <div className="cabelho">
-                <div className="logo-usuario">
-                    <img src="/assets/images/logoTcc.webp" alt="Logo" />
+                    <div className="logo-usuario">
+                         {usuario.sexo === 'Feminino' ? (
+                            <img src="https://img.cdndsgni.com/preview/12040179-m.jpg" alt="Feminino" />
+                         ) : (
+                            <img src="https://img.cdndsgni.com/preview/13107338.jpg" alt="Masculino" />
+
+                         )
+                         }
                     <div className="usuario">
                         <h1>
                             Olá,{" "}
                             {usuario?.nome_completo
-                                ? `${usuario.nome_completo}, seja bem-vindo!`
+                                ? `${usuario.nome_completo} seja bem-vindo!`
                                 : "carregando..."}
                         </h1>
+                         <p>Membro desde {new Date(usuario.data_cadastro).toLocaleDateString('pt-BR')}</p>
                     </div>
 
 
@@ -333,12 +342,14 @@ export default function AgendamentoUser() {
             <div className="proximo-agendamento">
                 <h2>Meus agendamentos</h2>
                 <div className="grupos-agendamento">
-                    <div className="informacoes">
-                        {loading ? (
+                    {loading ? (
+                        <div className="informacoes">
                             <div className="sem-agendamentos">
                                 <h2>Carregando agendamentos...</h2>
                             </div>
-                        ) : agendamentos.length === 0 ? (
+                        </div>
+                    ) : agendamentos.length === 0 ? (
+                        <div className="informacoes">
                             <div className="sem-agendamentos">
                                 <h2>Você ainda não possui agendamentos</h2>
                                 <p>Que tal agendar sua primeira doação?</p>
@@ -346,9 +357,11 @@ export default function AgendamentoUser() {
                                     <button>Agendar Agora</button>
                                 </Link>
                             </div>
-                        ) : (
-                            agendamentos.map((hemo) => (
-                                <div key={hemo.id_agendamento} className="agendamentos">
+                        </div>
+                    ) : (
+                        agendamentos.map((hemo) => (
+                            <div key={hemo.id_agendamento} className="informacoes">
+                                <div className="agendamentos">
                                     <h2>{hemo.nome_hemocentro}</h2>
                                     <p> <img src="/assets/images/pin.png" alt="" height='20px' /> {hemo.cidade_hemocentro}</p>
                                     <p> <img src="/assets/images/pin.png" alt="" height='20px' /> {hemo.bairro_hemocentro}</p>
@@ -356,12 +369,16 @@ export default function AgendamentoUser() {
                                     <p> <img src="/assets/images/cronograma(1).png" alt="" height='20px' /> {new Date(hemo.data_agendamento).toLocaleDateString('pt-BR')}</p>
                                     <p><img src="/assets/images/relogio.png" alt="" height='20px' /> {hemo.horario}</p>
 
-                                    <button onClick={() => handleEditar(hemo)}>Editar</button>
-                                    <button onClick={() => handleDeletar(hemo.id)} > Cancelar </button>
+                                    <div className="botoes-agenda">
+                                        <button onClick={() => handleEditar(hemo)}>Editar</button>
+                                        <span><button onClick={() => handleDeletar(hemo.id)} > Cancelar </button></span>
+                                    </div>
+
                                 </div>
-                            ))
-                        )}
-                    </div>
+
+                            </div>
+                        ))
+                    )}
                 </div>
             </div>
 
