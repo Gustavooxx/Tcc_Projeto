@@ -107,7 +107,7 @@ export default function Inicio() {
             </section>
 
             <div className='fazer-parte'>
-                <Link><button> Venha fazer parte</button></Link>
+                <Link to='/Marcar agendamento'><button> Venha fazer parte</button></Link>
             </div>
 
 

@@ -3,6 +3,7 @@ import BloodTypes, { Sangues } from '../../components/sangues'
 import Tags from '../../components/tags/util'
 import './index.scss'
 import { Link } from 'react-router'
+import { ListRestartIcon, BedDoubleIcon, CalendarDays } from 'lucide-react'
 
 export default function Comodoar() {
 
@@ -49,6 +50,7 @@ export default function Comodoar() {
 
                     <div className='card'>
                         <img src="assets/images/cronograma.png" alt="" height={'70px'} />
+                        <CalendarDays size={70} />
                         <h4>Agendamento</h4>
                     </div>
 

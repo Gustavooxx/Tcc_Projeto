@@ -107,7 +107,7 @@
 
             .grupos-agendamento{
                 display: flex;
-
+                gap: 1rem;
             
                 .informacoes{
                 display: flex;
@@ -192,8 +192,20 @@
                         }
                     }
                 }
+
+                .botoes{
+                    display: flex;
+                    gap: 1rem;
+                    margin:1rem 0rem 1rem 0rem;
+
+                    span{
+                        background-color: #ddd;
+                    }
+                }
                 button{
-                    margin: 1px;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
                     gap: 5px;
                     padding: 7px 15px 7px 15px;
                     background-color: #A9233E;

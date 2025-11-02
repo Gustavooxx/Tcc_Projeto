@@ -273,6 +273,7 @@ export default function AgendamentoUser() {
 
     const handleSalvarInfo = async () => {
         try {
+            window.confirm('Tem certeza que deseja atualizar suas informações?');
             const response = await app.put('/informacoes/atualizar', {
                 nome_completo: editarInfo.nome_completo,
                 email: editarInfo.email,
@@ -333,12 +334,14 @@ export default function AgendamentoUser() {
             <div className="proximo-agendamento">
                 <h2>Meus agendamentos</h2>
                 <div className="grupos-agendamento">
-                    <div className="informacoes">
-                        {loading ? (
+                    {loading ? (
+                        <div className="informacoes">
                             <div className="sem-agendamentos">
                                 <h2>Carregando agendamentos...</h2>
                             </div>
-                        ) : agendamentos.length === 0 ? (
+                        </div>
+                    ) : agendamentos.length === 0 ? (
+                        <div className="informacoes">
                             <div className="sem-agendamentos">
                                 <h2>Você ainda não possui agendamentos</h2>
                                 <p>Que tal agendar sua primeira doação?</p>
@@ -346,22 +349,28 @@ export default function AgendamentoUser() {
                                     <button>Agendar Agora</button>
                                 </Link>
                             </div>
-                        ) : (
-                            agendamentos.map((hemo) => (
-                                <div key={hemo.id_agendamento} className="agendamentos">
+                        </div>
+                    ) : (
+                        agendamentos.map((hemo) => (
+                            <div key={hemo.id_agendamento} className="informacoes">
+                                <div className="agendamentos">
                                     <h2>{hemo.nome_hemocentro}</h2>
                                     <p> <img src="/assets/images/pin.png" alt="" height='20px' /> {hemo.cidade_hemocentro}</p>
                                     <p> <img src="/assets/images/pin.png" alt="" height='20px' /> {hemo.bairro_hemocentro}</p>
                                     <p> <img src="/assets/images/pin.png" alt="" height='20px' /> {hemo.rua_hemocentro}</p>
                                     <p> <img src="/assets/images/cronograma(1).png" alt="" height='20px' /> {new Date(hemo.data_agendamento).toLocaleDateString('pt-BR')}</p>
                                     <p><img src="/assets/images/relogio.png" alt="" height='20px' /> {hemo.horario}</p>
+                                    
+                                    <div className="botoes">
 
-                                    <button onClick={() => handleEditar(hemo)}>Editar</button>
-                                    <button onClick={() => handleDeletar(hemo.id)} > Cancelar </button>
+                                        <button onClick={() => handleEditar(hemo)}>Editar</button>
+                                       <span> <button onClick={() => handleDeletar(hemo.id)} > Cancelar </button> </span>
+
+                                    </div>
                                 </div>
-                            ))
-                        )}
-                    </div>
+                            </div>
+                        ))
+                    )}
                 </div>
             </div>
 
