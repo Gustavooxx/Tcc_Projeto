@@ -219,6 +219,21 @@ export default function Cadastro() {
                                 </select>
                             </div>
 
+                            <div className='form-group'>
+                                <select id="tipo_sanguineo" name="tipo_sanguineo">
+                                    <option value="" disabled selected>Tipo Sanguíneo</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                    <option value="Não sei">Não sei</option>
+                                </select>
+                            </div>
+
                         </div>
 
                         <div className='form-group'>

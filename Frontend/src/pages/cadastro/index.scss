@@ -228,6 +228,12 @@
                 row-gap: 10px;
             }
 
+            @media (max-width: 768px) {
+                .row {
+                    grid-template-columns: 1fr;
+                }
+            }
+
 
             button {
                 grid-column: 1 / -1;
