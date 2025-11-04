@@ -15,6 +15,7 @@
   background: #fff;
   width: 100%;
   height: auto;
+  max-height: 80vh;
   max-width: 440px;
   border-radius: 18px;
   padding: 2.2rem;
@@ -22,6 +23,7 @@
   position: relative;
   animation: slideUp 0.3s ease;
   text-align: center;
+  overflow-y: auto;
 }
 
 .botao-fechar {
@@ -89,7 +91,7 @@
 .botao-enviar {
   margin-top: 0.5rem;
   padding: 0.9rem;
-  background: #007bff;
+  background-color: #DA2B1D;
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -99,7 +101,7 @@
   transition: 0.3s ease;
 
   &:hover {
-    background: #005fcc;
+    background-color: #b80202;
   }
 }
 

@@ -371,7 +371,7 @@ export default function AgendamentoUser() {
                                     <p><img src="/assets/images/relogio.png" alt="" height='20px' /> {hemo.horario}</p>
                                     
                                     <div className="botoes">
-                                        <button onClick={() => handleEditar(hemo)}>Editar</button>
+                                            <button onClick={() => handleEditar(hemo)}>Editar</button>
                                         <span><button onClick={() => handleDeletar(hemo.id)}>Cancelar</button></span>
                                     </div>
                                 </div>
