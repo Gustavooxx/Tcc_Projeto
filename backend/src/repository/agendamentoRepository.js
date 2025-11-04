@@ -1,4 +1,5 @@
 import connection from "./connetion.js";
+import transporter from "./email.js";
 
 export async function lista() {
   const comando = `
@@ -56,8 +57,28 @@ export async function agendamentoUsario(novoAgendamento, usuario_id) {
    (?,?,?,?)
    `
 
-  await connection.query(comando4,[ novoAgendamento.data_agendamento,novoAgendamento.horario,hemocentroId,usuario_id]);
+   const assunto = 'Confirmação do seu agendamento de doação de sangue 🩸'
+   const texto = `Olá, ${novoAgendamento.nome_completo}!
 
+    Seu agendamento para doação de sangue foi confirmado com sucesso. ❤️
+
+    🏥 Hemocentro: ${novoAgendamento.nome_hemocentro}
+    📅 Data: ${novoAgendamento.data_agendamento}
+    ⏰ Horário: ${novoAgendamento.horario}
+
+    Agradecemos muito pela sua solidariedade — sua doação pode salvar até três vidas!
+
+    Caso precise reagendar ou tirar dúvidas, entre em contato com o hemocentro.
+
+    Atenciosamente,
+    Equipe Doe Vida `
+
+  await connection.query(comando4,[ novoAgendamento.data_agendamento,novoAgendamento.horario,hemocentroId,usuario_id]);
+  await transporter.sendMail({
+    to: novoAgendamento.email,
+    subject: assunto,
+    text: texto
+  })
  
 
   return info.insertId;
