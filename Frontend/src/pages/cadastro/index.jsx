@@ -22,13 +22,21 @@ export default function Cadastro() {
         //e.target representa o formulário
         const formData = new FormData(e.target);
 
+        const senha = formData.get('senha');
+        const confirmarSenha = formData.get('confirmarSenha');
+
+        if (senha !== confirmarSenha) {
+            alert('As senhas não coincidem. Por favor, verifique e tente novamente.');
+            return;
+        }
+
         //Pega os dados do formulário
         //Cria um objeto com os dados do formulário
         const data = {
             //formData.get('nome') pega o valor do input com o name="nome"
             nome_completo: formData.get('nome'),
             email: formData.get('email'),
-            senha: formData.get('senha'),
+            senha: senha,
             cpf: formData.get('cpf'),
             telefone: formData.get('telefone'),
             estado: formData.get('estado'),
@@ -141,7 +149,29 @@ export default function Cadastro() {
                                     required
                                     minLength={6}
                                     maxLength={20}
-                                    
+
+                                />
+                                <button
+                                 type='button' onClick={() => setMostrarSenha(!mostrarSenha)} className='toggle-password'>
+                                     {mostrarSenha ? <EyeOff size={16} /> : <Eye size={16} />}
+
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="confirmarSenha">Confirmar Senha</label>
+
+                            <div className="password-field">
+                                <input
+
+                                    type={mostrarSenha ? 'text' : 'password'}
+                                    name="confirmarSenha"
+                                    placeholder="Confirmar Senha"
+                                    required
+                                    minLength={6}
+                                    maxLength={20}
+
                                 />
                                 <button
                                  type='button' onClick={() => setMostrarSenha(!mostrarSenha)} className='toggle-password'>

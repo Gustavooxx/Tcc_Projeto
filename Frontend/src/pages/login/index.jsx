@@ -22,7 +22,6 @@ export default function Login() {
         const token = response.data.token;
         const id_cadastro = response.data.id_cadastro;
         const nome_completo = response.data.nome_completo;
-        const email = response.data.email;
 
         localStorage.setItem('USUARIO', JSON.stringify({
             id_cadastro: id_cadastro,
