@@ -74,12 +74,35 @@ export async function agendamentoUsario(novoAgendamento, usuario_id) {
     Equipe Doe Vida `
 
   await connection.query(comando4,[ novoAgendamento.data_agendamento,novoAgendamento.horario,hemocentroId,usuario_id]);
+
+  const comando5 = `
+    select count(*) as quantidade from agenda_user
+    where data_disponivel = ?
+    and horario_disponivel = ?
+    and hemocentros_id = ?
+  `;
+
+  const [countResult] = await connection.query(comando5, [novoAgendamento.data_agendamento, novoAgendamento.horario, hemocentroId]);
+  const quantidade = countResult[0].quantidade;
+
+  if (quantidade == 5) {
+    
+    const comando6 = `
+      delete from agenda
+      where data_disponivel = ?
+      and horario_disponivel = ?
+      and id_hemocentro = ?
+    `;
+
+    await connection.query(comando6, [novoAgendamento.data_agendamento, novoAgendamento.horario, hemocentroId]);
+  }
+
   await transporter.sendMail({
     to: novoAgendamento.email,
     subject: assunto,
     text: texto
   })
- 
+
 
   return info.insertId;
 }
