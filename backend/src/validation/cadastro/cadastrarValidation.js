@@ -93,5 +93,5 @@ export function validarCredenciais(cadastro){
 
 export function validarLogin(registros){
      if(!registros)
-     throw new Error('Usuário não encontrado');
+     throw new Error('Email ou senha incorretos');
 }
