@@ -1,73 +1,74 @@
-    .agendamentoUser{
+    .agendamentoUser {
 
-    .cabelho{
-        padding: 1rem 2rem 1rem 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid #A9233E;
-        gap: 1rem;
-        
-        .logo-usuario{
-            display: flex  ;
-            align-items: center;
-            gap: 1rem;
-        }
-        img{
-            border-radius: 7px;
-            height: 70px;
-            width: auto;
-        }
-
-        h1{
-            font-size: 20px;
-            color: #A9233E;
-        }
-
-        .botoes{
+        .cabelho {
+            padding: 1rem 2rem 1rem 2rem;
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #A9233E;
             gap: 1rem;
 
-            a{
-                text-decoration: none;
-            }
-
-            
-            button{
+            .logo-usuario {
                 display: flex;
                 align-items: center;
-                gap: 5px;
-                padding: 7px 15px 7px 15px;
-                background-color: white;
-                border: 2px solid #bdbcbc8c;
-                text-shadow: 1px rgba(255, 255, 255, 0.7);
-                color: rgb(0, 0, 0);
-                border-radius: 10px;
-                font-size: 17px;
-                
-                img{                    
-                    border-radius: 7px;
-                    height: 25px;
-                    width: auto;
-                }
-                
-                &:hover {
-                    background-color: #df3131d2;
-                    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.932);
-                    transition: all 0.5s ease;
-                }
+                gap: 1rem;
             }
-            
-        }
+
+            img {
+                border-radius: 7px;
+                height: 70px;
+                width: auto;
+            }
+
+            h1 {
+                font-size: 20px;
+                color: #A9233E;
+            }
+
+            .botoes {
+                display: flex;
+                gap: 1rem;
+
+                a {
+                    text-decoration: none;
+                }
+
+
+                button {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    padding: 7px 15px 7px 15px;
+                    background-color: white;
+                    border: 2px solid #bdbcbc8c;
+                    text-shadow: 1px rgba(255, 255, 255, 0.7);
+                    color: rgb(0, 0, 0);
+                    border-radius: 10px;
+                    font-size: 17px;
+
+                    img {
+                        border-radius: 7px;
+                        height: 25px;
+                        width: auto;
+                    }
+
+                    &:hover {
+                        background-color: #df3131d2;
+                        box-shadow: 0 2px 10px rgba(255, 255, 255, 0.932);
+                        transition: all 0.5s ease;
+                    }
+                }
+
+            }
         }
 
-        .grupos-agendamentos{
+        .grupos-agendamentos {
             display: flex;
             gap: 1rem;
-            padding:2rem;
+            padding: 2rem;
 
 
-            .grupo{
+            .grupo {
                 border: 1px solid rgb(173, 169, 169);
                 background-color: #f7f7f78b;
 
@@ -77,39 +78,40 @@
                 height: 100px;
                 display: flex;
                 flex-direction: column;
-                
+
                 gap: 1rem;
 
-                h2{
-                    
+                h2 {
+
                     color: #A9233E;
                     font-size: 15px;
                 }
 
-                h3{
+                h3 {
                     color: #333;
                     font-size: 20px;
                 }
             }
 
         }
-        
-        .proximo-agendamento{
+
+        .proximo-agendamento {
             display: flex;
             flex-direction: column;
             gap: 2rem;
-            padding:2rem;
+            padding: 2rem;
 
-            h2{
+            h2 {
                 color: #A9233E;
                 font-size: 25px;
             }
+            .grupos-agendamento {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+            }
 
-            .grupos-agendamento{
-                display: flex;
-                gap: 1rem;
-            
-                .informacoes{
+            .grupos-agendamento .informacoes {
                 display: flex;
                 flex-direction: column;
                 gap: 1rem;
@@ -117,115 +119,122 @@
                 background-color: #f7f7f78b;
                 padding: 1rem;
                 border-radius: 10px;
-                width: 550px;
+                width: 100%;
+                max-width: 550px;
+            }
 
+            .informacoes {
                 .sem-agendamentos {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    padding: 2rem;
-                    border-radius: 8px;
-                    background-color: #a9233e19;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        padding: 2rem;
+                        border-radius: 8px;
+                        background-color: #a9233e19;
 
-                    h2 {
-                        color: #A9233E;
-                        font-size: 20px;
-                        margin-bottom: 1rem;
-                    }
-
-                    p {
-                        color: #333;
-                        font-size: 16px;
-                        margin-bottom: 2rem;
-                    }
-
-                    button {
-                        background-color: #A9233E;
-                        color: white;
-                        border: none;
-                        padding: 10px 20px;
-                        border-radius: 5px;
-                        font-size: 16px;
-                        cursor: pointer;
-
-                        &:hover {
-                            border: 1px solid #A9233E;
-                            color: #333;
-                            background-color: #f7f7f78b;
-                            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.932);
-                            transition: all 0.5s ease;
+                        h2 {
+                            color: #A9233E;
+                            font-size: 20px;
+                            margin-bottom: 1rem;
                         }
-                    }
-                }
 
-                .agendamentos {
-                    border-radius: 8px;
-                    padding: 1rem;
-                    margin-bottom: 1rem;
-                    background-color: #a9233e19;
-                    line-height: 2;
-                }
+                        p {
+                            color: #333;
+                            font-size: 16px;
+                            margin-bottom: 2rem;
+                        }
 
-                h3{
-                    color: #333;
-                    font-size: 20px;
-                }
-
-                p{
-                    display: flex;
-                    align-items: center;
-                    gap: 5px;
-                    color: #333;
-                    font-size: 15px;
-                }
-
-                span{
-                    button{
-                        background-color: white;
-                        color: #333;
-
-                        &:hover {
+                        button {
                             background-color: #A9233E;
                             color: white;
-                            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.932);
-                            transition: all 0.5s ease;
+                            border: none;
+                            padding: 10px 20px;
+                            border-radius: 5px;
+                            font-size: 16px;
+                            cursor: pointer;
+
+                            &:hover {
+                                border: 1px solid #A9233E;
+                                color: #333;
+                                background-color: #f7f7f78b;
+                                box-shadow: 0 2px 10px rgba(255, 255, 255, 0.932);
+                                transition: all 0.5s ease;
+                            }
                         }
                     }
-                }
+                
+            }
+            .agendamentos {
+                border-radius: 8px;
+                padding: 1rem;
+                margin-bottom: 1rem;
+                background-color: #a9233e19;
+                line-height: 1.6;
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
 
-                .botoes{
-                    display: flex;
-                    gap: 1rem;
-                    margin:1rem 0rem 1rem 0rem;
+            .agendamentos h3 {
+                color: #333;
+                font-size: 20px;
+            }
 
-                    span{
-                        background-color: #ddd;
-                    }
-                }
-                button{
-                    align-items: center;
-                    justify-content: center;
-                    cursor: pointer;
-                    gap: 5px;
-                    padding: 7px 15px 7px 15px;
+            .agendamentos p {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                color: #333;
+                font-size: 15px;
+            }
+
+            .agendamentos .botoes,
+            .informacoes .botoes {
+                display: flex;
+                gap: 0.5rem;
+                margin: 1rem 0 0 0;
+                align-items: center;
+            }
+
+            .agendamentos .botoes span button,
+            .informacoes .botoes span button {
+                background-color: #ddd;
+                color: #333;
+                padding: 7px 10px;
+                border-radius: 5px;
+                border: none;
+                cursor: pointer;
+
+                &:hover {
+                    color: #ffffff;
                     background-color: #A9233E;
-                    border: 2px solid #A9233E;
-                    text-shadow: 1px rgba(255, 255, 255, 0.7);
-                    color: rgb(255, 255, 255);
-                    border-radius: 5px;
-                    font-size: 15px;
+                    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.932);
+                    transition: all 0.25s ease;
+                }
+            }
 
-                    &:hover {
-                        background-color: #ffffffd2;
-                        color: #333;
-                        box-shadow: 0 2px 10px rgba(255, 255, 255, 0.932);
-                        transition: all 0.5s ease;
-                    }
+            .agendamentos .botoes button,
+            .informacoes .botoes button {
+                margin: 1px;
+                gap: 5px;
+                padding: 7px 10px 7px 10px;
+                background-color: #A9233E;
+                border: 2px solid #A9233E;
+                text-shadow: 1px rgba(255, 255, 255, 0.7);
+                color: rgb(255, 255, 255);
+                border-radius: 5px;
+                font-size: 15px;
+                width: fit-content;
+
+                &:hover {
+                    background-color: #ffffffd2;
+                    color: #333;
+                    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.932);
+                    transition: all 0.25s ease;
                 }
             }
         }
-        }
-    
+
         .container-editar {
             position: fixed;
             top: 0;
@@ -352,30 +361,30 @@
             }
         }
 
-        .perfil{
+        .perfil {
             background-color: #f7f7f78b;
             display: flex;
             flex-direction: column;
-            margin:2rem;
-            padding:2rem;
+            margin: 2rem;
+            padding: 2rem;
             border: 2px solid rgb(173, 169, 169);
             border-radius: 10px;
             width: 700px;
 
 
-            h2{
+            h2 {
                 color: #A9233E;
                 font-size: 25px;
             }
 
-            .informacoes{
+            .informacoes {
                 display: flex;
                 flex-direction: column;
                 margin: 1rem 0 1rem 0;
                 border-radius: 10px;
                 width: 550px;
 
-                input{
+                input {
                     margin: 1px;
                     gap: 5px;
                     padding: 7px 15px 7px 15px;
@@ -388,8 +397,8 @@
 
             }
 
-            span{
-                button{
+            span {
+                button {
                     color: #333;
                     background-color: rgb(255, 255, 255);
 
@@ -402,7 +411,7 @@
                 }
             }
 
-            button{
+            button {
                 margin: 2px;
                 gap: 5px;
                 padding: 7px 15px 7px 15px;
@@ -422,4 +431,4 @@
             }
         }
 
-}
+    }

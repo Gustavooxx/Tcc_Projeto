@@ -24,7 +24,8 @@ export default function AgendamentoUser() {
         nome_completo: '',
         email: '',
         telefone: '',
-        data_cadastro: ''
+        data_cadastro: '',
+        sexo: ''
     });
 
     function sair() {
@@ -84,12 +85,13 @@ export default function AgendamentoUser() {
             }
             let url = `/listar/cadastros/${id_cadastro}`
             const response = await app.get(url)
-            const data = response.data[0] 
+            const data = response.data[0]
             setUsuario({
                 nome_completo: data.nome_completo,
                 email: data.email,
                 telefone: data.telefone,
-                data_cadastro: data.criado_em
+                data_cadastro: data.criado_em,
+                sexo: data.sexo
             });
             setEditarInfo({
                 nome_completo: data.nome_completo,
@@ -299,15 +301,22 @@ export default function AgendamentoUser() {
     return (
         <div className="agendamentoUser">
             <div className="cabelho">
-                <div className="logo-usuario">
-                    <img src="/assets/images/logoTcc.webp" alt="Logo" />
+                    <div className="logo-usuario">
+                         {usuario.sexo === 'Feminino' ? (
+                            <img src="https://img.cdndsgni.com/preview/12040179-m.jpg" alt="Feminino" />
+                         ) : (
+                            <img src="https://img.cdndsgni.com/preview/13107338.jpg" alt="Masculino" />
+
+                         )
+                         }
                     <div className="usuario">
                         <h1>
                             Olá,{" "}
                             {usuario?.nome_completo
-                                ? `${usuario.nome_completo}, seja bem-vindo!`
+                                ? `${usuario.nome_completo} seja bem-vindo!`
                                 : "carregando..."}
                         </h1>
+                         <p>Membro desde {new Date(usuario.data_cadastro).toLocaleDateString('pt-BR')}</p>
                     </div>
 
 
@@ -362,10 +371,8 @@ export default function AgendamentoUser() {
                                     <p><img src="/assets/images/relogio.png" alt="" height='20px' /> {hemo.horario}</p>
                                     
                                     <div className="botoes">
-
                                         <button onClick={() => handleEditar(hemo)}>Editar</button>
-                                       <span> <button onClick={() => handleDeletar(hemo.id)} > Cancelar </button> </span>
-
+                                        <span><button onClick={() => handleDeletar(hemo.id)}>Cancelar</button></span>
                                     </div>
                                 </div>
                             </div>
