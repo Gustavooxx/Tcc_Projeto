@@ -22,6 +22,7 @@
 
             .botaos {
                 .agendar {
+                    cursor: pointer;
                     background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 100%);
 
                     &:hover {
@@ -30,7 +31,7 @@
                 }
 
                 button:hover {
-                    transform: translateY(-5px);
+                    transform: translateY(-2px);
                     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
                 }
 

@@ -105,24 +105,26 @@
                 color: #A9233E;
                 font-size: 25px;
             }
-
             .grupos-agendamento {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
                 gap: 2rem;
             }
 
-                .informacoes {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                    gap: 2rem;
-                    border: 2px solid rgb(173, 169, 169);
-                    background-color: #f7f7f78b;
-                    padding: 1rem;
-                    border-radius: 10px;
-                    width: 100%;
+            .grupos-agendamento .informacoes {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                border: 2px solid rgb(173, 169, 169);
+                background-color: #f7f7f78b;
+                padding: 1rem;
+                border-radius: 10px;
+                width: 100%;
+                max-width: 550px;
+            }
 
-                    .sem-agendamentos {
+            .informacoes {
+                .sem-agendamentos {
                         display: flex;
                         flex-direction: column;
                         align-items: center;
@@ -160,75 +162,77 @@
                             }
                         }
                     }
-                    
-                    .agendamentos {
-                        display: flex;
-                        flex-direction: column;
-                        gap: 1rem;
-                        border-radius: 8px;
-                        padding: 1rem;
-                        margin-bottom: 1rem;
-                        background-color: #a9233e19;
+                
+            }
+            .agendamentos {
+                border-radius: 8px;
+                padding: 1rem;
+                margin-bottom: 1rem;
+                background-color: #a9233e19;
+                line-height: 1.6;
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
 
-                        .botoes-agenda{
-                            display: flex;
-                            gap: 0.5rem;
-                            margin-bottom: 1rem;
-                            margin-top: 1rem;
+            .agendamentos h3 {
+                color: #333;
+                font-size: 20px;
+            }
 
-                            span{
+            .agendamentos p {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                color: #333;
+                font-size: 15px;
+            }
 
-                                button{
-                                    background-color: #ddd;
-                                    color: #333;
+            .agendamentos .botoes,
+            .informacoes .botoes {
+                display: flex;
+                gap: 0.5rem;
+                margin: 1rem 0 0 0;
+                align-items: center;
+            }
 
-                                    &:hover {
-                                        color: #ffffff;
-                                        background-color: #A9233E;
-                                        box-shadow: 0 2px 10px rgba(255, 255, 255, 0.932);
-                                        transition: all 0.5s ease;
-                                    }
-                                }
-                            }
-                            
-                            button {
-                                margin: 1px;
-                                gap: 5px;
-                                padding: 7px 10px 7px 10px;
-                                background-color: #A9233E;
-                                border: 2px solid #A9233E;
-                                text-shadow: 1px rgba(255, 255, 255, 0.7);
-                                color: rgb(255, 255, 255);
-                            border-radius: 5px;
-                            font-size: 15px;
-                            width: fit-content;
-                            
-                            &:hover {
-                                background-color: #ffffffd2;
-                                color: #333;
-                                box-shadow: 0 2px 10px rgba(255, 255, 255, 0.932);
-                                transition: all 0.5s ease;
-                            }
-                        }
-                    }
+            .agendamentos .botoes span button,
+            .informacoes .botoes span button {
+                background-color: #ddd;
+                color: #333;
+                padding: 7px 10px;
+                border-radius: 5px;
+                border: none;
+                cursor: pointer;
+
+                &:hover {
+                    color: #ffffff;
+                    background-color: #A9233E;
+                    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.932);
+                    transition: all 0.25s ease;
                 }
+            }
 
-                    h3 {
-                        color: #333;
-                        font-size: 20px;
-                    }
+            .agendamentos .botoes button,
+            .informacoes .botoes button {
+                margin: 1px;
+                gap: 5px;
+                padding: 7px 10px 7px 10px;
+                background-color: #A9233E;
+                border: 2px solid #A9233E;
+                text-shadow: 1px rgba(255, 255, 255, 0.7);
+                color: rgb(255, 255, 255);
+                border-radius: 5px;
+                font-size: 15px;
+                width: fit-content;
 
-                    p {
-                        display: flex;
-                        align-items: center;
-                        gap: 5px;
-                        color: #333;
-                        font-size: 15px;
-                    }
-
-
+                &:hover {
+                    background-color: #ffffffd2;
+                    color: #333;
+                    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.932);
+                    transition: all 0.25s ease;
                 }
-            
+            }
         }
 
         .container-editar {

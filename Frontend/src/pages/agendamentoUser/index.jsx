@@ -275,6 +275,7 @@ export default function AgendamentoUser() {
 
     const handleSalvarInfo = async () => {
         try {
+            window.confirm('Tem certeza que deseja atualizar suas informações?');
             const response = await app.put('/informacoes/atualizar', {
                 nome_completo: editarInfo.nome_completo,
                 email: editarInfo.email,
@@ -368,14 +369,12 @@ export default function AgendamentoUser() {
                                     <p> <img src="/assets/images/pin.png" alt="" height='20px' /> {hemo.rua_hemocentro}</p>
                                     <p> <img src="/assets/images/cronograma(1).png" alt="" height='20px' /> {new Date(hemo.data_agendamento).toLocaleDateString('pt-BR')}</p>
                                     <p><img src="/assets/images/relogio.png" alt="" height='20px' /> {hemo.horario}</p>
-
-                                    <div className="botoes-agenda">
+                                    
+                                    <div className="botoes">
                                         <button onClick={() => handleEditar(hemo)}>Editar</button>
-                                        <span><button onClick={() => handleDeletar(hemo.id)} > Cancelar </button></span>
+                                        <span><button onClick={() => handleDeletar(hemo.id)}>Cancelar</button></span>
                                     </div>
-
                                 </div>
-
                             </div>
                         ))
                     )}
