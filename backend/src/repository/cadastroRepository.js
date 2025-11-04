@@ -18,16 +18,16 @@ export async function dataCriacao() {
 }
 
 export async function cadastrar(novoCadastro){
-    const comando = 
+    const comando =
     `INSERT INTO cadastro_users
-(nome_completo, email, senha, cpf, telefone, estado, sexo, origem) 
-VALUES 
-(?, ?, MD5(?), ?, ?, ?, ?, ?);
+(nome_completo, email, senha, cpf, telefone, estado, sexo, tipo_sanguineo, origem)
+VALUES
+(?, ?, MD5(?), ?, ?, ?, ?, ?, ?);
 `
     const [info] = await connection.query(comando, [novoCadastro.nome_completo, novoCadastro.email,
          novoCadastro.senha, novoCadastro.cpf, novoCadastro.telefone, novoCadastro.estado,
-          novoCadastro.sexo, novoCadastro.origem]);
-  
+          novoCadastro.sexo, novoCadastro.tipo_sanguineo, novoCadastro.origem]);
+
          return info.insertId;
 
 

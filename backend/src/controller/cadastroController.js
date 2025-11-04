@@ -15,6 +15,7 @@ cadastro.get('/listar/cadastros/:id', async (req,resp) => {
 cadastro.post('/cadastro', async (req, resp) => {
     try {
         let novoCadastro = req.body;
+        console.log('Novo cadastro:', novoCadastro);
         let id = await serviceCadastrar(novoCadastro);
         resp.status(201).send({ novoId: id });
     } catch (error) {

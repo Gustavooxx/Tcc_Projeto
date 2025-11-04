@@ -264,7 +264,7 @@ useEffect(() => {
                     <option value="AB-">AB-</option>
                     <option value="O+">O+</option>
                     <option value="O-">O-</option>
-                    <option value="O-">Não sei</option>
+                    <option value="Não sei">Não sei</option>
 
                   </select>
                 </div>
