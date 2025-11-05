@@ -12,21 +12,22 @@
 
         .img-tags {
             display: flex;
+            gap: 1rem;
             align-items: center;
             padding: 5px;
 
             img {
                 height: 70px;
                 width: auto;
-                border-radius: 10px;
+                border-radius: 5px;
             }
 
             h1 {
-                font-size: 15px;
-                margin: 0 0 0 8px;
+                font-size: 17px;
                 display: inline-block;
                 text-decoration: none;
                 border-bottom: none;
+                font-weight: bold;
                 color: #ffffff;
             }
         }
