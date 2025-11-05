@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { data, Link, useNavigate } from "react-router";
 import "./index.scss";
 import app from "../../api.js";
@@ -6,6 +6,19 @@ import app from "../../api.js";
 export default function VoluntarioForm (){
 
   const navigate = useNavigate();
+  const [hemocentros, setHemocentros] = useState([]);
+
+  useEffect(() => {
+    const fetchHemocentros = async () => {
+      try {
+        const response = await app.get('/listarHemocentros');
+        setHemocentros(response.data.registros);
+      } catch (error) {
+        console.error('Erro ao carregar hemocentros:', error);
+      }
+    };
+    fetchHemocentros();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,7 +31,8 @@ export default function VoluntarioForm (){
       cpf: formData.get('cpf'),
       telefone: formData.get('telefone'),
       disponibilidade: formData.get('disponibilidade'),
-      mensagem: formData.get('mensagem')
+      mensagem: formData.get('mensagem'),
+      nome_hemocentro: formData.get('nome_hemocentro')
 
     }
       try{
@@ -89,12 +103,27 @@ export default function VoluntarioForm (){
           </div>
 
           <div className="grupo-formulario">
+            <label>Hemocentro</label>
+            <select
+              name="nome_hemocentro"
+              required
+            >
+              <option value="">Selecione um hemocentro</option>
+              {hemocentros.map((hemo) => (
+                <option key={hemo.id_hemocentro} value={hemo.nome_hemocentro}>
+                  {hemo.nome_hemocentro} - {hemo.cidade_hemocentro}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="grupo-formulario">
             <label>Mensagem</label>
             <textarea
               rows="3"
               placeholder="Escreva aqui sua mensagem..."
               name="mensagem"
-              
+
             ></textarea>
           </div>
 

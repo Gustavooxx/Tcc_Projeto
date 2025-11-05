@@ -3,13 +3,19 @@ import transporter from "./email.js";
 
 
 export async function cadastroVoluntario(infos,usuario_id){
-const comando = `
-insert into voluntarios (nome,email,cpf,telefone,disponibilidade,mensagem,usuario_id)
+const hemo= `select id_hemocentro from hemocentros
+where nome_hemocentro = ?`
+
+const [id] = await connection.query(hemo,[infos.nome_hemocentro]) 
+
+
+    const comando = `
+insert into voluntarios (nome,email,cpf,telefone,disponibilidade,mensagem,usuario_id,permissao,id_hemocentro)
 values
-(?,?,?,?,?,?,?)
+(?,?,?,?,?,?,?,false,?)
 `
 
-const [info] = await connection.query(comando,[infos.nome,infos.email,infos.cpf,infos.telefone,infos.disponibilidade,infos.mensagem,usuario_id]);
+const [info] = await connection.query(comando,[infos.nome,infos.email,infos.cpf,infos.telefone,infos.disponibilidade,infos.mensagem,usuario_id,id[0].id_hemocentro]);
 
 const assunto = `Agradecemos por se tornar voluntário(a)! `;
 const texto = `Olá, ${infos.nome}!

@@ -16,6 +16,9 @@ export default function validarVoluntarios(infos,usuario_id){
     if(!infos.disponibilidade)
     throw new Error('Disponibilidade obrigatória');
 
+    if(!infos.nome_hemocentro)
+    throw new Error('Hemocentro obrigatório');
+
     // if(!infos.mensagem)
     // throw new Error('Mensagem obrigatória');
 
