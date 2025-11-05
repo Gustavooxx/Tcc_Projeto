@@ -7,12 +7,16 @@ export default function VoluntarioForm (){
 
   const navigate = useNavigate();
   const [hemocentros, setHemocentros] = useState([]);
+  const [carregando, setCarregando] = useState(false);
 
   useEffect(() => {
     const fetchHemocentros = async () => {
       try {
         const response = await app.get('/listarHemocentros');
-        setHemocentros(response.data.registros);
+        const sortedHemocentros = response.data.registros.sort((a, b) =>
+          a.nome_hemocentro.localeCompare(b.nome_hemocentro)
+        );
+        setHemocentros(sortedHemocentros);
       } catch (error) {
         console.error('Erro ao carregar hemocentros:', error);
       }
@@ -22,6 +26,7 @@ export default function VoluntarioForm (){
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setCarregando(true);
 
     const formData = new FormData(e.target);
 
@@ -44,6 +49,8 @@ export default function VoluntarioForm (){
       catch(error){
           const errorMessage = error.response?.data?.erro || error.message;
           alert('Erro ao se voluntariar' + errorMessage);
+      } finally {
+        setCarregando(false);
       }
 
   };
@@ -127,8 +134,14 @@ export default function VoluntarioForm (){
             ></textarea>
           </div>
 
-          <button type="submit" className="botao-enviar">
-            Enviar
+          <button type="submit" className="botao-enviar" disabled={carregando}>
+            {carregando ? (
+              <>
+                <span className="spinner"></span> Enviando...
+              </>
+            ) : (
+              'Enviar'
+            )}
           </button>
         </form>
 

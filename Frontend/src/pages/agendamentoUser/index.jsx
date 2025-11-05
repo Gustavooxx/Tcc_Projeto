@@ -110,14 +110,20 @@ export default function AgendamentoUser() {
         try {
             const resposta = await app.get("/listarHemocentros");
             console.log("Hemocentros carregados:", resposta.data);
+            let hemocentrosData = [];
             if (resposta.data && resposta.data.registros) {
-                setHemocentros(resposta.data.registros);
+                hemocentrosData = resposta.data.registros;
             } else if (Array.isArray(resposta.data)) {
-                setHemocentros(resposta.data);
+                hemocentrosData = resposta.data;
             } else {
                 console.error("Estrutura inesperada da resposta:", resposta.data);
                 setHemocentros([]);
+                return;
             }
+            const sortedHemocentros = hemocentrosData.sort((a, b) =>
+                a.nome_hemocentro.localeCompare(b.nome_hemocentro)
+            );
+            setHemocentros(sortedHemocentros);
         } catch (error) {
             console.error("Erro ao listar hemocentros", error);
         }
