@@ -25,8 +25,7 @@ export default function Login() {
 
         localStorage.setItem('USUARIO', JSON.stringify({
             id_cadastro: id_cadastro,
-            nome_completo: nome_completo,
-            email: email
+            nome_completo: nome_completo
         }));
         localStorage.setItem('token', token);
         alert('Usuario logado!!');
