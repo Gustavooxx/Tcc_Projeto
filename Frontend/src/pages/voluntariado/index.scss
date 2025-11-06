@@ -15,6 +15,7 @@
   background: #fff;
   width: 100%;
   height: auto;
+  max-height: 80vh;
   max-width: 440px;
   border-radius: 18px;
   padding: 2.2rem;
@@ -22,6 +23,7 @@
   position: relative;
   animation: slideUp 0.3s ease;
   text-align: center;
+  overflow-y: auto;
 }
 
 .botao-fechar {
@@ -68,7 +70,8 @@
   }
 
   input,
-  textarea {
+  textarea,
+  select {
     padding: 0.8rem;
     border-radius: 10px;
     border: 1px solid #ccc;
@@ -84,12 +87,16 @@
   textarea {
     resize: none;
   }
+
+  select {
+    background-color: #fff;
+  }
 }
 
 .botao-enviar {
   margin-top: 0.5rem;
   padding: 0.9rem;
-  background: #007bff;
+  background-color: #DA2B1D;
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -97,10 +104,33 @@
   font-size: 1rem;
   cursor: pointer;
   transition: 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 
   &:hover {
-    background: #005fcc;
+    background-color: #b80202;
   }
+
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .texto-rodape {

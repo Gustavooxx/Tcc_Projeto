@@ -60,6 +60,8 @@ export function validarCadastro(cadastro){
     if(!cadastro.sexo)
          throw new Error('Sexo obrigatório');
 
+    if(!cadastro.tipo_sanguineo)
+         throw new Error('Tipo sanguíneo obrigatório');
 
     if(!cadastro.origem)
          throw new Error('Origem obrigatória');
@@ -91,5 +93,5 @@ export function validarCredenciais(cadastro){
 
 export function validarLogin(registros){
      if(!registros)
-     throw new Error('Usuário não encontrado');
+     throw new Error('Email ou senha incorretos');
 }

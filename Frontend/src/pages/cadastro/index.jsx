@@ -1,9 +1,12 @@
 import './index.scss'
 import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 import axios from 'axios'
+import { Eye, EyeOff } from "lucide-react";
 
 
 export default function Cadastro() {
+    const [mostrarSenha, setMostrarSenha] = useState(false);
 
     //hook para navegar entre as páginas
     //
@@ -19,13 +22,21 @@ export default function Cadastro() {
         //e.target representa o formulário
         const formData = new FormData(e.target);
 
+        const senha = formData.get('senha');
+        const confirmarSenha = formData.get('confirmarSenha');
+
+        if (senha !== confirmarSenha) {
+            alert('As senhas não coincidem. Por favor, verifique e tente novamente.');
+            return;
+        }
+
         //Pega os dados do formulário
         //Cria um objeto com os dados do formulário
         const data = {
             //formData.get('nome') pega o valor do input com o name="nome"
             nome_completo: formData.get('nome'),
             email: formData.get('email'),
-            senha: formData.get('senha'),
+            senha: senha,
             cpf: formData.get('cpf'),
             telefone: formData.get('telefone'),
             estado: formData.get('estado'),
@@ -130,17 +141,45 @@ export default function Cadastro() {
                         <div className="form-group">
                             <label htmlFor="senha">Senha</label>
 
-                            <input
+                            <div className="password-field">
+                                <input
 
-                                type="password"
-                                name="senha"
-                                placeholder="Senha"
-                                required
-                                minLength={6}
-                                maxLength={20}
+                                    type={mostrarSenha ? 'text' : 'password'}
+                                    name="senha"
+                                    placeholder="Senha"
+                                    required
+                                    minLength={6}
+                                    maxLength={20}
 
+                                />
+                                <button
+                                 type='button' onClick={() => setMostrarSenha(!mostrarSenha)} className='toggle-password'>
+                                     {mostrarSenha ? <EyeOff size={16} /> : <Eye size={16} />}
 
-                            />
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="confirmarSenha">Confirmar Senha</label>
+
+                            <div className="password-field">
+                                <input
+
+                                    type={mostrarSenha ? 'text' : 'password'}
+                                    name="confirmarSenha"
+                                    placeholder="Confirmar Senha"
+                                    required
+                                    minLength={6}
+                                    maxLength={20}
+
+                                />
+                                <button
+                                 type='button' onClick={() => setMostrarSenha(!mostrarSenha)} className='toggle-password'>
+                                     {mostrarSenha ? <EyeOff size={16} /> : <Eye size={16} />}
+
+                                </button>
+                            </div>
                         </div>
 
                         <div className="form-group">
@@ -208,6 +247,21 @@ export default function Cadastro() {
                                     <option value="Masculino">Masculino</option>
                                     <option value="Feminino">Feminino</option>
                                     <option value="Outro">Outro</option>
+                                </select>
+                            </div>
+
+                            <div className='form-group'>
+                                <select id="tipo_sanguineo" name="tipo_sanguineo">
+                                    <option value="" disabled selected>Tipo Sanguíneo</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                    <option value="Não sei">Não sei</option>
                                 </select>
                             </div>
 

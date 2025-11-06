@@ -1,4 +1,4 @@
-import { validarCredenciais } from "../validation/cadastro/cadastrarValidation.js";
+import { validarCredenciais, validarLogin } from "../validation/cadastro/cadastrarValidation.js";
 import { logarDoador } from "../repository/loginRepository.js";
 
 
@@ -8,11 +8,12 @@ export async function serviceLogar(cadastro){
 
        let registros = await logarDoador(cadastro);
 
+       validarLogin(registros);
 
        return registros;
-    
 
-    } 
+
+    }
     catch (error) {
         throw error;
     }

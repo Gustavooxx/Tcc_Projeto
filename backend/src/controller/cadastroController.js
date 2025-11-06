@@ -5,8 +5,9 @@ import { lista } from "../repository/cadastroRepository.js";
 
 const cadastro = Router();
 
-cadastro.get('/listar/cadastros', async (req,resp) => {
-    let registros = await lista();
+cadastro.get('/listar/cadastros/:id', async (req,resp) => {
+    let id = req.params.id;
+    let registros = await lista(id);
     resp.send(registros)
 })
 
@@ -14,6 +15,7 @@ cadastro.get('/listar/cadastros', async (req,resp) => {
 cadastro.post('/cadastro', async (req, resp) => {
     try {
         let novoCadastro = req.body;
+        console.log('Novo cadastro:', novoCadastro);
         let id = await serviceCadastrar(novoCadastro);
         resp.status(201).send({ novoId: id });
     } catch (error) {

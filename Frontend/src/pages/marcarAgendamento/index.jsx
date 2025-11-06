@@ -28,6 +28,7 @@ export default function MarcaAgendamento() {
   const [horarios, setHorarios] = useState([]);
   const [carregandoHorarios, setCarregandoHorarios] = useState(false);
   const [horarioError, setHorarioError] = useState("");
+  const [carregando, setCarregando] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -42,7 +43,10 @@ export default function MarcaAgendamento() {
 const listarHemocentros = async () => {
   try {
     const resposta = await axios.get("http://localhost:5000/listarHemocentros");
-    setNome(resposta.data.registros);
+    const sortedHemocentros = resposta.data.registros.sort((a, b) =>
+      a.nome_hemocentro.localeCompare(b.nome_hemocentro)
+    );
+    setNome(sortedHemocentros);
   } catch (error) {
     console.error("Erro ao listar hemocentros", error);
   }
@@ -87,10 +91,12 @@ useEffect(() => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setCarregando(true);
 
     // Verificar se não há horários disponíveis
     if (horarios.length === 0 && dadosFormulario.nome_hemocentro && dadosFormulario.data_agendamento) {
       alert('Não é possível fazer agendamento. Não há horários disponíveis para o dia selecionado.');
+      setCarregando(false);
       return;
     }
 
@@ -133,6 +139,8 @@ useEffect(() => {
       } else {
         setMensagem("Erro ao fazer agendamento do usuário!");
       }
+    } finally {
+      setCarregando(false);
     }
   }
 
@@ -264,7 +272,7 @@ useEffect(() => {
                     <option value="AB-">AB-</option>
                     <option value="O+">O+</option>
                     <option value="O-">O-</option>
-                    <option value="O-">Não sei</option>
+                    <option value="Não sei">Não sei</option>
 
                   </select>
                 </div>
@@ -315,7 +323,9 @@ useEffect(() => {
                   </label>
               </div>
 
-              <button type="submit" className="btn-primary">Marcar agendamento</button>
+              <button type="submit" className="btn-primary" disabled={carregando}>
+                {carregando ? 'Marcando...' : 'Marcar agendamento'}
+              </button>
             </form>
             {mensagem && <p className="mensagem">{mensagem}</p>}
           </section>

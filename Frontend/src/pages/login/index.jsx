@@ -20,9 +20,13 @@ export default function Login() {
         try {
         const response = await app.post('/logar', data)
         const token = response.data.token;
-        const emailUsuario = response.data.email;
-        
-        localStorage.setItem('USUARIO', emailUsuario);
+        const id_cadastro = response.data.id_cadastro;
+        const nome_completo = response.data.nome_completo;
+
+        localStorage.setItem('USUARIO', JSON.stringify({
+            id_cadastro: id_cadastro,
+            nome_completo: nome_completo
+        }));
         localStorage.setItem('token', token);
         alert('Usuario logado!!');
         navigate('/inicio')

@@ -1,4 +1,4 @@
-.container-site {
+ .container-site {
 
     .container-pagina {
         background-color: #fffefe;
@@ -22,6 +22,7 @@
 
             .botaos {
                 .agendar {
+                    cursor: pointer;
                     background: linear-gradient(135deg, #DA2B1D 0%, #A9233E 100%);
 
                     &:hover {
@@ -30,13 +31,14 @@
                 }
 
                 button:hover {
-                    transform: translateY(-5px);
+                    transform: translateY(-2px);
                     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
                 }
 
                 button {
+                    background-color: #DA2B1D;
                     color: white;
-                    border: 1px solid #EE666E;
+                    border: none;
                     border-radius: 10px;
                     padding: 10px 20px 10px 20px;
                     font-size: 18px;
