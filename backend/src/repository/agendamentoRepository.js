@@ -119,7 +119,7 @@ export async function agendamentoUsario(novoAgendamento, usuario_id) {
    }
    else{
     const comando = `
-    update from email_Estoque
+    update email_Estoque
     set dia = current_timestamp
     where id_doador = ?
     ` 
