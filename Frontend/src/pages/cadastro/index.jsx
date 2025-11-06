@@ -31,7 +31,8 @@ export default function Cadastro() {
             estado: formData.get('estado'),
             sexo: formData.get('sexo'),
             tipo_sanguineo: formData.get('tipo_sanguineo'),
-            origem: formData.get('conheceu')
+            origem: formData.get('conheceu'),
+            cidade: formData.get('cidade')
         };
 
         //Envia os dados para o backend
@@ -210,6 +211,17 @@ export default function Cadastro() {
                                 </select>
                             </div>
 
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="cidade">Cidade</label>
+                            <input
+                                type="text"
+                                name="cidade"
+                                placeholder="Cidade"
+                                required
+
+                            />
                         </div>
 
                         <div className='form-group'>
