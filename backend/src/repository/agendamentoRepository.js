@@ -101,7 +101,31 @@ export async function agendamentoUsario(novoAgendamento, usuario_id) {
     to: novoAgendamento.email,
     subject: assunto,
     text: texto
-  })
+  });
+
+  const comando7 = `
+  select * from email_Estoque
+  where id_doador = ?
+  `
+  const [registros] = await connection.query(comando7,[usuario_id]);
+  
+   if(registros.length == 0){
+     const comando = `insert into email_Estoque (id_doador)
+     values 
+   (?)`
+
+   await connection.query(comando,[usuario_id]);
+
+   }
+   else{
+    const comando = `
+    update from email_Estoque
+    set dia = current_timestamp
+    where id_doador = ?
+    ` 
+
+    await connection.query(comando,[usuario_id]);
+   }
 
 
   return info.insertId;
