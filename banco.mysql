@@ -116,12 +116,6 @@ dia timestamp default current_timestamp,
 foreign key (id_doador) references cadastro_users (id_cadastro) on delete cascade
 );
 
-select * from email_Estoque;
-
-delete from email_estoque 
-where id_email = 2;
-
-
 create view geralQuantidadeLitros as
 select distinct tipo_sanguineo, sum(quantidade_bolsas) As quantidade_Tipo from estoque
 group by tipo_sanguineo;
