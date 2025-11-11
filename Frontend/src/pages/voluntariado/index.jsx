@@ -9,6 +9,15 @@ export default function VoluntarioForm (){
   const [hemocentros, setHemocentros] = useState([]);
   const [carregando, setCarregando] = useState(false);
 
+  const formatCPF = (value) => {
+    const cleaned = value.replace(/\D/g, '');
+    const match = cleaned.match(/^(\d{0,3})(\d{0,3})(\d{0,3})(\d{0,2})$/);
+    if (match) {
+      return `${match[1]}${match[1] ? '.' : ''}${match[2]}${match[2] ? '.' : ''}${match[3]}${match[3] ? '-' : ''}${match[4]}`;
+    }
+    return cleaned;
+  };
+
   useEffect(() => {
     const fetchHemocentros = async () => {
       try {
@@ -84,9 +93,10 @@ export default function VoluntarioForm (){
 
           <div className="grupo-formulario">
             <label>CPF</label>
-            <input type="text" placeholder="Digite seu CPF"
+            <input type="text" placeholder="000.000.000-00"
             name="cpf"
             required
+            onChange={(e) => e.target.value = formatCPF(e.target.value)}
             />
           </div>
 
