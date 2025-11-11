@@ -10,6 +10,9 @@ export async function lista() {
 }
 
 export async function agendamentoUsario(novoAgendamento, usuario_id) {
+  // Data já vem no formato YYYY-MM-DD do frontend
+  const dataFormatada = novoAgendamento.data_agendamento;
+
   const comando = `
        INSERT INTO agendamentos (
     usuario_id, nome_completo, email, telefone,
@@ -27,7 +30,7 @@ export async function agendamentoUsario(novoAgendamento, usuario_id) {
     novoAgendamento.cpf,
     novoAgendamento.cidade,
     novoAgendamento.tipo_sanguineo,
-    novoAgendamento.data_agendamento,
+    dataFormatada,
     novoAgendamento.horario,
     novoAgendamento.observacoes,
     novoAgendamento.confirmou_requisitos,
@@ -152,11 +155,9 @@ export async function listarHemocentro(){
 
 
 export async function listarHorarios(requisitos){
-  // Converter data de DD/MM/YYYY para YYYY-MM-DD para o banco
-  const partes = requisitos.data.split('/');
-  if (partes.length !== 3) {
-    throw new Error('Formato de data inválido. Use DD/MM/YYYY.');
-  }
+ 
+  const dataString = requisitos.data.trim();
+  const partes = dataString.split('/');
   const [dia, mes, ano] = partes;
   const dataFormatada = `${ano}-${mes.padStart(2, '0')}-${dia.padStart(2, '0')}`;
 
@@ -171,3 +172,193 @@ and a.data_disponivel = ?
 
   return datas;
 }
+
+export async function verificarDias(usuario_id,novaData){
+ 
+  const novaDataObj = new Date(novaData);
+
+  const comando = `
+   select data_agendamento from agendamentos
+  where usuario_id = ?
+order by data_agendamento desc
+limit 1
+  `
+
+  const [registro] = await connection.query(comando,[usuario_id]);
+
+  if(registro.length === 1){
+
+    const dataAgendamento = registro[0].data_agendamento;
+
+    let diffDias;
+
+    if(novaDataObj > dataAgendamento){
+      diffDias = (novaDataObj - dataAgendamento) / (1000 * 60 * 60 * 24);
+
+      if(diffDias >= 75){
+        return 'up'
+      }
+      else{
+        throw new Error('Faz menos de 75 dias que você doou pela última vez')
+      }
+
+    }
+
+    else if(dataAgendamento >= novaDataObj){
+      throw new Error('Você já tem um agendamento marcada para esse periodo')
+    }
+  }
+
+  else{
+    return 'ok'
+  }
+}
+
+export async function atualizarAgendamentoUsuario(agendamentoAtualizado, usuario_id) {
+ 
+  const dataFormatada = agendamentoAtualizado.data_agendamento;
+
+  const comandoId = `
+    select id from agendamentos
+    where usuario_id = ?
+    order by data_agendamento desc
+    limit 1
+  `;
+  const [idResult] = await connection.query(comandoId, [usuario_id]);
+  if (idResult.length === 0) {
+    throw new Error('Nenhum agendamento encontrado para este usuário.');
+  }
+  const agendamentoId = idResult[0].id;
+
+  const comando = `
+    update agendamentos
+    set
+      nome_completo = ?,
+      email = ?,
+      telefone = ?,
+      estado = ?,
+      cpf = ?,
+      cidade = ?,
+      tipo_sanguineo = ?,
+      data_agendamento = ?,
+      horario = ?,
+      observacoes = ?,
+      confirmou_requisitos = ?
+    where id = ?
+  `;
+
+  await connection.query(comando, [
+    agendamentoAtualizado.nome_completo,
+    agendamentoAtualizado.email,
+    agendamentoAtualizado.telefone,
+    agendamentoAtualizado.estado,
+    agendamentoAtualizado.cpf,
+    agendamentoAtualizado.cidade,
+    agendamentoAtualizado.tipo_sanguineo,
+    dataFormatada,
+    agendamentoAtualizado.horario,
+    agendamentoAtualizado.observacoes,
+    agendamentoAtualizado.confirmou_requisitos,
+    agendamentoId
+  ]);
+
+  const comando2 = `
+    select id_hemocentro from hemocentros
+    where nome_hemocentro = ?
+  `;
+  const [hemocentroResult] = await connection.query(comando2, [agendamentoAtualizado.nome_hemocentro]);
+  const hemocentroId = hemocentroResult[0]?.id_hemocentro;
+
+  const comando3 = `
+    update agendamentos
+    set hemocentro_id = ?
+    where id = ?
+  `;
+  await connection.query(comando3, [hemocentroId, agendamentoId]);
+
+  const comando4 = `
+    update agenda_user
+    set data_disponivel = ?,
+        horario_disponivel = ?,
+        hemocentros_id = ?
+    where usuario_id = ?
+  `;
+  await connection.query(comando4, [
+    dataFormatada,
+    agendamentoAtualizado.horario,
+    hemocentroId,
+    usuario_id
+  ]);
+
+  const comando5 = `
+    select count(*) as quantidade
+    from agenda_user
+    where data_disponivel = ?
+      and horario_disponivel = ?
+      and hemocentros_id = ?
+  `;
+  const [countResult] = await connection.query(comando5, [
+    dataFormatada,
+    agendamentoAtualizado.horario,
+    hemocentroId
+  ]);
+  const quantidade = countResult[0].quantidade;
+
+  if (quantidade === 5) {
+    const comando6 = `
+      delete from agenda
+      where data_disponivel = ?
+        and horario_disponivel = ?
+        and id_hemocentro = ?
+    `;
+    await connection.query(comando6, [
+      dataFormatada,
+      agendamentoAtualizado.horario,
+      hemocentroId
+    ]);
+  }
+
+  const comando7 = `
+    select * from email_Estoque
+    where id_doador = ?
+  `;
+  const [registros] = await connection.query(comando7, [usuario_id]);
+
+  if (registros.length === 0) {
+    const comando = `
+      insert into email_Estoque (id_doador)
+      values (?)
+    `;
+    await connection.query(comando, [usuario_id]);
+  } else {
+    const comando = `
+      update email_Estoque
+      set dia = current_timestamp
+      where id_doador = ?
+    `;
+    await connection.query(comando, [usuario_id]);
+  }
+
+  const assunto = 'Confirmação do seu agendamento de doação de sangue 🩸';
+  const texto = `Olá, ${agendamentoAtualizado.nome_completo}!
+
+Seu agendamento foi agendado com sucesso. ❤️
+
+🏥 Hemocentro: ${agendamentoAtualizado.nome_hemocentro}
+📅 Nova Data: ${agendamentoAtualizado.data_agendamento}
+⏰ Novo Horário: ${agendamentoAtualizado.horario}
+
+Agradecemos muito pela sua solidariedade — sua doação pode salvar até três vidas!
+
+Atenciosamente,
+Equipe Doe Vida`;
+
+  await transporter.sendMail({
+    to: agendamentoAtualizado.email,
+    subject: assunto,
+    text: texto
+  });
+
+  return agendamentoId;
+}
+

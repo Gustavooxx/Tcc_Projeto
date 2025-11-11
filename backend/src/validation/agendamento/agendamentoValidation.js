@@ -48,23 +48,13 @@ export function validarAgendamento(agendamento) {
 
 }
 
-export function validarEmailAgendamento(registro){
-     if(registro && registro.length > 0){
-        throw new Error('Email já cadastrado');
-    }
-}
+
 
 export async function validareListarHorarios(requisitos){
 if(!requisitos.nome)
     throw new Error('Escolha hemocentro');
 if(!requisitos.data)
     throw new Error('escolha data');
-
-// Validar formato da data: DD/MM/YYYY
-const dataRegex = /^\d{2}\/\d{2}\/\d{4}$/;
-if (!dataRegex.test(requisitos.data)) {
-    throw new Error('Data deve estar no formato DD/MM/YYYY');
-}
 
 }
 
