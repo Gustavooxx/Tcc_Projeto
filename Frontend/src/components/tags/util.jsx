@@ -32,7 +32,7 @@ export default function Tags() {
                 <div className={`tags-paginas ${menuOpen ? 'active' : ''}`}>
                     <Link to='/inicio' onClick={() => setMenuOpen(false)}> Inicio </Link>
                     <Link to='/Quem somos' onClick={() => setMenuOpen(false)}> Quem somos </Link>
-                    <Link to='/como doar' onClick={() => setMenuOpen(false)}> Como Doar </Link>
+                    <Link to='/como doar' onClick={() => setMenuOpen(false)}> Como doar </Link>
                     <Link to='/contato' onClick={() => setMenuOpen(false)}> Contato </Link>
                     <Link to='/Marcar agendamento' onClick={() => setMenuOpen(false)}> Marcar agendamento </Link>
                     <Link to="/Comoajudar" onClick={() => setMenuOpen(false)}>Como apoiar</Link>
