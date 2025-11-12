@@ -269,19 +269,414 @@
         .container-cadastro {
             flex-direction: column;
             align-items: center;
+            gap: 2rem;
+            padding: 1rem;
+            margin-top: 1.5rem;
         }
 
         .texto-cadastro {
             max-width: 100%;
-            margin-bottom: 1rem;
+            margin-bottom: 0;
+
+            .textos {
+                h2 {
+                    font-size: 1.5rem;
+                }
+
+                p {
+                    font-size: 0.95rem;
+                }
+
+                .botao-como-funciona button {
+                    padding: 0.6rem 1.5rem;
+                    font-size: 0.95rem;
+                }
+            }
         }
 
         .container-informacoes {
             width: 90%;
-            max-width: 400px;
+            max-width: 450px;
+
+            .titulo h2 {
+                font-size: 1.3rem;
+            }
 
             form {
                 grid-template-columns: 1fr;
+            }
+
+            .form-group {
+                margin: 0.8rem;
+
+                label {
+                    font-size: 0.9rem;
+                }
+
+                input, select {
+                    font-size: 0.95rem;
+                    padding: 0.6rem;
+                }
+            }
+
+            button {
+                font-size: 0.95rem;
+                padding: 0.7rem;
+                width: 160px;
+            }
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .container-tags {
+            margin: 0.8rem 1.5rem;
+            padding: 0.4rem;
+
+            .img-tags {
+                gap: 0.8rem;
+
+                img {
+                    height: 60px;
+                }
+
+                h1 {
+                    font-size: 1.1rem;
+                }
+            }
+
+            .tags-login {
+                gap: 1.5rem;
+                margin-right: 1.5rem;
+
+                button {
+                    padding: 0.5rem 0.8rem;
+                    font-size: 0.9rem;
+                }
+            }
+        }
+
+        .container-cadastro {
+            gap: 1.5rem;
+            padding: 0.8rem;
+            margin-top: 1.2rem;
+        }
+
+        .texto-cadastro {
+            padding: 0.8rem;
+
+            .textos {
+                gap: 1rem;
+
+                h2 {
+                    font-size: 1.3rem;
+                }
+
+                p {
+                    font-size: 0.9rem;
+                }
+
+                .botao-como-funciona button {
+                    padding: 0.5rem 1.2rem;
+                    font-size: 0.9rem;
+                }
+            }
+        }
+
+        .container-informacoes {
+            width: 95%;
+            max-width: 400px;
+
+            .titulo h2 {
+                font-size: 1.2rem;
+            }
+
+            .form-group {
+                margin: 0.7rem;
+
+                label {
+                    font-size: 0.88rem;
+                    margin-bottom: 0.3rem;
+                }
+
+                input, select {
+                    font-size: 0.9rem;
+                    padding: 0.55rem;
+                }
+            }
+
+            button {
+                font-size: 0.9rem;
+                padding: 0.65rem;
+                width: 150px;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .container-tags {
+            margin: 0.6rem 1rem;
+            padding: 0.35rem;
+            flex-wrap: wrap;
+
+            .img-tags {
+                gap: 0.6rem;
+
+                img {
+                    height: 50px;
+                }
+
+                h1 {
+                    font-size: 1rem;
+                }
+            }
+
+            .tags-login {
+                gap: 1rem;
+                margin-right: 1rem;
+                width: 100%;
+                justify-content: center;
+
+                button {
+                    padding: 0.4rem 0.6rem;
+                    font-size: 0.8rem;
+                }
+            }
+        }
+
+        .container-cadastro {
+            flex-direction: column;
+            gap: 1.2rem;
+            padding: 0.6rem;
+            margin-top: 1rem;
+        }
+
+        .texto-cadastro {
+            border-width: 2px;
+            padding: 0.8rem;
+            max-width: 100%;
+
+            .textos {
+                gap: 0.8rem;
+
+                h2 {
+                    font-size: 1.2rem;
+                    margin: 0;
+                }
+
+                p {
+                    font-size: 0.85rem;
+                    margin: 0;
+                }
+
+                .botao-como-funciona {
+                    margin-top: 0.8rem;
+
+                    button {
+                        padding: 0.45rem 1rem;
+                        font-size: 0.85rem;
+                    }
+                }
+            }
+        }
+
+        .container-informacoes {
+            width: 100%;
+            max-width: 100%;
+            border-width: 2px;
+
+            .titulo {
+                padding: 0.8rem;
+
+                h2 {
+                    font-size: 1.1rem;
+                }
+            }
+
+            form {
+                grid-template-columns: 1fr;
+                column-gap: 0;
+                row-gap: 0.8rem;
+            }
+
+            .form-group {
+                margin: 0.6rem;
+
+                label {
+                    font-size: 0.85rem;
+                    margin-bottom: 0.25rem;
+                }
+
+                input, select {
+                    font-size: 0.85rem;
+                    padding: 0.5rem;
+                }
+
+                .password-field input {
+                    border-radius: 4px;
+                }
+
+                .toggle-password {
+                    padding: 0.5rem;
+                }
+            }
+
+            .row {
+                grid-template-columns: 1fr;
+                column-gap: 0;
+                row-gap: 0.8rem;
+            }
+
+            button {
+                font-size: 0.85rem;
+                padding: 0.6rem;
+                width: 140px;
+                margin-top: 0.5rem;
+            }
+
+            .semCadastro {
+                margin-bottom: 1.5rem;
+
+                p {
+                    font-size: 0.85rem;
+                }
+
+                a {
+                    font-size: 0.85rem;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        height: auto;
+
+        .container-tags {
+            margin: 0.5rem 0.5rem;
+            padding: 0.3rem;
+            gap: 0.5rem;
+
+            .img-tags {
+                gap: 0.4rem;
+
+                img {
+                    height: 40px;
+                }
+
+                h1 {
+                    font-size: 0.9rem;
+                }
+            }
+
+            .tags-login {
+                gap: 0.5rem;
+                margin-right: 0.5rem;
+                width: 100%;
+
+                button {
+                    padding: 0.35rem 0.5rem;
+                    font-size: 0.75rem;
+                }
+            }
+        }
+
+        .container-cadastro {
+            gap: 1rem;
+            padding: 0.5rem;
+            margin-top: 0.8rem;
+        }
+
+        .texto-cadastro {
+            border-width: 2px;
+            padding: 0.6rem;
+            border-radius: 6px;
+
+            .textos {
+                gap: 0.6rem;
+
+                h2 {
+                    font-size: 1.05rem;
+                    line-height: 1.2;
+                }
+
+                p {
+                    font-size: 0.8rem;
+                    line-height: 1.3;
+                }
+
+                .botao-como-funciona {
+                    margin-top: 0.6rem;
+
+                    button {
+                        padding: 0.4rem 0.8rem;
+                        font-size: 0.8rem;
+                        border-radius: 6px;
+                    }
+                }
+            }
+        }
+
+        .container-informacoes {
+            width: 100%;
+            border-width: 2px;
+            border-radius: 8px;
+
+            .titulo {
+                padding: 0.6rem;
+
+                h2 {
+                    font-size: 1rem;
+                }
+            }
+
+            form {
+                grid-template-columns: 1fr;
+                column-gap: 0;
+                row-gap: 0.6rem;
+            }
+
+            .form-group {
+                margin: 0.5rem;
+
+                label {
+                    font-size: 0.8rem;
+                    margin-bottom: 0.2rem;
+                    font-weight: 500;
+                }
+
+                input, select {
+                    font-size: 0.8rem;
+                    padding: 0.45rem;
+                    border-radius: 4px;
+                }
+
+                .password-field input {
+                    border-radius: 4px 0 0 4px;
+                }
+
+                .toggle-password {
+                    padding: 0.45rem;
+                    font-size: 0.75rem;
+                }
+            }
+
+            .row {
+                grid-template-columns: 1fr;
+            }
+
+            button {
+                font-size: 0.8rem;
+                padding: 0.5rem;
+                width: 130px;
+                margin: 0.5rem auto;
+            }
+
+            .semCadastro {
+                margin-bottom: 1.2rem;
+                padding: 0 0.5rem;
+
+                p, a {
+                    font-size: 0.8rem;
+                }
             }
         }
     }

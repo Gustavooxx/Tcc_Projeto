@@ -1,6 +1,7 @@
 import './index.scss'
 import { Link,useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 import app from '../../api';
 
 
@@ -28,12 +29,12 @@ export default function Login() {
             nome_completo: nome_completo
         }));
         localStorage.setItem('token', token);
-        alert('Usuario logado!!');
+        toast.success('Usuário logado com sucesso!');
         navigate('/inicio')
         }
         catch (error) {
         const errorMessage = error.response?.data.erro || error.message;
-        alert('Erro ao Logar: ' + errorMessage);
+        toast.error('Erro ao Logar: ' + errorMessage);
 
 
         }

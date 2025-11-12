@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { data, Link, useNavigate } from "react-router";
 import "./index.scss";
+import { toast } from 'react-toastify';
 import app from "../../api.js";
 
 export default function VoluntarioForm (){
@@ -42,13 +43,13 @@ export default function VoluntarioForm (){
     }
       try{
         const response = await app.post('/voluntarios', data)
-        alert('Obrigado por ser voluntário')
+        toast.success('Obrigado por ser voluntário!')
         navigate('/Como ajudar')
       }
 
       catch(error){
           const errorMessage = error.response?.data?.erro || error.message;
-          alert('Erro ao se voluntariar' + errorMessage);
+          toast.error('Erro ao se voluntariar: ' + errorMessage);
       } finally {
         setCarregando(false);
       }

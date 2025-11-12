@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import Inicio from './pages/Inicio'
 import Cadastro from './pages/cadastro'
 import QuemSomos from './pages/quemSomos'
@@ -16,6 +18,17 @@ import ProtectedRoute from './components/ProtectedRoute'
 export default function Navegacao() {
     return (
         <BrowserRouter>
+            <ToastContainer
+                position="top-right"
+                autoClose={4000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <Routes>
 
                 <Route path="/" element={<Inicio />} />
