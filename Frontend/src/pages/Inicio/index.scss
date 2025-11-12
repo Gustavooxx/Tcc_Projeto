@@ -93,6 +93,7 @@
             .itens-beneficios {
                 background-color: #fffefe;
                 display: flex;
+                flex-direction: column;
                 align-items: center;
                 gap: 1rem;
                 padding: 1rem;
@@ -110,7 +111,6 @@
 
                 p {
                     font-size: 1rem;
-                    flex: 1;
                     text-align: center;
                     color: #333333;
                     line-height: 1.4;

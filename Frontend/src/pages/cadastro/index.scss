@@ -1,6 +1,7 @@
 .container-cadastro {
-    height: 100vh;
-
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 
     .container-tags {
         display: flex;
@@ -38,34 +39,32 @@
             gap: 5rem;
             margin-right: 5rem;
 
-
             .ajudar {
                 color: white;
                 border: 1px solid #A9233E;
                 background-color: #D62828;
                 font-size: 16px;
-                
+
                 &:hover {
                     background-color: #9B2226;
                 }
             }
-            
+
             button {
                 border-radius: 8px;
                 padding: 10px;
             }
-
         }
     }
 
     .container-cadastro {
-
         display: flex;
         align-items: flex-start;
         justify-content: center;
         gap: 10rem;
         padding: 1rem;
         margin-top: 2rem;
+        flex: 1;
 
         .texto-cadastro {
             border: 3px solid #DA2B1D;
@@ -81,9 +80,7 @@
                 display: flex;
                 flex-direction: column;
                 gap: 15px;
-
                 align-items: center;
-
                 margin: 0;
 
                 h2 {
@@ -127,7 +124,6 @@
                     }
                 }
             }
-
         }
 
         .container-informacoes {
@@ -149,7 +145,6 @@
                     font-size: 20px;
                     text-align: center;
                 }
-
             }
 
             form {
@@ -164,7 +159,6 @@
                 flex-direction: column;
                 margin: 10px;
                 overflow: visible;
-
 
                 label {
                     margin-bottom: 5px;
@@ -196,19 +190,18 @@
                         border-left: none;
                         cursor: pointer;
                         color: #666;
-                        padding: 8px ;
+                        padding: 8px;
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         width: auto;
-
                     }
                 }
 
                 input:not(.input-container input),
                 select {
-                    min-width: 50px; // Largura mínima do select
-                    width: 100%; // Pode expandir até o tamanho do container
+                    min-width: 50px;
+                    width: 100%;
                     padding: 8px;
                     font-size: 16px;
                     border-radius: 5px;
@@ -229,13 +222,6 @@
                 row-gap: 10px;
             }
 
-            @media (max-width: 768px) {
-                .row {
-                    grid-template-columns: 1fr;
-                }
-            }
-
-
             button {
                 grid-column: 1 / -1;
                 background-color: #DA2B1D;
@@ -250,7 +236,6 @@
                 justify-self: center;
                 margin-bottom: 10px;
 
-
                 &:hover {
                     background-color: #b80202;
                 }
@@ -260,9 +245,7 @@
                 text-align: center;
                 margin-bottom: 3rem;
             }
-
         }
-
     }
 
     @media (max-width: 1200px) {
@@ -548,12 +531,13 @@
     }
 
     @media (max-width: 480px) {
-        height: auto;
+        min-height: auto;
 
         .container-tags {
             margin: 0.5rem 0.5rem;
             padding: 0.3rem;
             gap: 0.5rem;
+            flex-wrap: wrap;
 
             .img-tags {
                 gap: 0.4rem;
@@ -571,10 +555,12 @@
                 gap: 0.5rem;
                 margin-right: 0.5rem;
                 width: 100%;
+                justify-content: center;
 
                 button {
                     padding: 0.35rem 0.5rem;
                     font-size: 0.75rem;
+                    min-height: 44px; // Tamanho mínimo para toque
                 }
             }
         }
@@ -610,6 +596,7 @@
                         padding: 0.4rem 0.8rem;
                         font-size: 0.8rem;
                         border-radius: 6px;
+                        min-height: 44px; // Tamanho mínimo para toque
                     }
                 }
             }
@@ -647,6 +634,7 @@
                     font-size: 0.8rem;
                     padding: 0.45rem;
                     border-radius: 4px;
+                    min-height: 44px; // Tamanho mínimo para toque
                 }
 
                 .password-field input {
@@ -656,6 +644,7 @@
                 .toggle-password {
                     padding: 0.45rem;
                     font-size: 0.75rem;
+                    min-width: 44px; // Tamanho mínimo para toque
                 }
             }
 
@@ -668,6 +657,7 @@
                 padding: 0.5rem;
                 width: 130px;
                 margin: 0.5rem auto;
+                min-height: 44px; // Tamanho mínimo para toque
             }
 
             .semCadastro {
