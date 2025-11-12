@@ -8,10 +8,30 @@ import { toast } from 'react-toastify'
 
 export default function Cadastro() {
     const [mostrarSenha, setMostrarSenha] = useState(false);
+    const [cpf, setCpf] = useState('');
 
     //hook para navegar entre as páginas
     //
     const navigate = useNavigate();
+
+    // Função para formatar CPF
+    const formatCPF = (value) => {
+        // Remove tudo que não é dígito
+        const cleaned = value.replace(/\D/g, '');
+        // Aplica a máscara
+        const match = cleaned.match(/^(\d{3})(\d{3})(\d{3})(\d{2})$/);
+        if (match) {
+            return `${match[1]}.${match[2]}.${match[3]}-${match[4]}`;
+        }
+        // Retorna parcialmente formatado se não completo
+        return cleaned.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+    };
+
+    // Handler para mudança no CPF
+    const handleCpfChange = (e) => {
+        const formatted = formatCPF(e.target.value);
+        setCpf(formatted);
+    };
 
     //Função para enviar os dados do formulário para o backend
     const handleSubmit = async (e) => {
@@ -186,11 +206,13 @@ export default function Cadastro() {
                         <div className="form-group">
                             <label htmlFor="cpf">CPF</label>
                             <input
-                                type="cpf"
+                                type="text"
                                 name="cpf"
-                                placeholder="CPF"
+                                placeholder="000.000.000-00"
                                 required
-                                maxLength={11}
+                                maxLength={14}
+                                value={cpf}
+                                onChange={handleCpfChange}
 
                             />
                         </div>
