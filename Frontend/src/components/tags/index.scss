@@ -273,6 +273,9 @@
 
             .botao-login {
                 display: none;
+                background-color: aqua;
+
+               
             }
 
             .hamburger {
@@ -304,6 +307,24 @@
 
                 a {
                     font-size: 16px;
+                }
+            }
+
+            .botoes-login {
+                display: none;
+                
+                .login{
+
+                    button{
+                        font-size: 13px;
+                    }
+                    
+                }
+                .cadastro{
+
+                    button{
+                        font-size: 13px;
+                    }
                 }
             }
         }
