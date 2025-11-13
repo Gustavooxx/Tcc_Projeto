@@ -104,26 +104,6 @@ export default function Cadastro() {
             </section>
 
             <section className='container-cadastro'>
-
-
-                <div className='texto-cadastro'>
-
-                    <div className='textos'>
-
-                        <h2>Doar sangue é um gesto simples,
-                            mas que pode transformar vidas. </h2>
-
-                        <p>
-                            Em poucos minutos, você se torna parte da corrente que leva esperança, saúde e novas chances a quem mais precisa. Cada doação pode salvar até quatro vidas.
-                        </p>
-
-                        <div className='botao-como-funciona'>
-                           <Link to={"/como doar"}> <button>Como funciona?</button></Link>
-                        </div>
-                    </div>
-
-                </div>
-
                 <div className="container-informacoes">
 
                     {/*    Formulário de cadastro */}
@@ -316,6 +296,26 @@ export default function Cadastro() {
                         <button type="submit">Cadastrar</button>
                     </form>
                 </div>
+
+
+                <div className='texto-cadastro'>
+
+                    <div className='textos'>
+
+                        <h2>Doar sangue é um gesto simples,
+                            mas que pode transformar vidas. </h2>
+
+                        <p>
+                            Em poucos minutos, você se torna parte da corrente que leva esperança, saúde e novas chances a quem mais precisa. Cada doação pode salvar até quatro vidas.
+                        </p>
+
+                        <div className='botao-como-funciona'>
+                           <Link to={"/como doar"}> <button>Como funciona?</button></Link>
+                        </div>
+                    </div>
+
+                </div>
+
 
             </section>
         </div>

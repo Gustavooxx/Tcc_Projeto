@@ -26,7 +26,6 @@ export default function Tags() {
                 <Link to={'/inicio'}>
                     <div className='foto-tags'>
                         <img src="/assets/images/logoTcc.webp" alt="logo1" />
-                        <h1>Doe Vida</h1>
                     </div>
                 </Link>
                 <div className={`tags-paginas ${menuOpen ? 'active' : ''}`}>

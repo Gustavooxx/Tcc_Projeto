@@ -41,18 +41,15 @@ export default function QuemSomos() {
                 <div className='texto-oque-fazemos'>
 
                     <div className='group'>
-                        <img src="/assets/images/cronograma.png" alt="" />
                         <h3>Facilitamos o agendamento</h3>
                         <p>Oferecemos uma plataforma intuitiva para agendar doações de sangue, tornando o processo simples e rápido.</p>
 
                     </div>
                     <div className='group'>
-                        <img src="/assets/images/humano.png" alt="" />
                         <h3>Conectamos doadores e instituições</h3>
                         <p>Trabalhamos em parceria com bancos de sangue e hospitais para garantir que as doações cheguem a quem mais precisa.</p>
                     </div>
                     <div className='group'>
-                        <img src="/assets/images/reseau-securise.png" alt="" />
                         <h3>Promovemos a conscientização</h3>
                         <p>Realizamos campanhas educativas para informar sobre a importância da doação de sangue e incentivar mais pessoas a participarem.</p>
                     </div>

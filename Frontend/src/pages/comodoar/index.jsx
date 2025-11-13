@@ -50,7 +50,6 @@ export default function Comodoar() {
 
                     <div className='card'>
                         <img src="assets/images/cronograma.png" alt="" height={'70px'} />
-                        <CalendarDays size={70} />
                         <h4>Agendamento</h4>
                     </div>
 

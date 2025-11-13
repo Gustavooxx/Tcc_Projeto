@@ -45,7 +45,6 @@ export default function Login() {
             <section className="container-tags">
                 <div className='img-tags'>
                     <Link to={'/'}><img src="/assets/images/logoTcc.webp" alt="logo1" /></Link>
-                    <h2>Doe Vida</h2>
                 </div>
 
                 <Link to={"/"}> <button>Voltar</button> </Link> 

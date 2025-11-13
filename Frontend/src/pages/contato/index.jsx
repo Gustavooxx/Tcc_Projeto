@@ -16,7 +16,7 @@ export default function Contato() {
                 <div className='fale-conosco'>
 
                     <h1>Fale Conosco!</h1>
-                    <img src="assets/images/faleconosco.png" height={'70px'} />
+                    <img src="assets/images/faleconosco.png" alt="Fale Conosco" />
 
                 </div>
 
