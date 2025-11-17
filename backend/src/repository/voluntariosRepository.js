@@ -2,11 +2,11 @@ import connection from "./connetion.js";
 import transporter from "./email.js";
 
 
-export async function cadastroVoluntario(infos,usuario_id){
+export async function cadastroVoluntario(infos, usuario_id){
 const hemo= `select id_hemocentro from hemocentros
 where nome_hemocentro = ?`
 
-const [id] = await connection.query(hemo,[infos.nome_hemocentro]) 
+const [id] = await connection.query(hemo,[infos.nome_hemocentro])
 
 
     const comando = `

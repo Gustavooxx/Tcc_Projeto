@@ -49,15 +49,26 @@ export default function VoluntarioForm (){
       nome_hemocentro: formData.get('nome_hemocentro')
 
     }
+
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert('Você precisa estar logado para se voluntariar');
+      navigate('/login');
+      setCarregando(false);
+      return;
+    }
+
       try{
-        const response = await app.post('/voluntarios', data)
+        const response = await app.post('/voluntarios', data, {
+          headers: { 'x-access-token': token }
+        })
         alert('Obrigado por ser voluntário')
         navigate('/Como ajudar')
       }
 
       catch(error){
           const errorMessage = error.response?.data?.erro || error.message;
-          alert('Erro ao se voluntariar' + errorMessage);
+          alert('Erro ao se voluntariar: ' + errorMessage);
       } finally {
         setCarregando(false);
       }
