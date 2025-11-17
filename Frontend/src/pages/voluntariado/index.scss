@@ -9,13 +9,15 @@
   align-items: center;
   z-index: 1000;
   animation: fadeIn 0.25s ease;
+  padding: 1rem;
+  overflow-y: auto;
 }
 
 .modal-registro {
   background: #fff;
   width: 100%;
   height: auto;
-  max-height: 80vh;
+  max-height: 90vh;
   max-width: 440px;
   border-radius: 18px;
   padding: 2.2rem;
@@ -35,10 +37,15 @@
   font-size: 1.6rem;
   color: #333;
   cursor: pointer;
-  transition: 0.2s;
+  transition: color 0.2s ease;
+  padding: 0.4rem;
 
   &:hover {
     color: #000;
+  }
+
+  &:active {
+    transform: scale(0.95);
   }
 }
 
@@ -49,6 +56,7 @@
     font-size: 1.25rem;
     font-weight: 700;
     color: #222;
+    line-height: 1.3;
   }
 }
 
@@ -62,11 +70,12 @@
 .grupo-formulario {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
 
   label {
     font-size: 0.9rem;
     color: #555;
-    margin-bottom: 0.4rem;
+    font-weight: 500;
   }
 
   input,
@@ -76,20 +85,24 @@
     border-radius: 10px;
     border: 1px solid #ccc;
     font-size: 0.95rem;
-    transition: 0.2s;
+    transition: border-color 0.2s ease;
+    background-color: #fafafa;
 
     &:focus {
       outline: none;
-      border-color: #007bff;
+      border-color: #A9233E;
+      background-color: #fff;
     }
   }
 
   textarea {
     resize: none;
+    min-height: 80px;
   }
 
   select {
     background-color: #fff;
+    cursor: pointer;
   }
 }
 
@@ -103,7 +116,7 @@
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -111,11 +124,17 @@
 
   &:hover {
     background-color: #b80202;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 
   &:disabled {
     background-color: #ccc;
     cursor: not-allowed;
+    transform: none;
   }
 }
 
@@ -137,10 +156,12 @@
   font-size: 0.8rem;
   color: #666;
   margin-top: 1rem;
+  line-height: 1.4;
 
   a {
-    color: #007bff;
+    color: #A9233E;
     text-decoration: none;
+    font-weight: 500;
 
     &:hover {
       text-decoration: underline;
@@ -166,5 +187,237 @@
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 1024px) {
+  .fundo-modal {
+    padding: 0.8rem;
+  }
+
+  .modal-registro {
+    max-width: 90%;
+    max-height: 88vh;
+    padding: 1.8rem;
+    border-radius: 16px;
+
+    .cabecalho-modal {
+      margin-bottom: 1.5rem;
+
+      h2 {
+        font-size: 1.15rem;
+      }
+    }
+
+    .formulario-registro {
+      gap: 1rem;
+    }
+
+    .grupo-formulario {
+      label {
+        font-size: 0.88rem;
+      }
+
+      input,
+      textarea,
+      select {
+        font-size: 0.92rem;
+        padding: 0.75rem;
+      }
+
+      textarea {
+        min-height: 75px;
+      }
+    }
+
+    .botao-enviar {
+      font-size: 0.95rem;
+      padding: 0.85rem;
+    }
+
+    .texto-rodape {
+      font-size: 0.78rem;
+      margin-top: 0.9rem;
+    }
+  }
+
+  .botao-fechar {
+    font-size: 1.5rem;
+    top: 12px;
+    right: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .fundo-modal {
+    padding: 0.5rem;
+  }
+
+  .modal-registro {
+    max-width: 95%;
+    max-height: 85vh;
+    padding: 1.5rem;
+    border-radius: 14px;
+
+    .cabecalho-modal {
+      margin-bottom: 1.3rem;
+
+      h2 {
+        font-size: 1.05rem;
+        line-height: 1.3;
+      }
+    }
+
+    .formulario-registro {
+      gap: 0.9rem;
+    }
+
+    .grupo-formulario {
+      gap: 0.35rem;
+
+      label {
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+
+      input,
+      textarea,
+      select {
+        font-size: 0.9rem;
+        padding: 0.65rem;
+      }
+
+      textarea {
+        min-height: 70px;
+      }
+    }
+
+    .botao-enviar {
+      font-size: 0.9rem;
+      padding: 0.75rem;
+      margin-top: 0.4rem;
+      gap: 0.4rem;
+    }
+
+    .spinner {
+      width: 14px;
+      height: 14px;
+    }
+
+    .texto-rodape {
+      font-size: 0.75rem;
+      margin-top: 0.8rem;
+    }
+  }
+
+  .botao-fechar {
+    font-size: 1.3rem;
+    top: 11px;
+    right: 13px;
+    padding: 0.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .fundo-modal {
+    padding: 0.5rem;
+    align-items: flex-end;
+  }
+
+  .modal-registro {
+    max-width: 100%;
+    max-height: 90vh;
+    width: calc(100% - 1rem);
+    padding: 1.2rem;
+    border-radius: 12px 12px 0 0;
+    margin: 0 auto;
+    box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.2);
+
+    .cabecalho-modal {
+      margin-bottom: 1.1rem;
+
+      h2 {
+        font-size: 1rem;
+        line-height: 1.25;
+      }
+    }
+
+    .formulario-registro {
+      gap: 0.8rem;
+    }
+
+    .grupo-formulario {
+      gap: 0.3rem;
+
+      label {
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      input,
+      textarea,
+      select {
+        font-size: 0.88rem;
+        padding: 0.55rem;
+        border-radius: 8px;
+      }
+
+      textarea {
+        min-height: 65px;
+      }
+    }
+
+    .botao-enviar {
+      font-size: 0.85rem;
+      padding: 0.65rem;
+      margin-top: 0.3rem;
+      gap: 0.35rem;
+      border-radius: 8px;
+    }
+
+    .spinner {
+      width: 13px;
+      height: 13px;
+      border-width: 1.5px;
+    }
+
+    .texto-rodape {
+      font-size: 0.7rem;
+      margin-top: 0.7rem;
+      line-height: 1.3;
+    }
+  }
+
+  .botao-fechar {
+    font-size: 1.1rem;
+    top: 8px;
+    right: 10px;
+    padding: 0.3rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .modal-registro {
+    padding: 1rem;
+    max-height: 92vh;
+
+    .cabecalho-modal h2 {
+      font-size: 0.95rem;
+    }
+
+    .grupo-formulario {
+      input,
+      textarea,
+      select {
+        font-size: 0.85rem;
+        padding: 0.5rem;
+      }
+    }
+
+    .botao-enviar {
+      font-size: 0.8rem;
+      padding: 0.6rem;
+    }
   }
 }

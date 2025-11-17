@@ -26,7 +26,6 @@ export default function Tags() {
                 <Link to={'/inicio'}>
                     <div className='foto-tags'>
                         <img src="/assets/images/logoTcc.webp" alt="logo1" />
-                        <h1>Doe Vida</h1>
                     </div>
                 </Link>
                 <div className={`tags-paginas ${menuOpen ? 'active' : ''}`}>
@@ -47,8 +46,14 @@ export default function Tags() {
 
                     {!logado &&
                         <div className='botoes-login'>
-                           <Link to='/cadastro'><button>Cadastre-se</button></Link>
+                            <div className='cadastro'>
+
+                           <Link to='/cadastro'><button >Cadastre-se</button></Link>
+                            </div>
+                            <div className='login'>
+
                            <Link to='/login'><button>Entrar</button></Link>
+                            </div>
                         </div>
                     }
                 </div>

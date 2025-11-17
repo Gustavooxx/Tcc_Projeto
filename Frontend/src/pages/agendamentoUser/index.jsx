@@ -3,9 +3,11 @@ import { useState, useEffect } from "react";
 import "./index.scss";
 import app from "../../api";
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export default function AgendamentoUser() {
     const navigate = useNavigate();
+    const [menuAberto, setMenuAberto] = useState(false);
     const [editarInfo, setEditarInfo] = useState({
         nome_completo: '',
         email: '',
@@ -187,11 +189,11 @@ export default function AgendamentoUser() {
         if (window.confirm('Tem certeza que deseja cancelar agendamento?')) {
             try {
                 await app.delete(`deletar/${id}`);
-                alert('Agendamento deletado com sucesso!');
+                toast.success('Agendamento deletado com sucesso!');
                 carregarAgendamentos();
             } catch (error) {
                 console.error('Erro ao deletar agendamento:', error);
-                alert('Erro ao deletar agendamento. Tente novamente');
+                toast.error('Erro ao deletar agendamento. Tente novamente');
             }
         }
     }
@@ -223,11 +225,11 @@ export default function AgendamentoUser() {
                 hemo.id === editarAgend.id ? { ...hemo, nome_hemocentro: editarAgend.nome_hemocentro, cidade_hemocentro: editarAgend.cidade_hemocentro, rua_hemocentro: editarAgend.rua_hemocentro, bairro_hemocentro: editarAgend.bairro_hemocentro, data_agendamento: editarAgend.data_agendamento, horario: editarAgend.horario_agendamento } : hemo
             ));
             setIsAgend(false);
-            alert('Agendamento atualizado com sucesso!');
+            toast.success('Agendamento atualizado com sucesso!');
             carregarAgendamentos();
         } catch (error) {
             console.error('Erro ao atualizar agendamento:', error);
-            alert(error.message);
+            toast.error(error.message);
         }
     }
 
@@ -290,7 +292,7 @@ export default function AgendamentoUser() {
             if (response.status !== 200) {
                 throw new Error('Erro ao atualizar informações. Tente novamente');
             }
-            alert("Informações atualizadas com sucesso!");
+            toast.success("Informações atualizadas com sucesso!");
             // Atualiza também o estado do usuário
             setUsuario(prev => ({
                 ...prev,
@@ -300,7 +302,7 @@ export default function AgendamentoUser() {
             }));
         } catch (error) {
             console.error('Erro ao atualizar informações:', error);
-            alert(error.message || 'Erro ao atualizar informações. Tente novamente');
+            toast.error(error.message || 'Erro ao atualizar informações. Tente novamente');
         }
     }
 
@@ -332,7 +334,23 @@ export default function AgendamentoUser() {
                     <Link to="/inicio"><button> Voltar</button></Link>
                     <button onClick={sair}> <img src="/assets/images/sair.png" alt="" /> Sair</button>
                 </div>
+
+                <div className="menu-hamburger" onClick={() => setMenuAberto(!menuAberto)}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
+
+            {menuAberto && (
+                <div className={`menu-mobile ${menuAberto ? 'active' : ''}`}>
+                    <div className="menu-content">
+                        <button className="close-btn" onClick={() => setMenuAberto(false)}>✕</button>
+                        <Link to="/inicio" onClick={() => setMenuAberto(false)}>Voltar</Link>
+                        <button onClick={() => { sair(); setMenuAberto(false); }}>Sair</button>
+                    </div>
+                </div>
+            )}
 
             <div className="grupos-agendamentos">
                 <div className="grupo">

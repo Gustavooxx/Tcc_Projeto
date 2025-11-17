@@ -4,6 +4,7 @@ import Tags from '../../components/tags/util'
 import './index.scss'
 import { useNavigate } from 'react-router'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 export default function MarcaAgendamento() {
 
@@ -108,7 +109,7 @@ useEffect(() => {
 
     // Verificar se não há horários disponíveis
     if (horarios.length === 0 && dadosFormulario.nome_hemocentro && dadosFormulario.data_agendamento) {
-      alert('Não é possível fazer agendamento. Não há horários disponíveis para o dia selecionado.');
+      toast.warning('Não há horários disponíveis para o dia selecionado.');
       setCarregando(false);
       return;
     }
@@ -141,7 +142,7 @@ useEffect(() => {
     } catch (error) {
       console.error("Erro ao fazer agendamento", error)
           const errorMessage = error.response?.data?.erro || error.message;
-            alert('Erro ao cadastrar: ' + errorMessage);
+            toast.error('Erro ao cadastrar: ' + errorMessage);
 
           
 

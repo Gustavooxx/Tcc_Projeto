@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios'
 import { Eye, EyeOff } from "lucide-react";
+import { toast } from 'react-toastify'
 
 
 export default function Cadastro() {
@@ -46,7 +47,7 @@ export default function Cadastro() {
         const confirmarSenha = formData.get('confirmarSenha');
 
         if (senha !== confirmarSenha) {
-            alert('As senhas não coincidem. Por favor, verifique e tente novamente.');
+            toast.error('As senhas não coincidem. Por favor, tente novamente.');
             return;
         }
 
@@ -71,7 +72,7 @@ export default function Cadastro() {
         //Usa o axios para enviar os dados para o backend
         try {
             const response = await axios.post('http://localhost:5000/cadastro', data);
-            alert('Cadastro realizado com sucesso!');
+            toast.success('Cadastro realizado com sucesso!');
             //Quando o cadastro for sucesso, redireciona para a página de login
             navigate('/Inicio');
         }
@@ -79,7 +80,7 @@ export default function Cadastro() {
         //Se der erro, mostra o erro
         catch (error) {
             const errorMessage = error.response?.data?.erro || error.message;
-            alert('Erro ao cadastrar: ' + errorMessage);
+            toast.error('Erro ao cadastrar: ' + errorMessage);
         }
     };
 
@@ -103,26 +104,6 @@ export default function Cadastro() {
             </section>
 
             <section className='container-cadastro'>
-
-
-                <div className='texto-cadastro'>
-
-                    <div className='textos'>
-
-                        <h2>Doar sangue é um gesto simples,
-                            mas que pode transformar vidas. </h2>
-
-                        <p>
-                            Em poucos minutos, você se torna parte da corrente que leva esperança, saúde e novas chances a quem mais precisa. Cada doação pode salvar até quatro vidas.
-                        </p>
-
-                        <div className='botao-como-funciona'>
-                           <Link to={"/como doar"}> <button>Como funciona?</button></Link>
-                        </div>
-                    </div>
-
-                </div>
-
                 <div className="container-informacoes">
 
                     {/*    Formulário de cadastro */}
@@ -315,6 +296,26 @@ export default function Cadastro() {
                         <button type="submit">Cadastrar</button>
                     </form>
                 </div>
+
+
+                <div className='texto-cadastro'>
+
+                    <div className='textos'>
+
+                        <h2>Doar sangue é um gesto simples,
+                            mas que pode transformar vidas. </h2>
+
+                        <p>
+                            Em poucos minutos, você se torna parte da corrente que leva esperança, saúde e novas chances a quem mais precisa. Cada doação pode salvar até quatro vidas.
+                        </p>
+
+                        <div className='botao-como-funciona'>
+                           <Link to={"/como doar"}> <button>Como funciona?</button></Link>
+                        </div>
+                    </div>
+
+                </div>
+
 
             </section>
         </div>
