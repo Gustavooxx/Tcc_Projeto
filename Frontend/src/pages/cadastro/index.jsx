@@ -9,6 +9,23 @@ import { toast } from 'react-toastify'
 export default function Cadastro() {
     const [mostrarSenha, setMostrarSenha] = useState(false);
     const [cpf, setCpf] = useState('');
+    const [telefone, setTelefone] = useState('');
+
+    const formatTelefone = (value) => {
+        // Remove tudo que não é dígito
+        const cleaned = value.replace(/\D/g, '');
+        // Aplica a máscara
+        const match = cleaned.match(/^(\d{2})(\d{5})(\d{4})$/);
+        if (match) {
+            return `(${match[1]}) ${match[2]}-${match[3]}`;
+        }
+        // Retorna parcialmente formatado se não completo
+        return cleaned.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+    }
+    const handleTelefoneChange = (e) => {
+        const formatted = formatTelefone(e.target.value);
+        setTelefone(formatted);
+    }
 
     //hook para navegar entre as páginas
     //
@@ -154,8 +171,8 @@ export default function Cadastro() {
 
                                 />
                                 <button
-                                 type='button' onClick={() => setMostrarSenha(!mostrarSenha)} className='toggle-password'>
-                                     {mostrarSenha ? <EyeOff size={16} /> : <Eye size={16} />}
+                                    type='button' onClick={() => setMostrarSenha(!mostrarSenha)} className='toggle-password'>
+                                    {mostrarSenha ? <EyeOff size={16} /> : <Eye size={16} />}
 
                                 </button>
                             </div>
@@ -176,8 +193,8 @@ export default function Cadastro() {
 
                                 />
                                 <button
-                                 type='button' onClick={() => setMostrarSenha(!mostrarSenha)} className='toggle-password'>
-                                     {mostrarSenha ? <EyeOff size={16} /> : <Eye size={16} />}
+                                    type='button' onClick={() => setMostrarSenha(!mostrarSenha)} className='toggle-password'>
+                                    {mostrarSenha ? <EyeOff size={16} /> : <Eye size={16} />}
 
                                 </button>
                             </div>
@@ -205,6 +222,8 @@ export default function Cadastro() {
                                 placeholder="(00) 00000-0000"
                                 required
                                 maxLength={15}
+                                value={telefone}
+                                onChange={handleTelefoneChange}
 
                             />
                         </div>
@@ -253,32 +272,35 @@ export default function Cadastro() {
                                 </select>
                             </div>
 
-                            <div className='form-group'>
-                                <select id="tipo_sanguineo" name="tipo_sanguineo">
-                                    <option value="" disabled selected>Tipo Sanguíneo</option>
-                                    <option value="A+">A+</option>
-                                    <option value="A-">A-</option>
-                                    <option value="B+">B+</option>
-                                    <option value="B-">B-</option>
-                                    <option value="AB+">AB+</option>
-                                    <option value="AB-">AB-</option>
-                                    <option value="O+">O+</option>
-                                    <option value="O-">O-</option>
-                                    <option value="Não sei">Não sei</option>
-                                </select>
+                            
+
+                                <div className='form-group'>
+                                    <select id="tipo_sanguineo" name="tipo_sanguineo">
+                                        <option value="" disabled selected>Tipo Sanguíneo</option>
+                                        <option value="A+">A+</option>
+                                        <option value="A-">A-</option>
+                                        <option value="B+">B+</option>
+                                        <option value="B-">B-</option>
+                                        <option value="AB+">AB+</option>
+                                        <option value="AB-">AB-</option>
+                                        <option value="O+">O+</option>
+                                        <option value="O-">O-</option>
+                                        <option value="Não sei">Não sei</option>
+                                    </select>
+                                </div>
+
+
+
+                            <div className="form-group">
+                                <label htmlFor="cidade">Cidade</label>
+                                <input
+                                    type="text"
+                                    name="cidade"
+                                    placeholder="Cidade"
+                                    required
+                                    
+                                />
                             </div>
-
-                        </div>
-
-                        <div className="form-group">
-                            <label htmlFor="cidade">Cidade</label>
-                            <input
-                                type="text"
-                                name="cidade"
-                                placeholder="Cidade"
-                                required
-
-                            />
                         </div>
 
                         <div className='form-group'>
@@ -310,7 +332,7 @@ export default function Cadastro() {
                         </p>
 
                         <div className='botao-como-funciona'>
-                           <Link to={"/como doar"}> <button>Como funciona?</button></Link>
+                            <Link to={"/como doar"}> <button>Como funciona?</button></Link>
                         </div>
                     </div>
 
