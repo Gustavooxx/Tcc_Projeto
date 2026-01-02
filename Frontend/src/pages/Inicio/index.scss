@@ -119,6 +119,7 @@
         }
     }
 
+
     .requisitos-doar {
         background-color: #fffefe;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -158,6 +159,7 @@
         }
     }
 
+    
     .texto-doadores {
         text-align: center;
         margin: 3rem 2rem;
@@ -206,7 +208,7 @@
             flex-wrap: wrap;
             align-items: flex-start;
             justify-content: center;
-            gap: 2rem;
+            gap: 10rem;
             margin-bottom: 1rem;
             margin-left: auto;
             margin-right: auto;
@@ -225,11 +227,19 @@
                     object-fit: contain;
                 }
 
+                h2{
+                    font-size: 1.2rem;
+                    color: #A9233E;
+                    text-align: center;
+                }
+
                 p {
                     font-size: 0.95rem;
                     color: #333333;
                     text-align: center;
                     line-height: 1.4;
+                    letter-spacing: 0.5px;
+                    
                 }
             }
         }

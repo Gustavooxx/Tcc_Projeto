@@ -361,7 +361,7 @@ export default function AgendamentoUser() {
                     <h2>concluidos</h2>
                     <h3>0</h3>
                 </div>
-                <div className="grupo"></div>
+                
             </div>
 
             <div className="proximo-agendamento">
