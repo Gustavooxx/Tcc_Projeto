@@ -23,5 +23,5 @@ cadastro.post('/cadastro', async (req, resp) => {
     }
 });
 
-
+ 
 export default cadastro;
