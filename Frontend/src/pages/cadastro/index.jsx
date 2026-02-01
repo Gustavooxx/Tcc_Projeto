@@ -3,14 +3,52 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios'
 import { Eye, EyeOff } from "lucide-react";
+import { toast } from 'react-toastify'
 
 
 export default function Cadastro() {
     const [mostrarSenha, setMostrarSenha] = useState(false);
+    const [cpf, setCpf] = useState('');
+    const [telefone, setTelefone] = useState('');
+
+    const formatTelefone = (value) => {
+        // Remove tudo que não é dígito
+        const cleaned = value.replace(/\D/g, '');
+        // Aplica a máscara
+        const match = cleaned.match(/^(\d{2})(\d{5})(\d{4})$/);
+        if (match) {
+            return `(${match[1]}) ${match[2]}-${match[3]}`;
+        }
+        // Retorna parcialmente formatado se não completo
+        return cleaned.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+    }
+    const handleTelefoneChange = (e) => {
+        const formatted = formatTelefone(e.target.value);
+        setTelefone(formatted);
+    }
 
     //hook para navegar entre as páginas
     //
     const navigate = useNavigate();
+
+    // Função para formatar CPF
+    const formatCPF = (value) => {
+        // Remove tudo que não é dígito
+        const cleaned = value.replace(/\D/g, '');
+        // Aplica a máscara
+        const match = cleaned.match(/^(\d{3})(\d{3})(\d{3})(\d{2})$/);
+        if (match) {
+            return `${match[1]}.${match[2]}.${match[3]}-${match[4]}`;
+        }
+        // Retorna parcialmente formatado se não completo
+        return cleaned.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+    };
+
+    // Handler para mudança no CPF
+    const handleCpfChange = (e) => {
+        const formatted = formatCPF(e.target.value);
+        setCpf(formatted);
+    };
 
     //Função para enviar os dados do formulário para o backend
     const handleSubmit = async (e) => {
@@ -26,7 +64,7 @@ export default function Cadastro() {
         const confirmarSenha = formData.get('confirmarSenha');
 
         if (senha !== confirmarSenha) {
-            alert('As senhas não coincidem. Por favor, verifique e tente novamente.');
+            toast.error('As senhas não coincidem. Por favor, tente novamente.');
             return;
         }
 
@@ -51,7 +89,7 @@ export default function Cadastro() {
         //Usa o axios para enviar os dados para o backend
         try {
             const response = await axios.post('http://localhost:5000/cadastro', data);
-            alert('Cadastro realizado com sucesso!');
+            toast.success('Cadastro realizado com sucesso!');
             //Quando o cadastro for sucesso, redireciona para a página de login
             navigate('/Inicio');
         }
@@ -59,7 +97,7 @@ export default function Cadastro() {
         //Se der erro, mostra o erro
         catch (error) {
             const errorMessage = error.response?.data?.erro || error.message;
-            alert('Erro ao cadastrar: ' + errorMessage);
+            toast.error('Erro ao cadastrar: ' + errorMessage);
         }
     };
 
@@ -83,26 +121,6 @@ export default function Cadastro() {
             </section>
 
             <section className='container-cadastro'>
-
-
-                <div className='texto-cadastro'>
-
-                    <div className='textos'>
-
-                        <h2>Doar sangue é um gesto simples,
-                            mas que pode transformar vidas. </h2>
-
-                        <p>
-                            Em poucos minutos, você se torna parte da corrente que leva esperança, saúde e novas chances a quem mais precisa. Cada doação pode salvar até quatro vidas.
-                        </p>
-
-                        <div className='botao-como-funciona'>
-                           <Link to={"/como doar"}> <button>Como funciona?</button></Link>
-                        </div>
-                    </div>
-
-                </div>
-
                 <div className="container-informacoes">
 
                     {/*    Formulário de cadastro */}
@@ -153,8 +171,8 @@ export default function Cadastro() {
 
                                 />
                                 <button
-                                 type='button' onClick={() => setMostrarSenha(!mostrarSenha)} className='toggle-password'>
-                                     {mostrarSenha ? <EyeOff size={16} /> : <Eye size={16} />}
+                                    type='button' onClick={() => setMostrarSenha(!mostrarSenha)} className='toggle-password'>
+                                    {mostrarSenha ? <EyeOff size={16} /> : <Eye size={16} />}
 
                                 </button>
                             </div>
@@ -175,8 +193,8 @@ export default function Cadastro() {
 
                                 />
                                 <button
-                                 type='button' onClick={() => setMostrarSenha(!mostrarSenha)} className='toggle-password'>
-                                     {mostrarSenha ? <EyeOff size={16} /> : <Eye size={16} />}
+                                    type='button' onClick={() => setMostrarSenha(!mostrarSenha)} className='toggle-password'>
+                                    {mostrarSenha ? <EyeOff size={16} /> : <Eye size={16} />}
 
                                 </button>
                             </div>
@@ -185,11 +203,13 @@ export default function Cadastro() {
                         <div className="form-group">
                             <label htmlFor="cpf">CPF</label>
                             <input
-                                type="cpf"
+                                type="text"
                                 name="cpf"
-                                placeholder="CPF"
+                                placeholder="000.000.000-00"
                                 required
-                                maxLength={11}
+                                maxLength={14}
+                                value={cpf}
+                                onChange={handleCpfChange}
 
                             />
                         </div>
@@ -202,6 +222,8 @@ export default function Cadastro() {
                                 placeholder="(00) 00000-0000"
                                 required
                                 maxLength={15}
+                                value={telefone}
+                                onChange={handleTelefoneChange}
 
                             />
                         </div>
@@ -250,32 +272,35 @@ export default function Cadastro() {
                                 </select>
                             </div>
 
-                            <div className='form-group'>
-                                <select id="tipo_sanguineo" name="tipo_sanguineo">
-                                    <option value="" disabled selected>Tipo Sanguíneo</option>
-                                    <option value="A+">A+</option>
-                                    <option value="A-">A-</option>
-                                    <option value="B+">B+</option>
-                                    <option value="B-">B-</option>
-                                    <option value="AB+">AB+</option>
-                                    <option value="AB-">AB-</option>
-                                    <option value="O+">O+</option>
-                                    <option value="O-">O-</option>
-                                    <option value="Não sei">Não sei</option>
-                                </select>
+                            
+
+                                <div className='form-group'>
+                                    <select id="tipo_sanguineo" name="tipo_sanguineo">
+                                        <option value="" disabled selected>Tipo Sanguíneo</option>
+                                        <option value="A+">A+</option>
+                                        <option value="A-">A-</option>
+                                        <option value="B+">B+</option>
+                                        <option value="B-">B-</option>
+                                        <option value="AB+">AB+</option>
+                                        <option value="AB-">AB-</option>
+                                        <option value="O+">O+</option>
+                                        <option value="O-">O-</option>
+                                        <option value="Não sei">Não sei</option>
+                                    </select>
+                                </div>
+
+
+
+                            <div className="form-group">
+                                <label htmlFor="cidade">Cidade</label>
+                                <input
+                                    type="text"
+                                    name="cidade"
+                                    placeholder="Cidade"
+                                    required
+                                    
+                                />
                             </div>
-
-                        </div>
-
-                        <div className="form-group">
-                            <label htmlFor="cidade">Cidade</label>
-                            <input
-                                type="text"
-                                name="cidade"
-                                placeholder="Cidade"
-                                required
-
-                            />
                         </div>
 
                         <div className='form-group'>
@@ -293,6 +318,9 @@ export default function Cadastro() {
                         <button type="submit">Cadastrar</button>
                     </form>
                 </div>
+
+
+
 
             </section>
         </div>

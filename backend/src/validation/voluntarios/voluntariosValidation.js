@@ -1,5 +1,5 @@
 
-export default function validarVoluntarios(infos,usuario_id){
+export default function validarVoluntarios(infos, usuario_id){
 
     if(!infos.nome)
     throw new Error('Nome obrigatório');
@@ -19,6 +19,6 @@ export default function validarVoluntarios(infos,usuario_id){
     if(!infos.nome_hemocentro)
     throw new Error('Hemocentro obrigatório');
 
- 
+
 
 }

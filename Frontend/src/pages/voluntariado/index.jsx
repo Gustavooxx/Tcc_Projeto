@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { data, Link, useNavigate } from "react-router";
 import "./index.scss";
+import { toast } from 'react-toastify';
 import app from "../../api.js";
 
 export default function VoluntarioForm (){
@@ -8,6 +9,15 @@ export default function VoluntarioForm (){
   const navigate = useNavigate();
   const [hemocentros, setHemocentros] = useState([]);
   const [carregando, setCarregando] = useState(false);
+
+  const formatCPF = (value) => {
+    const cleaned = value.replace(/\D/g, '');
+    const match = cleaned.match(/^(\d{0,3})(\d{0,3})(\d{0,3})(\d{0,2})$/);
+    if (match) {
+      return `${match[1]}${match[1] ? '.' : ''}${match[2]}${match[2] ? '.' : ''}${match[3]}${match[3] ? '-' : ''}${match[4]}`;
+    }
+    return cleaned;
+  };
 
   useEffect(() => {
     const fetchHemocentros = async () => {
@@ -40,6 +50,15 @@ export default function VoluntarioForm (){
       nome_hemocentro: formData.get('nome_hemocentro')
 
     }
+
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert('Você precisa estar logado para se voluntariar');
+      navigate('/login');
+      setCarregando(false);
+      return;
+    }
+
       try{
         const response = await app.post('/voluntarios', data)
         alert('Obrigado por ser voluntário')
@@ -84,9 +103,10 @@ export default function VoluntarioForm (){
 
           <div className="grupo-formulario">
             <label>CPF</label>
-            <input type="text" placeholder="Digite seu CPF"
+            <input type="text" placeholder="000.000.000-00"
             name="cpf"
             required
+            onChange={(e) => e.target.value = formatCPF(e.target.value)}
             />
           </div>
 

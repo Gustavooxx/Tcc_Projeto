@@ -17,7 +17,12 @@ export async function deletarAgendamento(id_agendamento){
     delete from agendamentos
     where id = ?
     `
+    const comando2 = `
+    delete from agenda_user
+    where id_agenda = ?
+    `
     const [registros] = await connection.query(comando,[id_agendamento])
+    const [registros2] = await connection.query(comando2,[id_agendamento])
     return registros;
 }
 

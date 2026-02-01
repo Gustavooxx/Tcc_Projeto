@@ -4,6 +4,7 @@ import Tags from '../../components/tags/util'
 import './index.scss'
 import { useNavigate } from 'react-router'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 export default function MarcaAgendamento() {
 
@@ -30,9 +31,22 @@ export default function MarcaAgendamento() {
   const [horarioError, setHorarioError] = useState("");
   const [carregando, setCarregando] = useState(false);
 
+  const formatCPF = (value) => {
+    const cleaned = value.replace(/\D/g, '');
+    const match = cleaned.match(/^(\d{0,3})(\d{0,3})(\d{0,3})(\d{0,2})$/);
+    if (match) {
+      return `${match[1]}${match[1] ? '.' : ''}${match[2]}${match[2] ? '.' : ''}${match[3]}${match[3] ? '-' : ''}${match[4]}`;
+    }
+    return cleaned;
+  };
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    const newValue = type === 'checkbox' ? (checked ? 1 : 0) : value;
+    let newValue = type === 'checkbox' ? (checked ? 1 : 0) : value;
+
+    if (name === 'cpf') {
+      newValue = formatCPF(value);
+    }
 
     setDadosFormulario((prev) => ({
       ...prev,
@@ -95,7 +109,7 @@ useEffect(() => {
 
     // Verificar se não há horários disponíveis
     if (horarios.length === 0 && dadosFormulario.nome_hemocentro && dadosFormulario.data_agendamento) {
-      alert('Não é possível fazer agendamento. Não há horários disponíveis para o dia selecionado.');
+      toast.warning('Não há horários disponíveis para o dia selecionado.');
       setCarregando(false);
       return;
     }
@@ -128,7 +142,7 @@ useEffect(() => {
     } catch (error) {
       console.error("Erro ao fazer agendamento", error)
           const errorMessage = error.response?.data?.erro || error.message;
-            alert('Erro ao cadastrar: ' + errorMessage);
+            toast.error('Erro ao cadastrar: ' + errorMessage);
 
           
 
@@ -171,7 +185,7 @@ useEffect(() => {
 
                 <div className='form-group'>
                   <label htmlFor="cpf">CPF</label>
-                  <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" maxLength={14} value={dadosFormulario.cpf} onChange={handleChange} />
+                  <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" maxLength={14} value={dadosFormulario.cpf} onChange={handleChange} required />
                 </div>
               </div>
 

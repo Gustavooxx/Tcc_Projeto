@@ -33,26 +33,7 @@ export default function Inicio() {
                 </div>
             </section>
 
-            <section className='beneficios'>
 
-                <h3>Benefícios:</h3>
-                <div className='conteudo-beneficios'>
-
-                    <div className='itens-beneficios'>
-                        <img src="/assets/images/gota-de-sangue.png" alt="" />
-                        <p>Uma Doação pode
-                            salvar ate 4 vidas</p>
-                    </div>
-
-                    <div className='itens-beneficios'>
-                        <img src="/assets/images/relogio.png" alt="" />
-                        <p>A cada 2 segundos alguém
-                            precisa de sangue no Brasil </p>
-                    </div>
-
-
-                </div>
-            </section>
 
             <section className='requisitos-doar'>
 
@@ -84,21 +65,21 @@ export default function Inicio() {
                 <div className='conteudo-como-funciona'>
                     <div className='itens'>
                     <img src="assets/images/do-utilizador.png" alt="" />
-                    <p>1.   Cadastre-se</p>
+                    <h2>1.   Cadastre-se</h2>
                      <p>Crie uma conta em nosso site para começar o processo de doação.</p>
                     </div>
 
                     <div className='itens'>
 
                     <img src="assets/images/cronograma.png" alt="" />
-                    <p>2.   Agende sua doação</p>
+                    <h2>2.   Agende sua doação</h2>
                     <p>Escolha o local e horário que melhor se adequa a você.</p>
                     </div>
 
                     <div className='itens'>
 
                     <img src="assets/images/amor.png" alt="" />
-                    <p>3.   Salve vidas</p>
+                    <h2>3.   Salve vidas</h2>
                     <p>Compareça ao local escolhido e faça a diferença na vida de alguém.</p>
                     </div>
 
